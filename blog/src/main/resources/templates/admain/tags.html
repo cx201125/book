@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common/fragments::#head(title='标签管理')}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>博客管理</title>
+  <link rel="stylesheet" href="../../static/css/semantic.css">
+  <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+<!--导航(bar)-->
+<nav th:replace="~{common/admain_fragments::#bar-1(active='tags')}">
+</nav>
+<div class="ui attached pointing menu" id="bar_2">
+  <div class="ui container">
+    <div class="right menu">
+      <a href="#" class="item" th:href="@{/admain/tags-input}">发布</a>
+      <a href="#" class="teal active item" th:href="@{/admain/listtags}">列表</a>
+    </div>
+  </div>
+</div>
+
+  <!--中间内容-->
+  <div  class="m-container-small m-padded-tb-big">
+    <div class="ui container">
+      <div class="ui success message" th:if="${!#strings.isEmpty(hint)}">
+        <i class="close icon"></i>
+        <div class="header">提示：</div>
+        <p th:text="${hint}">恭喜操作成功</p>
+      </div>
+      <table class="ui celled table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>名称</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="tag,iterStat:${page}">
+            <td th:text="${iterStat.count}">1</td>
+            <td th:text="${tag.name}">刻意练习清单</td>
+            <td>
+              <a href="#" class="ui mini teal basic button" th:href="@{/admain/tags-input(id=${tag.id})}">编辑</a>
+              <a href="#" class="ui mini red basic button" th:href="@{/admain/removetag(id=${tag.id})}">删除</a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="6">
+              <div class="ui mini pagination menu" th:if="${page.pages}!=1">
+                <a class=" item" th:href="@{/admain/listtags(pageNum=${page.pageNum}-1)}" th:if="${page.pageNum}!=1">上一页</a>
+                <a class=" item" th:href="@{/admain/listtags(pageNum=${page.pageNum}+1)}" th:if="${page.pageNum}!=${page.pages}">下一页</a>
+              </div>
+<!--           <a  href="types-input.html" class="ui mini right floated teal basic button" th:href="@{/admain/types-input}">新增</a>-->
+
+<!--              <div class="field">-->
+
+<!--                <div class="ui left labeled input" style="display: none;">-->
+<!--                  <label class="ui teal basic label">类别名称</label>-->
+<!--                  <input type="text" name="name" placeholder="类别名称">-->
+<!--                  <button class="ui secondary button">保存</button>-->
+<!--                </div>-->
+<!--              </div>-->
+
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <br>
+  <br>
+<!--底部footer-->
+<footer th:replace="~{common/fragments::#footer}"></footer>
+  <script>
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+      on : 'hover'
+    });
+
+    // 消息提示关闭初始化
+    $(".message .close").on('click',function () {
+      $(this).closest('.message')
+              .transition('fade')
+    })
+
+    // $('.mini.right')
+    //         .popup({
+    //           inline:true,
+    //           popup: '.field',
+    //           on:'click'
+    //         })
+  </script>
+</body>
+</html>

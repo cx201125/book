@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common/fragments::#head(title='博客列表')}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>博客管理</title>
+  <link rel="stylesheet" href="../../static/css/semantic.css">
+  <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+<!--导航(bar)-->
+<nav th:replace="~{common/admain_fragments::#bar-1(active='blogs')}">
+</nav>
+<div class="ui attached pointing menu" id="bar_2">
+  <div class="ui container">
+    <div class="right menu">
+      <a href="#" class="item" th:href="@{/admain/addblog}">发布</a>
+      <a href="#" class="active teal item" th:href="@{/admain/listblogs}">列表</a>
+    </div>
+  </div>
+</div>
+
+  <!--中间内容-->
+  <div  class="m-container-small m-padded-tb-big">
+    <div class="ui container">
+<!--提示信息-->
+      <div class="ui success message" th:if="${!#strings.isEmpty(hint)}">
+        <i class="close icon"></i>
+        <div class="header">提示：</div>
+        <p th:text="${hint}">恭喜操作成功</p>
+      </div>
+
+      <div class="ui segment form">
+        <div class="inline fields">
+          <div class="field">
+            <input type="text" name="title" placeholder="标题">
+            <input type="hidden" name="pageNum">
+          </div>
+          <div class="field">
+            <div class="ui labeled action input">
+              <div class="ui selection dropdown">
+                <input type="hidden" name="typeId">
+                <i class="dropdown icon"></i>
+                <div class="default text">分类</div>
+                <div class="menu">
+                  <div class="item" th:each="type:${alltype}" th:attr="data-value=${type.id}" th:text="${type.name}">错误日志</div>
+                  <!--                <div class="item" data-value="2">开发者手册</div>-->
+                </div>
+              </div>
+              <button id="clear_btn" class="ui button">Clear</button>
+            </div>
+
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" id="recommend" name="issue" value="2">
+              <label for="recommend">推荐</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" id="issue" name="isrecommend" value="2">
+              <label for="issue">发布</label>
+            </div>
+          </div>
+          <div class="field">
+            <button class="ui mini teal basic button" onclick="search()"><i class="search icon"></i>搜索</button>
+          </div>
+        </div>
+      </div>
+<div id="table-container">
+  <table th:fragment="bloglist" class="ui celled table">
+    <thead>
+    <tr>
+      <th></th>
+      <th>标题</th>
+      <th>类型</th>
+      <th>推荐</th>
+      <th>状态</th>
+      <th>更新时间</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="blog,iterStat:${page}">
+      <td th:text="${iterStat.count}">1</td>
+      <td th:text="${blog.title}">刻意练习清单</td>
+      <td th:text="${blog.type.name}">认知升级</td>
+      <td th:text="${blog.issue==0?'是':'否'}">是</td>
+      <td th:text="${blog.isrecommend==0?'发布':'草稿'}">是</td>
+      <td th:text="${#dates.format(blog.updatetime,'yyyy-MM-dd HH:mm:ss')}">2017-10-02 09:45</td>
+      <td>
+        <a href="#" class="ui mini teal basic button" th:href="@{/admain/editblog/}+${blog.id}">编辑</a>
+        <a href="#" class="ui mini red basic button" th:href="@{/admain/removeblog/}+${blog.id}">删除</a>
+      </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <th colspan="7">
+        <div class="ui mini pagination menu" th:if="${page.pages}!=1">
+          <a class="item" onclick="page(this)" th:attr="data-page=${page.pageNum}-1" th:if="${page.pageNum}!=1">上一页</a>
+          <a class="item" onclick="page(this)" th:attr="data-page=${page.pageNum}+1" th:if="${page.pageNum}!=${page.pages}">下一页</a>
+        </div>
+        <!--              <a href="#" class="ui mini right floated teal basic button">新增</a>-->
+      </th>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+
+    </div>
+  </div>
+
+  <br>
+  <br>
+<!--底部footer-->
+<footer th:replace="~{common/fragments::#footer}"></footer>
+  <script>
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+      on : 'hover'
+    });
+//清空类别
+    $('#clear_btn')
+            .on('click', function() {
+              $('.ui.dropdown')
+                      .dropdown('clear')
+              ;
+            })
+    ;
+    //上一页，下一页
+ function page(obj){
+   $("[name='pageNum']").val($(obj).data("page"))
+   loaddata()
+ }
+ // 搜索
+function search() {
+ if($("[name='issue']").is(':checked')){
+   $("[name='issue']").val(0)
+  }else{
+   $("[name='issue']").val(1)
+ }
+  if($("[name='isrecommend']").is(':checked')){
+    $("[name='isrecommend']").val(0)
+  }else{
+    $("[name='isrecommend']").val(1)
+  }
+
+    $("[name='pageNum']").val(0)
+  loaddata()
+}
+//提交参数
+ function  loaddata() {
+
+   $("#table-container").load(/*[[@{/admain/listblogs/search}]]*/"/admain/listblogs/search",{
+     title:$("[name='title']").val(),
+     typeId:$("[name='typeId']").val(),
+     issue:$("[name='issue']").val(),
+     isrecommend:$("[name='isrecommend']").val(),
+     pageNum:$("[name='pageNum']").val()
+   })
+ }
+    // 消息提示关闭初始化
+    $(".message .close").on('click',function () {
+      $(this).closest('.message')
+              .transition('fade')
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chenxin.blog.mapper.CommentMapper" >
+  <resultMap id="BaseResultMap" type="com.chenxin.blog.entity.Comment" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="petname" property="petname" jdbcType="VARCHAR" />
+    <result column="mail" property="mail" jdbcType="VARCHAR" />
+    <result column="headportrait" property="headportrait" jdbcType="VARCHAR" />
+    <result column="matter" property="matter" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="isadmain" property="isadmain" jdbcType="TINYINT" />
+    <result column="blog_id" property="blogId" jdbcType="BIGINT" />
+    <result column="top_id" property="topId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, petname, mail, headportrait, matter, createtime,isadmain,blog_id, top_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.chenxin.blog.entity.CommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cx_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from cx_comment
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from cx_comment
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.chenxin.blog.entity.CommentExample" >
+    delete from cx_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.chenxin.blog.entity.Comment" >
+    insert into cx_comment (id, petname, mail, 
+      headportrait, matter, createtime, 
+      blog_id, top_id)
+    values (#{id,jdbcType=BIGINT}, #{petname,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR}, 
+      #{headportrait,jdbcType=VARCHAR}, #{matter,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{blogId,jdbcType=BIGINT}, #{topId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chenxin.blog.entity.Comment" >
+    insert into cx_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="petname != null" >
+        petname,
+      </if>
+      <if test="mail != null" >
+        mail,
+      </if>
+      <if test="headportrait != null" >
+        headportrait,
+      </if>
+      <if test="matter != null" >
+        matter,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="isadmain != null" >
+        isadmain,
+      </if>
+      <if test="blogId != null" >
+        blog_id,
+      </if>
+      <if test="topId != null" >
+        top_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="petname != null" >
+        #{petname,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null" >
+        #{mail,jdbcType=VARCHAR},
+      </if>
+      <if test="headportrait != null" >
+        #{headportrait,jdbcType=VARCHAR},
+      </if>
+      <if test="matter != null" >
+        #{matter,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isadmain != null" >
+        #{isadmain,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blogId != null" >
+        #{blogId,jdbcType=BIGINT},
+      </if>
+      <if test="topId != null" >
+        #{topId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.chenxin.blog.entity.CommentExample" resultType="java.lang.Integer" >
+    select count(*) from cx_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update cx_comment
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.petname != null" >
+        petname = #{record.petname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mail != null" >
+        mail = #{record.mail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.headportrait != null" >
+        headportrait = #{record.headportrait,jdbcType=VARCHAR},
+      </if>
+      <if test="record.matter != null" >
+        matter = #{record.matter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.blogId != null" >
+        blog_id = #{record.blogId,jdbcType=BIGINT},
+      </if>
+      <if test="record.topId != null" >
+        top_id = #{record.topId,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update cx_comment
+    set id = #{record.id,jdbcType=BIGINT},
+      petname = #{record.petname,jdbcType=VARCHAR},
+      mail = #{record.mail,jdbcType=VARCHAR},
+      headportrait = #{record.headportrait,jdbcType=VARCHAR},
+      matter = #{record.matter,jdbcType=VARCHAR},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      blog_id = #{record.blogId,jdbcType=BIGINT},
+      top_id = #{record.topId,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chenxin.blog.entity.Comment" >
+    update cx_comment
+    <set >
+      <if test="petname != null" >
+        petname = #{petname,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null" >
+        mail = #{mail,jdbcType=VARCHAR},
+      </if>
+      <if test="headportrait != null" >
+        headportrait = #{headportrait,jdbcType=VARCHAR},
+      </if>
+      <if test="matter != null" >
+        matter = #{matter,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blogId != null" >
+        blog_id = #{blogId,jdbcType=BIGINT},
+      </if>
+      <if test="topId != null" >
+        top_id = #{topId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chenxin.blog.entity.Comment" >
+    update cx_comment
+    set petname = #{petname,jdbcType=VARCHAR},
+      mail = #{mail,jdbcType=VARCHAR},
+      headportrait = #{headportrait,jdbcType=VARCHAR},
+      matter = #{matter,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      blog_id = #{blogId,jdbcType=BIGINT},
+      top_id = #{topId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+<!--自己写的失去了语句-->
+<!--  <resultMap id="BaseResultMap" type="com.chenxin.blog.entity.Comment" >-->
+<!--    <id column="id" property="id" jdbcType="BIGINT" />-->
+<!--    <result column="petname" property="petname" jdbcType="VARCHAR" />-->
+<!--    <result column="mail" property="mail" jdbcType="VARCHAR" />-->
+<!--    <result column="headportrait" property="headportrait" jdbcType="VARCHAR" />-->
+<!--    <result column="matter" property="matter" jdbcType="VARCHAR" />-->
+<!--    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />-->
+<!--    <result column="blog_id" property="blogId" jdbcType="BIGINT" />-->
+<!--    <result column="top_id" property="topId" jdbcType="BIGINT" />-->
+<!--    <collection property="bottom" ofType="com.chenxin.blog.entity.Comment" >-->
+<!--      <id column="id" property="id" jdbcType="BIGINT" />-->
+<!--      <result column="petname" property="petname" jdbcType="VARCHAR" />-->
+<!--      <result column="mail" property="mail" jdbcType="VARCHAR" />-->
+<!--      <result column="headportrait" property="headportrait" jdbcType="VARCHAR" />-->
+<!--      <result column="matter" property="matter" jdbcType="VARCHAR" />-->
+<!--      <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />-->
+<!--      <result column="blog_id" property="blogId" jdbcType="BIGINT" />-->
+<!--      <result column="top_id" property="topId" jdbcType="BIGINT" />-->
+<!--    </collection>-->
+<!--  </resultMap>-->
+</mapper>

@@ -1,0 +1,2049 @@
+2020-09-10 14:54:26.344  INFO 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 17204 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-10 14:54:26.365 DEBUG 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-10 14:54:26.366  INFO 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-10 14:54:26.739  INFO 17204 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-10 14:54:26.739  INFO 17204 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-10 14:54:28.218  INFO 17204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-10 14:54:28.220  INFO 17204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-10 14:54:28.310  INFO 17204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34ms. Found 0 Redis repository interfaces.
+2020-09-10 14:54:29.420  INFO 17204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-10 14:54:29.429  INFO 17204 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-10 14:54:29.429  INFO 17204 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-10 14:54:29.496  INFO 17204 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-10 14:54:29.497  INFO 17204 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2758 ms
+2020-09-10 14:54:30.946  INFO 17204 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-10 14:54:31.051  INFO 17204 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-10 14:54:32.079  INFO 17204 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-10 14:54:32.137  INFO 17204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-10 14:54:32.145  INFO 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : Started BlogApplication in 6.794 seconds (JVM running for 8.331)
+2020-09-10 14:54:35.094  INFO 17204 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-10 14:54:35.095  INFO 17204 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-10 14:54:35.106  INFO 17204 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-09-10 14:54:35.160  INFO 17204 --- [http-nio-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.IndexController.indexoage', args=[null, {}]}
+2020-09-10 14:54:36.207  INFO 17204 --- [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-10 14:54:36.265 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.b.m.B.findBlogByPaging_COUNT         : ==>  Preparing: SELECT count(0) FROM cx_blog b LEFT JOIN cx_type y ON b.type_id = y.id LEFT JOIN cx_user u ON b.user_id = u.id
+2020-09-10 14:54:36.413 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.b.m.B.findBlogByPaging_COUNT         : ==> Parameters: 
+2020-09-10 14:54:36.550 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.b.m.B.findBlogByPaging_COUNT         : <==      Total: 1
+2020-09-10 14:54:36.553 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.b.m.BlogMapper.findBlogByPaging      : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag,b.description, b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,y.id y_id,y.name y_name,u.id u_id, u.petname, u.username, u.password, u.mail, u.type, u.headportrait, u.createtime, u.updatetime FROM cx_blog b left join cx_type y on b.type_id=y.id left join cx_user u on b.user_id=u.id LIMIT ?
+2020-09-10 14:54:36.565 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.b.m.BlogMapper.findBlogByPaging      : ==> Parameters: 3(Integer)
+2020-09-10 14:54:36.591 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.b.m.BlogMapper.findBlogByPaging      : <==      Total: 3
+2020-09-10 14:54:36.629 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.b.mapper.TypeMapper.findByExample    : ==>  Preparing: SELECT y.id, y.NAME, COUNT(b.id) countBlog FROM cx_type y LEFT JOIN cx_blog b ON y.id = b.type_id GROUP BY id ORDER BY countBlog DESC limit 0,6
+2020-09-10 14:54:36.632 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.b.mapper.TypeMapper.findByExample    : ==> Parameters: 
+2020-09-10 14:54:36.655 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.b.mapper.TypeMapper.findByExample    : <==      Total: 5
+2020-09-10 14:54:36.657 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.blog.mapper.TagMapper.findByExample  : ==>  Preparing: SELECT t.id, t.NAME, COUNT(bt.blog_id) countBlog FROM cx_tag t LEFT JOIN cx_blog_tag bt ON t.id = bt.tag_id GROUP BY id ORDER BY countBlog DESC limit 0,10
+2020-09-10 14:54:36.658 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.blog.mapper.TagMapper.findByExample  : ==> Parameters: 
+2020-09-10 14:54:36.670 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.blog.mapper.TagMapper.findByExample  : <==      Total: 10
+2020-09-10 14:54:36.674 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : ==>  Preparing: select id, title, content, firstPicture, flag, description,viewcount, isadmire, iscopyright, iscomment, isrecommend issue, createtime, updatetime, user_id, type_id from cx_blog order by updatetime DESC limit 0,10
+2020-09-10 14:54:36.675 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : ==> Parameters: 
+2020-09-10 14:54:36.679 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : <==      Total: 5
+2020-09-10 14:54:36.681  INFO 17204 --- [http-nio-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Return ------ /index
+2020-09-10 14:54:43.029  INFO 17204 --- [http-nio-8080-exec-6] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/blog/19', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.BlogController.BlogPage', args=[19, {}]}
+2020-09-10 14:54:43.032 DEBUG 17204 --- [http-nio-8080-exec-6] c.c.blog.mapper.BlogMapper.findBlogById  : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag, b.description,b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id, t.id t_id,t.name t_name,y.id y_id,y.name y_name from cx_blog b LEFT JOIN cx_blog_tag bt ON b.id = bt.blog_id LEFT JOIN cx_type y ON b.type_id=y.id LEFT JOIN cx_tag t ON bt.tag_id=t.id WHERE b.id=?
+2020-09-10 14:54:43.096 DEBUG 17204 --- [http-nio-8080-exec-6] c.c.blog.mapper.BlogMapper.findBlogById  : ==> Parameters: 19(Long)
+2020-09-10 14:54:43.106 DEBUG 17204 --- [http-nio-8080-exec-6] c.c.blog.mapper.BlogMapper.findBlogById  : <==      Total: 3
+2020-09-10 14:54:43.107  INFO 17204 --- [http-nio-8080-exec-6] com.chenxin.blog.aspect.LogAspect        : Return ------ blog
+2020-09-10 14:54:43.251 ERROR 17204 --- [http-nio-8080-exec-2] com.chenxin.blog.handler.ErrorHandler    : Request URL : http://localhost:8080/blog/hhhhh , Exception : {}
+
+org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "hhhhh"
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:133)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:167)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NumberFormatException: For input string: "hhhhh"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:589)
+	at java.lang.Long.valueOf(Long.java:803)
+	at org.springframework.util.NumberUtils.parseNumber(NumberUtils.java:214)
+	at org.springframework.beans.propertyeditors.CustomNumberEditor.setAsText(CustomNumberEditor.java:115)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:429)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:402)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:155)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:73)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:53)
+	at org.springframework.validation.DataBinder.convertIfNecessary(DataBinder.java:693)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
+	... 50 common frames omitted
+
+2020-09-10 14:54:43.253  WARN 17204 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "hhhhh"]
+2020-09-10 15:03:27.497  INFO 17204 --- [Thread-17] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-10 15:03:27.560  INFO 17204 --- [Thread-17] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-09-10 15:03:27.823  INFO 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 17204 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-10 15:03:27.823 DEBUG 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-10 15:03:27.823  INFO 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-10 15:03:28.182  INFO 17204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-10 15:03:28.182  INFO 17204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-10 15:03:28.194  INFO 17204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11ms. Found 0 Redis repository interfaces.
+2020-09-10 15:03:28.423  INFO 17204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-10 15:03:28.423  INFO 17204 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-10 15:03:28.424  INFO 17204 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-10 15:03:28.462  INFO 17204 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-10 15:03:28.462  INFO 17204 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 636 ms
+2020-09-10 15:03:28.989  INFO 17204 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-10 15:03:29.031  INFO 17204 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-10 15:03:29.448  INFO 17204 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-10 15:03:29.461  INFO 17204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-10 15:03:29.464  INFO 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : Started BlogApplication in 1.696 seconds (JVM running for 545.651)
+2020-09-10 15:03:29.466  INFO 17204 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-09-10 15:05:20.111  INFO 17204 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-10 15:05:20.112  INFO 17204 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-10 15:05:20.120  INFO 17204 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-09-10 15:05:20.123  INFO 17204 --- [http-nio-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/blog/19', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.BlogController.BlogPage', args=[19, {}]}
+2020-09-10 15:05:20.194  INFO 17204 --- [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} inited
+2020-09-10 15:05:20.194 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.blog.mapper.BlogMapper.findBlogById  : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag, b.description,b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id, t.id t_id,t.name t_name,y.id y_id,y.name y_name,u.id u_id,u.petname, u.username, u.password, u.mail, u.type, u.headportrait, u.createtime, u.updatetime from cx_blog b LEFT JOIN cx_blog_tag bt ON b.id = bt.blog_id LEFT JOIN cx_type y ON b.type_id=y.id LEFT JOIN cx_tag t ON bt.tag_id=t.id LEFT JOIN cx_user u on b.user_id = u.id WHERE b.id=?
+2020-09-10 15:05:20.195 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.blog.mapper.BlogMapper.findBlogById  : ==> Parameters: 19(Long)
+2020-09-10 15:05:20.210 DEBUG 17204 --- [http-nio-8080-exec-1] c.c.blog.mapper.BlogMapper.findBlogById  : <==      Total: 3
+2020-09-10 15:05:20.211  INFO 17204 --- [http-nio-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Return ------ blog
+2020-09-10 15:19:24.173  INFO 17204 --- [Thread-24] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-10 15:19:24.190  INFO 17204 --- [Thread-24] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closed
+2020-09-10 15:19:24.435  INFO 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 17204 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-10 15:19:24.435 DEBUG 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-10 15:19:24.435  INFO 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-10 15:19:24.708  INFO 17204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-10 15:19:24.708  INFO 17204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-10 15:19:24.709  INFO 17204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 0ms. Found 0 Redis repository interfaces.
+2020-09-10 15:19:24.754  WARN 17204 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.chenxin.blog.mapper]' package. Please check your configuration.
+2020-09-10 15:19:24.888  INFO 17204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-10 15:19:24.888  INFO 17204 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-10 15:19:24.888  INFO 17204 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-10 15:19:24.974  INFO 17204 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-10 15:19:24.974  INFO 17204 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 537 ms
+2020-09-10 15:19:25.064  INFO 17204 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-10 15:19:25.084  INFO 17204 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-10 15:19:25.392  WARN 17204 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Program Files\idea-workaplace\blog\target\classes\mybaits\mapper\BlogMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [D:\Program Files\idea-workaplace\blog\target\classes\mybaits\mapper\BlogMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.chenxin.blog.entity.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.chenxin.blog.entity.Blog
+2020-09-10 15:19:25.392  INFO 17204 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-10 15:19:25.393  INFO 17204 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-09-10 15:19:25.433  INFO 17204 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-10 15:19:25.609 ERROR 17204 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Program Files\idea-workaplace\blog\target\classes\mybaits\mapper\BlogMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [D:\Program Files\idea-workaplace\blog\target\classes\mybaits\mapper\BlogMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.chenxin.blog.entity.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.chenxin.blog.entity.Blog
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:655)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:635)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1336)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1176)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.chenxin.blog.BlogApplication.main(BlogApplication.java:16)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Program Files\idea-workaplace\blog\target\classes\mybaits\mapper\BlogMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [D:\Program Files\idea-workaplace\blog\target\classes\mybaits\mapper\BlogMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.chenxin.blog.entity.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.chenxin.blog.entity.Blog
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:650)
+	... 25 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Program Files\idea-workaplace\blog\target\classes\mybaits\mapper\BlogMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [D:\Program Files\idea-workaplace\blog\target\classes\mybaits\mapper\BlogMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.chenxin.blog.entity.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.chenxin.blog.entity.Blog
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:612)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:490)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:632)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:180)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$b96b5e4d.CGLIB$sqlSessionFactory$2(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$b96b5e4d$$FastClassBySpringCGLIB$$bc05df71.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$b96b5e4d.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 26 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [D:\Program Files\idea-workaplace\blog\target\classes\mybaits\mapper\BlogMapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.chenxin.blog.entity.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.chenxin.blog.entity.Blog
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:123)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:95)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:610)
+	... 39 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.chenxin.blog.entity.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.chenxin.blog.entity.Blog
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:263)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:254)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:246)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:119)
+	... 41 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.chenxin.blog.entity.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.chenxin.blog.entity.Blog
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 45 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.chenxin.blog.entity.Blog
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 47 common frames omitted
+
+2020-09-10 15:19:28.835  INFO 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 17204 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-10 15:19:28.836 DEBUG 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-10 15:19:28.836  INFO 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-10 15:19:29.035  INFO 17204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-10 15:19:29.036  INFO 17204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-10 15:19:29.048  INFO 17204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+2020-09-10 15:19:29.227  INFO 17204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-10 15:19:29.227  INFO 17204 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-10 15:19:29.228  INFO 17204 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-10 15:19:29.250  INFO 17204 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-09-10 15:19:29.250  INFO 17204 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 412 ms
+2020-09-10 15:19:29.646  INFO 17204 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-10 15:19:29.694  INFO 17204 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-10 15:19:30.129  INFO 17204 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-10 15:19:30.143  INFO 17204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-10 15:19:30.147  INFO 17204 --- [restartedMain] com.chenxin.blog.BlogApplication         : Started BlogApplication in 1.344 seconds (JVM running for 1506.333)
+2020-09-10 15:19:30.148  INFO 17204 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-09-10 15:20:09.197  INFO 19060 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 19060 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-10 15:20:09.199 DEBUG 19060 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-10 15:20:09.199  INFO 19060 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-10 15:20:09.269  INFO 19060 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-10 15:20:09.269  INFO 19060 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-10 15:20:10.302  INFO 19060 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-10 15:20:10.304  INFO 19060 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-10 15:20:10.388  INFO 19060 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2020-09-10 15:20:11.301  INFO 19060 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-10 15:20:11.329  INFO 19060 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-10 15:20:11.329  INFO 19060 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-10 15:20:11.408  INFO 19060 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-10 15:20:11.409  INFO 19060 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2140 ms
+2020-09-10 15:20:12.642  INFO 19060 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-10 15:20:12.737  INFO 19060 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-10 15:20:13.448  INFO 19060 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-10 15:20:13.500  INFO 19060 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-10 15:20:13.512  INFO 19060 --- [restartedMain] com.chenxin.blog.BlogApplication         : Started BlogApplication in 4.873 seconds (JVM running for 6.309)
+2020-09-10 15:20:31.505  INFO 19060 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-10 15:20:31.506  INFO 19060 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-10 15:20:31.517  INFO 19060 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-09-10 15:20:31.566  INFO 19060 --- [http-nio-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/blog/19', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.BlogController.BlogPage', args=[19, {}]}
+2020-09-10 15:20:32.560  INFO 19060 --- [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-10 15:20:32.564 DEBUG 19060 --- [http-nio-8080-exec-1] c.c.blog.mapper.BlogMapper.findBlogById  : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag, b.description,b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id, t.id t_id,t.name t_name,y.id y_id,y.name y_name,u.id u_id,u.petname, u.username, u.password, u.mail, u.type, u.headportrait, u.createtime, u.updatetime from cx_blog b LEFT JOIN cx_blog_tag bt ON b.id = bt.blog_id LEFT JOIN cx_type y ON b.type_id=y.id LEFT JOIN cx_tag t ON bt.tag_id=t.id LEFT JOIN cx_user u on b.user_id = u.id WHERE b.id=?
+2020-09-10 15:20:32.682 DEBUG 19060 --- [http-nio-8080-exec-1] c.c.blog.mapper.BlogMapper.findBlogById  : ==> Parameters: 19(Long)
+2020-09-10 15:20:32.753 DEBUG 19060 --- [http-nio-8080-exec-1] c.c.blog.mapper.BlogMapper.findBlogById  : <==      Total: 3
+2020-09-10 15:20:32.821  INFO 19060 --- [http-nio-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Return ------ blog
+2020-09-10 15:20:33.397 ERROR 19060 --- [http-nio-8080-exec-9] com.chenxin.blog.handler.ErrorHandler    : Request URL : http://localhost:8080/blog/hhhhh , Exception : {}
+
+org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "hhhhh"
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:133)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:167)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NumberFormatException: For input string: "hhhhh"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:589)
+	at java.lang.Long.valueOf(Long.java:803)
+	at org.springframework.util.NumberUtils.parseNumber(NumberUtils.java:214)
+	at org.springframework.beans.propertyeditors.CustomNumberEditor.setAsText(CustomNumberEditor.java:115)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:429)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:402)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:155)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:73)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:53)
+	at org.springframework.validation.DataBinder.convertIfNecessary(DataBinder.java:693)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
+	... 50 common frames omitted
+
+2020-09-10 15:20:33.399  WARN 19060 --- [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "hhhhh"]
+2020-09-10 15:22:24.554  INFO 19060 --- [http-nio-8080-exec-2] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/blog/21', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.BlogController.BlogPage', args=[21, {}]}
+2020-09-10 15:22:24.563 DEBUG 19060 --- [http-nio-8080-exec-2] c.c.blog.mapper.BlogMapper.findBlogById  : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag, b.description,b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id, t.id t_id,t.name t_name,y.id y_id,y.name y_name,u.id u_id,u.petname, u.username, u.password, u.mail, u.type, u.headportrait, u.createtime, u.updatetime from cx_blog b LEFT JOIN cx_blog_tag bt ON b.id = bt.blog_id LEFT JOIN cx_type y ON b.type_id=y.id LEFT JOIN cx_tag t ON bt.tag_id=t.id LEFT JOIN cx_user u on b.user_id = u.id WHERE b.id=?
+2020-09-10 15:22:24.563 DEBUG 19060 --- [http-nio-8080-exec-2] c.c.blog.mapper.BlogMapper.findBlogById  : ==> Parameters: 21(Long)
+2020-09-10 15:22:24.568 DEBUG 19060 --- [http-nio-8080-exec-2] c.c.blog.mapper.BlogMapper.findBlogById  : <==      Total: 3
+2020-09-10 15:22:24.571  INFO 19060 --- [http-nio-8080-exec-2] com.chenxin.blog.aspect.LogAspect        : Return ------ blog
+2020-09-10 15:22:24.636 ERROR 19060 --- [http-nio-8080-exec-2] com.chenxin.blog.handler.ErrorHandler    : Request URL : http://localhost:8080/blog/hhhhh , Exception : {}
+
+org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "hhhhh"
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:133)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:167)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NumberFormatException: For input string: "hhhhh"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:589)
+	at java.lang.Long.valueOf(Long.java:803)
+	at org.springframework.util.NumberUtils.parseNumber(NumberUtils.java:214)
+	at org.springframework.beans.propertyeditors.CustomNumberEditor.setAsText(CustomNumberEditor.java:115)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:429)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:402)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:155)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:73)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:53)
+	at org.springframework.validation.DataBinder.convertIfNecessary(DataBinder.java:693)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
+	... 50 common frames omitted
+
+2020-09-10 15:22:24.636  WARN 19060 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "hhhhh"]
+2020-09-10 15:25:05.342  INFO 19060 --- [http-nio-8080-exec-9] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/admain/login', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.AdmainUserController.login', args=[User{id=null, petname='null', username='cx201125', password='chenxin11111', mail='null', type=null, headportrait='null', createtime=null, updatetime=null, blogs=[]}, org.apache.catalina.session.StandardSessionFacade@242a928e, {}, {user=User{id=null, petname='null', username='cx201125', password='chenxin11111', mail='null', type=null, headportrait='null', createtime=null, updatetime=null, blogs=[]}, org.springframework.validation.BindingResult.user=org.springframework.validation.BeanPropertyBindingResult: 0 errors}]}
+2020-09-10 15:25:05.564 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, petname, username, password, mail, type, headportrait, createtime, updatetime from cx_user WHERE ( username = ? and password = ? )
+2020-09-10 15:25:05.566 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.UserMapper.selectByExample  : ==> Parameters: cx201125(String), dbd1a8bc623a690cd163ec0ade366995(String)
+2020-09-10 15:25:05.580 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-09-10 15:25:05.581  INFO 19060 --- [http-nio-8080-exec-9] com.chenxin.blog.aspect.LogAspect        : Return ------ redirect:/admain/index
+2020-09-10 15:25:08.675  INFO 19060 --- [http-nio-8080-exec-9] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/admain/listblogs', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.AdmainBlogController.types', args=[null, {blog=Blog{id=null, title='null', content='null', firstpicture='null', flag='null', description='null', viewcount=null, isadmire=null, iscopyright=null, isrecommend=null, iscomment=null, issue=null, createtime=null, updatetime=null, userId=null, typeId=null, user=null, type=null, tagsId='null', comments=[], tags=[]}, org.springframework.validation.BindingResult.blog=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, Blog{id=null, title='null', content='null', firstpicture='null', flag='null', description='null', viewcount=null, isadmire=null, iscopyright=null, isrecommend=null, iscomment=null, issue=null, createtime=null, updatetime=null, userId=null, typeId=null, user=null, type=null, tagsId='null', comments=[], tags=[]}]}
+2020-09-10 15:25:09.021 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.m.B.getBlogByPaging_COUNT          : ==>  Preparing: SELECT count(0) FROM cx_blog b, cx_type y WHERE b.type_id = y.id
+2020-09-10 15:25:09.023 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.m.B.getBlogByPaging_COUNT          : ==> Parameters: 
+2020-09-10 15:25:09.062 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.m.B.getBlogByPaging_COUNT          : <==      Total: 1
+2020-09-10 15:25:09.064 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.BlogMapper.getBlogByPaging  : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag,b.description, b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,y.id y_id,y.name y_name FROM cx_blog b,cx_type y WHERE b.type_id=y.id LIMIT ?
+2020-09-10 15:25:09.075 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.BlogMapper.getBlogByPaging  : ==> Parameters: 10(Integer)
+2020-09-10 15:25:09.081 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.BlogMapper.getBlogByPaging  : <==      Total: 5
+2020-09-10 15:25:09.085 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.TypeMapper.selectByExample  : ==>  Preparing: select id, name from cx_type
+2020-09-10 15:25:09.086 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.TypeMapper.selectByExample  : ==> Parameters: 
+2020-09-10 15:25:09.087 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.TypeMapper.selectByExample  : <==      Total: 5
+2020-09-10 15:25:09.088  INFO 19060 --- [http-nio-8080-exec-9] com.chenxin.blog.aspect.LogAspect        : Return ------ /admain/blogs
+2020-09-10 15:25:17.147  INFO 19060 --- [http-nio-8080-exec-2] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/admain/editblog/19', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.AdmainBlogController.addblogspage', args=[{}, 19]}
+2020-09-10 15:25:17.148 DEBUG 19060 --- [http-nio-8080-exec-2] c.c.b.mapper.TypeMapper.selectByExample  : ==>  Preparing: select id, name from cx_type
+2020-09-10 15:25:17.148 DEBUG 19060 --- [http-nio-8080-exec-2] c.c.b.mapper.TypeMapper.selectByExample  : ==> Parameters: 
+2020-09-10 15:25:17.152 DEBUG 19060 --- [http-nio-8080-exec-2] c.c.b.mapper.TypeMapper.selectByExample  : <==      Total: 5
+2020-09-10 15:25:17.154 DEBUG 19060 --- [http-nio-8080-exec-2] c.c.b.mapper.TagMapper.selectByExample   : ==>  Preparing: select id, name from cx_tag
+2020-09-10 15:25:17.155 DEBUG 19060 --- [http-nio-8080-exec-2] c.c.b.mapper.TagMapper.selectByExample   : ==> Parameters: 
+2020-09-10 15:25:17.157 DEBUG 19060 --- [http-nio-8080-exec-2] c.c.b.mapper.TagMapper.selectByExample   : <==      Total: 10
+2020-09-10 15:25:17.157 DEBUG 19060 --- [http-nio-8080-exec-2] c.c.blog.mapper.BlogMapper.getBlogById   : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag, b.description,b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id, t.id t_id,t.name t_name,y.id y_id,y.name y_name from cx_blog b LEFT JOIN cx_blog_tag bt ON b.id = bt.blog_id LEFT JOIN cx_type y ON b.type_id=y.id LEFT JOIN cx_tag t ON bt.tag_id=t.id WHERE b.id=?
+2020-09-10 15:25:17.158 DEBUG 19060 --- [http-nio-8080-exec-2] c.c.blog.mapper.BlogMapper.getBlogById   : ==> Parameters: 19(Long)
+2020-09-10 15:25:17.162 DEBUG 19060 --- [http-nio-8080-exec-2] c.c.blog.mapper.BlogMapper.getBlogById   : <==      Total: 3
+2020-09-10 15:25:17.162  INFO 19060 --- [http-nio-8080-exec-2] com.chenxin.blog.aspect.LogAspect        : Return ------ /admain/blogs-input
+2020-09-10 15:27:01.277  INFO 19060 --- [http-nio-8080-exec-7] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/admain/issueblog', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.AdmainBlogController.issue', args=[Blog{id=19, title='mysql数据库的查询拉', content='# Spring Boot开发小而美的个人博客
+
+>  作者：李仁密
+
+
+
+**个人博客功能：**
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+**技术组合：**
+
+*  后端：Spring Boot + JPA + thymeleaf模板
+*  数据库：MySQL
+*  前端UI：Semantic UI框架
+
+**工具与环境：**
+
+*  IDEA
+*  Maven 3
+*  JDK 8
+*  Axure RP 8
+
+**课程内容模块：**
+
+*  需求分析与功能规划
+*  页面设计与开发
+*  技术框架搭建
+*  后端管理功能实现
+*  前端管理功能实现
+
+**你能学得什么？**
+
+*  基于Spring Boot的完整全栈式的开发套路
+*  Semantic UI框架的使用
+*  一套博客系统的源代码与设计
+
+## 1、需求与功能
+
+### 1.1 用户故事
+
+用户故事是敏捷框架中的一种开发方法。可以帮助开发者转换视角，以用户的角度更好的把握需求，从而实现具有商业价值的功能。
+
+>  用户故事最好是用户团队编写
+
+**用户故事模板**：
+
+-  As a (role of user), I want (some feature) so that (some business value).
+-  作为一个(某个角色) 使用者，我可以做(某个功能) 事情，如此可以有(某个商业价值) 的好处
+
+**关键点**：角色、功能、商业价值
+
+**举例**：
+
+-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成
+
+
+
+[编辑器 Markdown](https://pandao.github.io/editor.md/)
+
+[内容排版 typo.css](https://github.com/sofish/typo.css)
+
+[动画 animate.css](https://daneden.github.io/animate.css/)
+
+[代码高亮 prism](https://github.com/PrismJS/prism)
+
+[目录生成 Tocbot](https://tscanlin.github.io/tocbot/)
+
+[滚动侦测 waypoints](http://imakewebthings.com/waypoints/)
+
+[平滑滚动 jquery.scrollTo](https://github.com/flesler/jquery.scrollTo)
+
+[二维码生成 qrcode.js](https://davidshimjs.github.io/qrcodejs/)
+
+## 3、框架搭建
+
+>  [IDEA下载 https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
+
+### 3.1 构建与配置
+
+**1、引入Spring Boot模块：**
+
+*  web
+*  Thymeleaf
+*  JPA
+*  MySQL
+*  Aspects
+*  DevTools
+
+**2、application.yml配置**
+
+*  使用 thymeleaf 3
+
+   pom.xml:
+
+```xml
+<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+<thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+```
+
+
+  	application.yml:
+
+```yaml
+spring:
+  thymeleaf:
+    mode: HTML
+```
+
+*  数据库连接配置
+
+```yaml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+```
+
+*  日志配置
+
+   application.yml:
+
+```yaml
+logging:
+  level:
+    root: info
+    com.imcoding: debug
+  file: log/imcoding.log
+```
+
+​	logback-spring.xml：
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!--包含Spring boot对logback日志的默认配置-->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <!--重写了Spring Boot框架 org/springframework/boot/logging/logback/file-appender.xml 配置-->
+    <appender name="TIME_FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <!--保留历史日志一个月的时间-->
+            <maxHistory>30</maxHistory>
+            <!--
+            Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志
+            -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="TIME_FILE" />
+    </root>
+
+</configuration>
+<!--
+    1、继承Spring boot logback设置（可以在appliaction.yml或者application.properties设置logging.*属性）
+    2、重写了默认配置，设置日志文件大小在100MB时，按日期切分日志，切分后目录：
+
+        my.2017-08-01.0   80MB
+        my.2017-08-01.1   10MB
+        my.2017-08-02.0   56MB
+        my.2017-08-03.0   53MB
+        ......
+-->
+```
+
+*  生产环境与开发环境配置
+   *  application-dev.yml
+   *  application-pro.yml
+
+### 3.2 异常处理
+
+**1、定义错误页面**
+
+*  404
+*  500
+*  error
+
+**2、全局处理异常**
+
+统一处理异常：
+
+```java
+@ControllerAdvice
+public class ControllerExceptionHandler {
+
+    private final Logger logger = LoggerFactory.getLogger(ControllerExceptionHandler.class);
+    /**
+     * 异常处理
+     * @param request
+     * @param e
+     * @return
+     */
+    @ExceptionHandler({Exception.class})
+    public ModelAndView handleException(HttpServletRequest request, Exception e) throws Exception {
+
+        logger.error("Request URL : {} , Exception : {}", request.getRequestURL(), e);
+
+        if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
+            throw e;
+        }
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("url", request.getRequestURL());
+        mav.addObject("exception", e);
+        mav.setViewName("error/error");
+
+        return mav;
+    }
+}
+```
+
+
+
+错误页面异常信息显示处理：
+
+```html
+<div>
+    <div th:utext="'&lt;!--'" th:remove="tag"></div>
+    <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
+    <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
+    <ul th:remove="tag">
+        <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+    </ul>
+    <div th:utext="'--&gt;'" th:remove="tag"></div>
+</div>
+```
+
+
+
+**3、资源找不到异常**
+
+```java
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class NotFoundExcepiton extends RuntimeException {
+
+    public NotFoundExcepiton() {
+    }
+
+    public NotFoundExcepiton(String message) {
+        super(message);
+    }
+
+    public NotFoundExcepiton(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+```
+
+
+
+### 3.3 日志处理
+
+**1、记录日志内容**
+
+*  请求 url
+*  访问者 ip
+*  调用方法 classMethod
+*  参数 args
+*  返回内容
+
+**2、记录日志类：**
+
+```java
+@Aspect
+@Component
+public class LogAspect {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    /**
+     * 定义切面
+     */
+    @Pointcut("execution(* com.imcoding.web.*.*(..))")
+    public void log() {
+    }
+
+    @Before("log()")
+    public void doBefore(JoinPoint joinPoint) {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        String classMethod = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
+        ReqeustLog reqeustLog = new ReqeustLog(
+                request.getRequestURL().toString(),
+                request.getRemoteAddr(),
+                classMethod,
+                joinPoint.getArgs()
+        );
+        logger.info("Rquest  ----- {}",reqeustLog);
+    }
+
+    @After("log()")
+    public void doAfter() {
+        //logger.info("---------- doAfter 2 ----------");
+    }
+
+    @AfterReturning(returning = "result",pointcut = "log()")
+    public void doAtfertRturning(Object result) {
+        logger.info("Return ------ {}",result );
+    }
+
+
+    private class ReqeustLog {
+        private String url;
+        private String ip;
+        private String classMethod;
+        private Object[] args;
+
+        public ReqeustLog(String url, String ip, String classMethod, Object[] args) {
+            this.url = url;
+            this.ip = ip;
+            this.classMethod = classMethod;
+            this.args = args;
+        }
+
+        @Override
+        public String toString() {
+            return "ReqeustLog{" +
+                    "url='" + url + '\'' +
+                    ", ip='" + ip + '\'' +
+                    ", classMethod='" + classMethod + '\'' +
+                    ", args=" + Arrays.toString(args) +
+                    '}';
+        }
+    }
+
+}
+```
+
+
+
+### 3.4 页面处理
+
+
+
+**1、静态页面导入project**
+
+**2、thymeleaf布局**
+
+*  定义fragment
+*  使用fragment布局
+
+**3、错误页面美化**
+
+4、设计与规范
+
+### 4.1 实体设计
+
+**实体类：**
+
+*  博客 Blog
+*  博客分类 Type
+*  博客标签 Tag
+*  博客评论 Comment
+*  用户 User
+
+
+
+**实体关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/87092095.jpg)
+
+**评论类自关联关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/41296045.jpg)
+
+**Blog类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/38390041.jpg)
+
+**Type类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/22984471.jpg)
+
+**Tag类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/70860077.jpg)
+
+**Comment类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/77104424.jpg)
+
+
+
+**User类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/10367795.jpg)
+
+
+
+### 4.2 应用分层
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/64528736.jpg)
+
+### 4.3 命名约定
+
+**Service/DAO层命名约定：**
+
+*  获取单个对象的方法用get做前缀。
+*  获取多个对象的方法用list做前缀。
+*  获取统计值的方法用count做前缀。
+*  插入的方法用save(推荐)或insert做前缀。
+*  删除的方法用remove(推荐)或delete做前缀。
+*  修改的方法用update做前缀。
+
+
+
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 5、后台管理功能实现
+
+### 5.1 登录
+
+
+
+**1、构建登录页面和后台管理首页**
+
+**2、UserService和UserRepository**
+
+**3、LoginController实现登录**
+
+**4、MD5加密**
+
+**5、登录拦截器**
+
+### 5.2 分类管理
+
+
+
+**1、分类管理页面**
+
+**2、分类列表分页**
+
+````javascript
+{
+  "content":[
+    {"id":123,"title":"blog122","content":"this is blog content"},
+    {"id":122,"title":"blog121","content":"this is blog content"},
+    {"id":121,"title":"blog120","content":"this is blog content"},
+    {"id":120,"title":"blog119","content":"this is blog content"},
+    {"id":119,"title":"blog118","content":"this is blog content"},
+    {"id":118,"title":"blog117","content":"this is blog content"},
+    {"id":117,"title":"blog116","content":"this is blog content"},
+    {"id":116,"title":"blog115","content":"this is blog content"},
+    {"id":115,"title":"blog114","content":"this is blog content"},
+    {"id":114,"title":"blog113","content":"this is blog content"},
+    {"id":113,"title":"blog112","content":"this is blog content"},
+    {"id":112,"title":"blog111","content":"this is blog content"},
+    {"id":111,"title":"blog110","content":"this is blog content"},
+    {"id":110,"title":"blog109","content":"this is blog content"},
+    {"id":109,"title":"blog108","content":"this is blog content"}],
+  "last":false,
+  "totalPages":9,
+  "totalElements":123,
+  "size":15,
+  "number":0,
+  "first":true,
+  "sort":[{
+    "direction":"DESC",
+    "property":"id",
+    "ignoreCase":false,
+    "nullHandling":"NATIVE",
+    "ascending":false
+  }],
+  "numberOfElements":15
+}
+````
+
+
+
+**3、分类新增、修改、删除**
+
+### 5.3 标签管理
+
+### 5.4 博客管理
+
+
+
+**1、博客分页查询**
+
+**2、博客新增**
+
+**3、博客修改**
+
+**4、博客删除**
+
+## 6、前端展示功能实现
+
+### 6.1 首页展示
+
+
+
+**1、博客列表**
+
+**2、top分类**
+
+**3、top标签**
+
+**4、最新博客推荐**
+
+**5、博客详情**
+
+**1、Markdown 转换 HTML**
+
+*  [commonmark-java  https://github.com/atlassian/commonmark-java](https://github.com/atlassian/commonmark-java)
+*  pom.xml引用commonmark和扩展插件
+
+```xml
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-heading-anchor</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-gfm-tables</artifactId>
+   <version>0.10.0</version>
+</dependency>
+```
+
+
+
+**2、评论功能**
+
+
+
+*  评论信息提交与回复功能
+*  评论信息列表展示功能
+*  管理员回复评论功能
+
+
+### 6.2 分类页
+
+### 6.3 标签页
+
+### 6.4 归档页
+
+### 6.5 关于我', firstpicture='hhhhh', flag='原创', description='这个是关于springmvc描述的', viewcount=null, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=null, updatetime=null, userId=null, typeId=2, user=null, type=null, tagsId='1,4,5', comments=[], tags=[]}, org.apache.catalina.session.StandardSessionFacade@242a928e, {}]}
+2020-09-10 15:27:01.288 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.b.m.B.updateByPrimaryKeySelective    : ==>  Preparing: update cx_blog SET title = ?, content = ?, firstPicture = ?, flag = ?, description = ?, isadmire = ?, iscopyright = ?, iscomment = ?, isrecommend = ?, issue = ?, updatetime = ?, type_id = ? where id = ?
+2020-09-10 15:27:01.335 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.b.m.B.updateByPrimaryKeySelective    : ==> Parameters: mysql数据库的查询拉(String), # Spring Boot开发小而美的个人博客
+
+>  作者：李仁密
+
+
+
+**个人博客功能：**
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+**技术组合：**
+
+*  后端：Spring Boot + JPA + thymeleaf模板
+*  数据库：MySQL
+*  前端UI：Semantic UI框架
+
+**工具与环境：**
+
+*  IDEA
+*  Maven 3
+*  JDK 8
+*  Axure RP 8
+
+**课程内容模块：**
+
+*  需求分析与功能规划
+*  页面设计与开发
+*  技术框架搭建
+*  后端管理功能实现
+*  前端管理功能实现
+
+**你能学得什么？**
+
+*  基于Spring Boot的完整全栈式的开发套路
+*  Semantic UI框架的使用
+*  一套博客系统的源代码与设计
+
+## 1、需求与功能
+
+### 1.1 用户故事
+
+用户故事是敏捷框架中的一种开发方法。可以帮助开发者转换视角，以用户的角度更好的把握需求，从而实现具有商业价值的功能。
+
+>  用户故事最好是用户团队编写
+
+**用户故事模板**：
+
+-  As a (role of user), I want (some feature) so that (some business value).
+-  作为一个(某个角色) 使用者，我可以做(某个功能) 事情，如此可以有(某个商业价值) 的好处
+
+**关键点**：角色、功能、商业价值
+
+**举例**：
+
+-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成
+
+
+
+[编辑器 Markdown](https://pandao.github.io/editor.md/)
+
+[内容排版 typo.css](https://github.com/sofish/typo.css)
+
+[动画 animate.css](https://daneden.github.io/animate.css/)
+
+[代码高亮 prism](https://github.com/PrismJS/prism)
+
+[目录生成 Tocbot](https://tscanlin.github.io/tocbot/)
+
+[滚动侦测 waypoints](http://imakewebthings.com/waypoints/)
+
+[平滑滚动 jquery.scrollTo](https://github.com/flesler/jquery.scrollTo)
+
+[二维码生成 qrcode.js](https://davidshimjs.github.io/qrcodejs/)
+
+## 3、框架搭建
+
+>  [IDEA下载 https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
+
+### 3.1 构建与配置
+
+**1、引入Spring Boot模块：**
+
+*  web
+*  Thymeleaf
+*  JPA
+*  MySQL
+*  Aspects
+*  DevTools
+
+**2、application.yml配置**
+
+*  使用 thymeleaf 3
+
+   pom.xml:
+
+```xml
+<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+<thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+```
+
+
+  	application.yml:
+
+```yaml
+spring:
+  thymeleaf:
+    mode: HTML
+```
+
+*  数据库连接配置
+
+```yaml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+```
+
+*  日志配置
+
+   application.yml:
+
+```yaml
+logging:
+  level:
+    root: info
+    com.imcoding: debug
+  file: log/imcoding.log
+```
+
+​	logback-spring.xml：
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!--包含Spring boot对logback日志的默认配置-->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <!--重写了Spring Boot框架 org/springframework/boot/logging/logback/file-appender.xml 配置-->
+    <appender name="TIME_FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <!--保留历史日志一个月的时间-->
+            <maxHistory>30</maxHistory>
+            <!--
+            Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志
+            -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="TIME_FILE" />
+    </root>
+
+</configuration>
+<!--
+    1、继承Spring boot logback设置（可以在appliaction.yml或者application.properties设置logging.*属性）
+    2、重写了默认配置，设置日志文件大小在100MB时，按日期切分日志，切分后目录：
+
+        my.2017-08-01.0   80MB
+        my.2017-08-01.1   10MB
+        my.2017-08-02.0   56MB
+        my.2017-08-03.0   53MB
+        ......
+-->
+```
+
+*  生产环境与开发环境配置
+   *  application-dev.yml
+   *  application-pro.yml
+
+### 3.2 异常处理
+
+**1、定义错误页面**
+
+*  404
+*  500
+*  error
+
+**2、全局处理异常**
+
+统一处理异常：
+
+```java
+@ControllerAdvice
+public class ControllerExceptionHandler {
+
+    private final Logger logger = LoggerFactory.getLogger(ControllerExceptionHandler.class);
+    /**
+     * 异常处理
+     * @param request
+     * @param e
+     * @return
+     */
+    @ExceptionHandler({Exception.class})
+    public ModelAndView handleException(HttpServletRequest request, Exception e) throws Exception {
+
+        logger.error("Request URL : {} , Exception : {}", request.getRequestURL(), e);
+
+        if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
+            throw e;
+        }
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("url", request.getRequestURL());
+        mav.addObject("exception", e);
+        mav.setViewName("error/error");
+
+        return mav;
+    }
+}
+```
+
+
+
+错误页面异常信息显示处理：
+
+```html
+<div>
+    <div th:utext="'&lt;!--'" th:remove="tag"></div>
+    <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
+    <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
+    <ul th:remove="tag">
+        <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+    </ul>
+    <div th:utext="'--&gt;'" th:remove="tag"></div>
+</div>
+```
+
+
+
+**3、资源找不到异常**
+
+```java
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class NotFoundExcepiton extends RuntimeException {
+
+    public NotFoundExcepiton() {
+    }
+
+    public NotFoundExcepiton(String message) {
+        super(message);
+    }
+
+    public NotFoundExcepiton(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+```
+
+
+
+### 3.3 日志处理
+
+**1、记录日志内容**
+
+*  请求 url
+*  访问者 ip
+*  调用方法 classMethod
+*  参数 args
+*  返回内容
+
+**2、记录日志类：**
+
+```java
+@Aspect
+@Component
+public class LogAspect {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    /**
+     * 定义切面
+     */
+    @Pointcut("execution(* com.imcoding.web.*.*(..))")
+    public void log() {
+    }
+
+    @Before("log()")
+    public void doBefore(JoinPoint joinPoint) {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        String classMethod = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
+        ReqeustLog reqeustLog = new ReqeustLog(
+                request.getRequestURL().toString(),
+                request.getRemoteAddr(),
+                classMethod,
+                joinPoint.getArgs()
+        );
+        logger.info("Rquest  ----- {}",reqeustLog);
+    }
+
+    @After("log()")
+    public void doAfter() {
+        //logger.info("---------- doAfter 2 ----------");
+    }
+
+    @AfterReturning(returning = "result",pointcut = "log()")
+    public void doAtfertRturning(Object result) {
+        logger.info("Return ------ {}",result );
+    }
+
+
+    private class ReqeustLog {
+        private String url;
+        private String ip;
+        private String classMethod;
+        private Object[] args;
+
+        public ReqeustLog(String url, String ip, String classMethod, Object[] args) {
+            this.url = url;
+            this.ip = ip;
+            this.classMethod = classMethod;
+            this.args = args;
+        }
+
+        @Override
+        public String toString() {
+            return "ReqeustLog{" +
+                    "url='" + url + '\'' +
+                    ", ip='" + ip + '\'' +
+                    ", classMethod='" + classMethod + '\'' +
+                    ", args=" + Arrays.toString(args) +
+                    '}';
+        }
+    }
+
+}
+```
+
+
+
+### 3.4 页面处理
+
+
+
+**1、静态页面导入project**
+
+**2、thymeleaf布局**
+
+*  定义fragment
+*  使用fragment布局
+
+**3、错误页面美化**
+
+4、设计与规范
+
+### 4.1 实体设计
+
+**实体类：**
+
+*  博客 Blog
+*  博客分类 Type
+*  博客标签 Tag
+*  博客评论 Comment
+*  用户 User
+
+
+
+**实体关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/87092095.jpg)
+
+**评论类自关联关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/41296045.jpg)
+
+**Blog类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/38390041.jpg)
+
+**Type类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/22984471.jpg)
+
+**Tag类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/70860077.jpg)
+
+**Comment类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/77104424.jpg)
+
+
+
+**User类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/10367795.jpg)
+
+
+
+### 4.2 应用分层
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/64528736.jpg)
+
+### 4.3 命名约定
+
+**Service/DAO层命名约定：**
+
+*  获取单个对象的方法用get做前缀。
+*  获取多个对象的方法用list做前缀。
+*  获取统计值的方法用count做前缀。
+*  插入的方法用save(推荐)或insert做前缀。
+*  删除的方法用remove(推荐)或delete做前缀。
+*  修改的方法用update做前缀。
+
+
+
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 5、后台管理功能实现
+
+### 5.1 登录
+
+
+
+**1、构建登录页面和后台管理首页**
+
+**2、UserService和UserRepository**
+
+**3、LoginController实现登录**
+
+**4、MD5加密**
+
+**5、登录拦截器**
+
+### 5.2 分类管理
+
+
+
+**1、分类管理页面**
+
+**2、分类列表分页**
+
+````javascript
+{
+  "content":[
+    {"id":123,"title":"blog122","content":"this is blog content"},
+    {"id":122,"title":"blog121","content":"this is blog content"},
+    {"id":121,"title":"blog120","content":"this is blog content"},
+    {"id":120,"title":"blog119","content":"this is blog content"},
+    {"id":119,"title":"blog118","content":"this is blog content"},
+    {"id":118,"title":"blog117","content":"this is blog content"},
+    {"id":117,"title":"blog116","content":"this is blog content"},
+    {"id":116,"title":"blog115","content":"this is blog content"},
+    {"id":115,"title":"blog114","content":"this is blog content"},
+    {"id":114,"title":"blog113","content":"this is blog content"},
+    {"id":113,"title":"blog112","content":"this is blog content"},
+    {"id":112,"title":"blog111","content":"this is blog content"},
+    {"id":111,"title":"blog110","content":"this is blog content"},
+    {"id":110,"title":"blog109","content":"this is blog content"},
+    {"id":109,"title":"blog108","content":"this is blog content"}],
+  "last":false,
+  "totalPages":9,
+  "totalElements":123,
+  "size":15,
+  "number":0,
+  "first":true,
+  "sort":[{
+    "direction":"DESC",
+    "property":"id",
+    "ignoreCase":false,
+    "nullHandling":"NATIVE",
+    "ascending":false
+  }],
+  "numberOfElements":15
+}
+````
+
+
+
+**3、分类新增、修改、删除**
+
+### 5.3 标签管理
+
+### 5.4 博客管理
+
+
+
+**1、博客分页查询**
+
+**2、博客新增**
+
+**3、博客修改**
+
+**4、博客删除**
+
+## 6、前端展示功能实现
+
+### 6.1 首页展示
+
+
+
+**1、博客列表**
+
+**2、top分类**
+
+**3、top标签**
+
+**4、最新博客推荐**
+
+**5、博客详情**
+
+**1、Markdown 转换 HTML**
+
+*  [commonmark-java  https://github.com/atlassian/commonmark-java](https://github.com/atlassian/commonmark-java)
+*  pom.xml引用commonmark和扩展插件
+
+```xml
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-heading-anchor</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-gfm-tables</artifactId>
+   <version>0.10.0</version>
+</dependency>
+```
+
+
+
+**2、评论功能**
+
+
+
+*  评论信息提交与回复功能
+*  评论信息列表展示功能
+*  管理员回复评论功能
+
+
+### 6.2 分类页
+
+### 6.3 标签页
+
+### 6.4 归档页
+
+### 6.5 关于我(String), hhhhh(String), 原创(String), 这个是关于springmvc描述的(String), 0(Byte), 0(Byte), 0(Byte), 0(Byte), 0(Byte), 2020-09-10 15:27:01.278(Timestamp), 2(Long), 19(Long)
+2020-09-10 15:27:01.734 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.b.m.B.updateByPrimaryKeySelective    : <==    Updates: 1
+2020-09-10 15:27:01.740 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.b.m.Blog_TagMapper.deleteByExample   : ==>  Preparing: delete from cx_blog_tag WHERE ( blog_id = ? )
+2020-09-10 15:27:01.742 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.b.m.Blog_TagMapper.deleteByExample   : ==> Parameters: 19(Long)
+2020-09-10 15:27:01.857 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.b.m.Blog_TagMapper.deleteByExample   : <==    Updates: 3
+2020-09-10 15:27:01.858 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.blog.mapper.Blog_TagMapper.insert    : ==>  Preparing: insert into cx_blog_tag (id, blog_id, tag_id ) values (?, ?, ? )
+2020-09-10 15:27:01.923 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.blog.mapper.Blog_TagMapper.insert    : ==> Parameters: null, 19(Long), 1(Long)
+2020-09-10 15:27:02.032 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.blog.mapper.Blog_TagMapper.insert    : <==    Updates: 1
+2020-09-10 15:27:02.032 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.blog.mapper.Blog_TagMapper.insert    : ==>  Preparing: insert into cx_blog_tag (id, blog_id, tag_id ) values (?, ?, ? )
+2020-09-10 15:27:02.033 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.blog.mapper.Blog_TagMapper.insert    : ==> Parameters: null, 19(Long), 4(Long)
+2020-09-10 15:27:02.090 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.blog.mapper.Blog_TagMapper.insert    : <==    Updates: 1
+2020-09-10 15:27:02.090 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.blog.mapper.Blog_TagMapper.insert    : ==>  Preparing: insert into cx_blog_tag (id, blog_id, tag_id ) values (?, ?, ? )
+2020-09-10 15:27:02.091 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.blog.mapper.Blog_TagMapper.insert    : ==> Parameters: null, 19(Long), 5(Long)
+2020-09-10 15:27:02.141 DEBUG 19060 --- [http-nio-8080-exec-7] c.c.blog.mapper.Blog_TagMapper.insert    : <==    Updates: 1
+2020-09-10 15:27:02.142  INFO 19060 --- [http-nio-8080-exec-7] com.chenxin.blog.aspect.LogAspect        : Return ------ redirect:/admain/listblogs
+2020-09-10 15:27:02.178  INFO 19060 --- [http-nio-8080-exec-9] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/admain/listblogs', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.AdmainBlogController.types', args=[null, {hint=编辑成功, blog=Blog{id=null, title='null', content='null', firstpicture='null', flag='null', description='null', viewcount=null, isadmire=null, iscopyright=null, isrecommend=null, iscomment=null, issue=null, createtime=null, updatetime=null, userId=null, typeId=null, user=null, type=null, tagsId='null', comments=[], tags=[]}, org.springframework.validation.BindingResult.blog=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, Blog{id=null, title='null', content='null', firstpicture='null', flag='null', description='null', viewcount=null, isadmire=null, iscopyright=null, isrecommend=null, iscomment=null, issue=null, createtime=null, updatetime=null, userId=null, typeId=null, user=null, type=null, tagsId='null', comments=[], tags=[]}]}
+2020-09-10 15:27:02.180 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.m.B.getBlogByPaging_COUNT          : ==>  Preparing: SELECT count(0) FROM cx_blog b, cx_type y WHERE b.type_id = y.id
+2020-09-10 15:27:02.180 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.m.B.getBlogByPaging_COUNT          : ==> Parameters: 
+2020-09-10 15:27:02.181 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.m.B.getBlogByPaging_COUNT          : <==      Total: 1
+2020-09-10 15:27:02.182 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.BlogMapper.getBlogByPaging  : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag,b.description, b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,y.id y_id,y.name y_name FROM cx_blog b,cx_type y WHERE b.type_id=y.id LIMIT ?
+2020-09-10 15:27:02.182 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.BlogMapper.getBlogByPaging  : ==> Parameters: 10(Integer)
+2020-09-10 15:27:02.196 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.BlogMapper.getBlogByPaging  : <==      Total: 5
+2020-09-10 15:27:02.197 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.TypeMapper.selectByExample  : ==>  Preparing: select id, name from cx_type
+2020-09-10 15:27:02.198 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.TypeMapper.selectByExample  : ==> Parameters: 
+2020-09-10 15:27:02.199 DEBUG 19060 --- [http-nio-8080-exec-9] c.c.b.mapper.TypeMapper.selectByExample  : <==      Total: 5
+2020-09-10 15:27:02.199  INFO 19060 --- [http-nio-8080-exec-9] com.chenxin.blog.aspect.LogAspect        : Return ------ /admain/blogs
+2020-09-10 15:27:22.222  INFO 19060 --- [http-nio-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/blog/19', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.BlogController.BlogPage', args=[19, {}]}
+2020-09-10 15:27:22.223 DEBUG 19060 --- [http-nio-8080-exec-1] c.c.blog.mapper.BlogMapper.findBlogById  : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag, b.description,b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id, t.id t_id,t.name t_name,y.id y_id,y.name y_name,u.id u_id,u.petname, u.username, u.password, u.mail, u.type, u.headportrait, u.createtime, u.updatetime from cx_blog b LEFT JOIN cx_blog_tag bt ON b.id = bt.blog_id LEFT JOIN cx_type y ON b.type_id=y.id LEFT JOIN cx_tag t ON bt.tag_id=t.id LEFT JOIN cx_user u on b.user_id = u.id WHERE b.id=?
+2020-09-10 15:27:22.223 DEBUG 19060 --- [http-nio-8080-exec-1] c.c.blog.mapper.BlogMapper.findBlogById  : ==> Parameters: 19(Long)
+2020-09-10 15:27:22.230 DEBUG 19060 --- [http-nio-8080-exec-1] c.c.blog.mapper.BlogMapper.findBlogById  : <==      Total: 3
+2020-09-10 15:27:22.244  INFO 19060 --- [http-nio-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Return ------ blog
+2020-09-10 15:27:22.317 ERROR 19060 --- [http-nio-8080-exec-6] com.chenxin.blog.handler.ErrorHandler    : Request URL : http://localhost:8080/blog/hhhhh , Exception : {}
+
+org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "hhhhh"
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:133)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:167)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NumberFormatException: For input string: "hhhhh"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:589)
+	at java.lang.Long.valueOf(Long.java:803)
+	at org.springframework.util.NumberUtils.parseNumber(NumberUtils.java:214)
+	at org.springframework.beans.propertyeditors.CustomNumberEditor.setAsText(CustomNumberEditor.java:115)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:429)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:402)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:155)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:73)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:53)
+	at org.springframework.validation.DataBinder.convertIfNecessary(DataBinder.java:693)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
+	... 50 common frames omitted
+
+2020-09-10 15:27:22.318  WARN 19060 --- [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "hhhhh"]
+2020-09-10 15:31:56.178  INFO 19060 --- [Thread-16] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-10 15:31:56.221  INFO 19060 --- [Thread-16] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-09-10 15:31:56.475  INFO 19060 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 19060 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-10 15:31:56.476 DEBUG 19060 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-10 15:31:56.476  INFO 19060 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-10 15:31:56.678  INFO 19060 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-10 15:31:56.678  INFO 19060 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-10 15:31:56.691  INFO 19060 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+2020-09-10 15:31:56.912  INFO 19060 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-10 15:31:56.912  INFO 19060 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-10 15:31:56.912  INFO 19060 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-10 15:31:56.935  INFO 19060 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-10 15:31:56.935  INFO 19060 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 457 ms
+2020-09-10 15:31:57.382  INFO 19060 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-10 15:31:57.441  INFO 19060 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-10 15:31:57.946  INFO 19060 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-10 15:31:57.960  INFO 19060 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-10 15:31:57.964  INFO 19060 --- [restartedMain] com.chenxin.blog.BlogApplication         : Started BlogApplication in 1.535 seconds (JVM running for 710.761)
+2020-09-10 15:31:57.965  INFO 19060 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-09-10 15:32:26.993  INFO 5148 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 5148 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-10 15:32:26.995 DEBUG 5148 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-10 15:32:26.995  INFO 5148 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-10 15:32:27.041  INFO 5148 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-10 15:32:27.041  INFO 5148 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-10 15:32:27.734  INFO 5148 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-10 15:32:27.735  INFO 5148 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-10 15:32:27.776  INFO 5148 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19ms. Found 0 Redis repository interfaces.
+2020-09-10 15:32:28.488  INFO 5148 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-10 15:32:28.496  INFO 5148 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-10 15:32:28.496  INFO 5148 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-10 15:32:28.602  INFO 5148 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-10 15:32:28.603  INFO 5148 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1562 ms
+2020-09-10 15:32:29.709  INFO 5148 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-10 15:32:29.789  INFO 5148 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-10 15:32:30.303  INFO 5148 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-10 15:32:30.361  INFO 5148 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-10 15:32:30.370  INFO 5148 --- [restartedMain] com.chenxin.blog.BlogApplication         : Started BlogApplication in 3.878 seconds (JVM running for 5.232)
+2020-09-10 15:32:40.723  INFO 5148 --- [http-nio-8080-exec-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-10 15:32:40.724  INFO 5148 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-10 15:32:40.731  INFO 5148 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-09-10 15:32:44.958  INFO 5148 --- [http-nio-8080-exec-6] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.IndexController.indexoage', args=[null, {}]}
+2020-09-10 15:32:46.054  INFO 5148 --- [http-nio-8080-exec-6] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-10 15:32:46.091 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.b.m.B.findBlogByPaging_COUNT         : ==>  Preparing: SELECT count(0) FROM cx_blog b LEFT JOIN cx_type y ON b.type_id = y.id LEFT JOIN cx_user u ON b.user_id = u.id WHERE b.isrecommend = 0
+2020-09-10 15:32:46.218 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.b.m.B.findBlogByPaging_COUNT         : ==> Parameters: 
+2020-09-10 15:32:46.243 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.b.m.B.findBlogByPaging_COUNT         : <==      Total: 1
+2020-09-10 15:32:46.246 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.b.m.BlogMapper.findBlogByPaging      : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag,b.description, b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,y.id y_id,y.name y_name,u.id u_id, u.petname, u.username, u.password, u.mail, u.type, u.headportrait, u.createtime, u.updatetime FROM cx_blog b left join cx_type y on b.type_id=y.id left join cx_user u on b.user_id=u.id WHERE b.isrecommend=0 LIMIT ?
+2020-09-10 15:32:46.249 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.b.m.BlogMapper.findBlogByPaging      : ==> Parameters: 3(Integer)
+2020-09-10 15:32:46.258 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.b.m.BlogMapper.findBlogByPaging      : <==      Total: 3
+2020-09-10 15:32:46.274 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.b.mapper.TypeMapper.findByExample    : ==>  Preparing: SELECT y.id, y.NAME, COUNT(b.id) countBlog FROM cx_type y LEFT JOIN cx_blog b ON y.id = b.type_id GROUP BY id ORDER BY countBlog DESC limit 0,6
+2020-09-10 15:32:46.277 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.b.mapper.TypeMapper.findByExample    : ==> Parameters: 
+2020-09-10 15:32:46.297 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.b.mapper.TypeMapper.findByExample    : <==      Total: 5
+2020-09-10 15:32:46.302 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.blog.mapper.TagMapper.findByExample  : ==>  Preparing: SELECT t.id, t.NAME, COUNT(bt.blog_id) countBlog FROM cx_tag t LEFT JOIN cx_blog_tag bt ON t.id = bt.tag_id GROUP BY id ORDER BY countBlog DESC limit 0,10
+2020-09-10 15:32:46.304 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.blog.mapper.TagMapper.findByExample  : ==> Parameters: 
+2020-09-10 15:32:46.325 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.blog.mapper.TagMapper.findByExample  : <==      Total: 10
+2020-09-10 15:32:46.333 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.b.mapper.BlogMapper.selectByExample  : ==>  Preparing: select id, title, content, firstPicture, flag, description,viewcount, isadmire, iscopyright, iscomment, isrecommend issue, createtime, updatetime, user_id, type_id from cx_blog order by updatetime DESC limit 0,10
+2020-09-10 15:32:46.335 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.b.mapper.BlogMapper.selectByExample  : ==> Parameters: 
+2020-09-10 15:32:46.341 DEBUG 5148 --- [http-nio-8080-exec-6] c.c.b.mapper.BlogMapper.selectByExample  : <==      Total: 5
+2020-09-10 15:32:46.341  INFO 5148 --- [http-nio-8080-exec-6] com.chenxin.blog.aspect.LogAspect        : Return ------ /index
+2020-09-10 15:32:58.026  INFO 5148 --- [http-nio-8080-exec-5] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/blog/19', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.BlogController.BlogPage', args=[19, {}]}
+2020-09-10 15:32:58.030 DEBUG 5148 --- [http-nio-8080-exec-5] c.c.blog.mapper.BlogMapper.findBlogById  : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag, b.description,b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id, t.id t_id,t.name t_name,y.id y_id,y.name y_name,u.id u_id,u.petname, u.username, u.password, u.mail, u.type, u.headportrait, u.createtime, u.updatetime from cx_blog b LEFT JOIN cx_blog_tag bt ON b.id = bt.blog_id LEFT JOIN cx_type y ON b.type_id=y.id LEFT JOIN cx_tag t ON bt.tag_id=t.id LEFT JOIN cx_user u on b.user_id = u.id WHERE b.id=?
+2020-09-10 15:32:58.033 DEBUG 5148 --- [http-nio-8080-exec-5] c.c.blog.mapper.BlogMapper.findBlogById  : ==> Parameters: 19(Long)
+2020-09-10 15:32:58.039 DEBUG 5148 --- [http-nio-8080-exec-5] c.c.blog.mapper.BlogMapper.findBlogById  : <==      Total: 3
+2020-09-10 15:32:58.318  INFO 5148 --- [http-nio-8080-exec-5] com.chenxin.blog.aspect.LogAspect        : Return ------ blog
+2020-09-10 15:32:58.418 ERROR 5148 --- [http-nio-8080-exec-3] com.chenxin.blog.handler.ErrorHandler    : Request URL : http://localhost:8080/blog/hhhhh , Exception : {}
+
+org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "hhhhh"
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:133)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:167)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NumberFormatException: For input string: "hhhhh"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:589)
+	at java.lang.Long.valueOf(Long.java:803)
+	at org.springframework.util.NumberUtils.parseNumber(NumberUtils.java:214)
+	at org.springframework.beans.propertyeditors.CustomNumberEditor.setAsText(CustomNumberEditor.java:115)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:429)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:402)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:155)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:73)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:53)
+	at org.springframework.validation.DataBinder.convertIfNecessary(DataBinder.java:693)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
+	... 50 common frames omitted
+
+2020-09-10 15:32:58.419  WARN 5148 --- [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "hhhhh"]
+2020-09-10 15:33:13.576  INFO 5148 --- [http-nio-8080-exec-3] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/search', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.IndexController.Search', args=[mysql, {}, null]}
+2020-09-10 15:33:13.890 DEBUG 5148 --- [http-nio-8080-exec-3] c.c.b.m.BlogMapper.getSearchPage_COUNT   : ==>  Preparing: SELECT count(0) FROM cx_blog b LEFT JOIN cx_type y ON b.type_id = y.id LEFT JOIN cx_user u ON b.user_id = u.id WHERE b.isrecommend = 0 AND b.title LIKE '%mysql%' OR b.content LIKE '%mysql%' OR b.description LIKE '%mysql%'
+2020-09-10 15:33:13.902 DEBUG 5148 --- [http-nio-8080-exec-3] c.c.b.m.BlogMapper.getSearchPage_COUNT   : ==> Parameters: 
+2020-09-10 15:33:13.905 DEBUG 5148 --- [http-nio-8080-exec-3] c.c.b.m.BlogMapper.getSearchPage_COUNT   : <==      Total: 1
+2020-09-10 15:33:13.906 DEBUG 5148 --- [http-nio-8080-exec-3] c.c.b.mapper.BlogMapper.getSearchPage    : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag,b.description, b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,y.id y_id,y.name y_name,u.id u_id, u.petname, u.username, u.password, u.mail, u.type, u.headportrait, u.createtime, u.updatetime FROM cx_blog b left join cx_type y on b.type_id=y.id left join cx_user u on b.user_id=u.id WHERE b.isrecommend=0 and b.title like '%mysql%' or b.content like '%mysql%' or b.description like '%mysql%' LIMIT ?
+2020-09-10 15:33:13.908 DEBUG 5148 --- [http-nio-8080-exec-3] c.c.b.mapper.BlogMapper.getSearchPage    : ==> Parameters: 3(Integer)
+2020-09-10 15:33:13.919 DEBUG 5148 --- [http-nio-8080-exec-3] c.c.b.mapper.BlogMapper.getSearchPage    : <==      Total: 2
+2020-09-10 15:33:13.920  INFO 5148 --- [http-nio-8080-exec-3] com.chenxin.blog.aspect.LogAspect        : Return ------ search
+2020-09-10 15:35:04.032  INFO 5148 --- [http-nio-8080-exec-2] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.IndexController.indexoage', args=[null, {}]}
+2020-09-10 15:35:04.042 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.b.m.B.findBlogByPaging_COUNT         : ==>  Preparing: SELECT count(0) FROM cx_blog b LEFT JOIN cx_type y ON b.type_id = y.id LEFT JOIN cx_user u ON b.user_id = u.id WHERE b.isrecommend = 0
+2020-09-10 15:35:04.042 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.b.m.B.findBlogByPaging_COUNT         : ==> Parameters: 
+2020-09-10 15:35:04.044 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.b.m.B.findBlogByPaging_COUNT         : <==      Total: 1
+2020-09-10 15:35:04.044 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.b.m.BlogMapper.findBlogByPaging      : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag,b.description, b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,y.id y_id,y.name y_name,u.id u_id, u.petname, u.username, u.password, u.mail, u.type, u.headportrait, u.createtime, u.updatetime FROM cx_blog b left join cx_type y on b.type_id=y.id left join cx_user u on b.user_id=u.id WHERE b.isrecommend=0 LIMIT ?
+2020-09-10 15:35:04.044 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.b.m.BlogMapper.findBlogByPaging      : ==> Parameters: 3(Integer)
+2020-09-10 15:35:04.048 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.b.m.BlogMapper.findBlogByPaging      : <==      Total: 3
+2020-09-10 15:35:04.049 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.b.mapper.TypeMapper.findByExample    : ==>  Preparing: SELECT y.id, y.NAME, COUNT(b.id) countBlog FROM cx_type y LEFT JOIN cx_blog b ON y.id = b.type_id GROUP BY id ORDER BY countBlog DESC limit 0,6
+2020-09-10 15:35:04.049 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.b.mapper.TypeMapper.findByExample    : ==> Parameters: 
+2020-09-10 15:35:04.051 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.b.mapper.TypeMapper.findByExample    : <==      Total: 5
+2020-09-10 15:35:04.052 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.blog.mapper.TagMapper.findByExample  : ==>  Preparing: SELECT t.id, t.NAME, COUNT(bt.blog_id) countBlog FROM cx_tag t LEFT JOIN cx_blog_tag bt ON t.id = bt.tag_id GROUP BY id ORDER BY countBlog DESC limit 0,10
+2020-09-10 15:35:04.052 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.blog.mapper.TagMapper.findByExample  : ==> Parameters: 
+2020-09-10 15:35:04.058 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.blog.mapper.TagMapper.findByExample  : <==      Total: 10
+2020-09-10 15:35:04.058 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.b.mapper.BlogMapper.selectByExample  : ==>  Preparing: select id, title, content, firstPicture, flag, description,viewcount, isadmire, iscopyright, iscomment, isrecommend issue, createtime, updatetime, user_id, type_id from cx_blog order by updatetime DESC limit 0,10
+2020-09-10 15:35:04.058 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.b.mapper.BlogMapper.selectByExample  : ==> Parameters: 
+2020-09-10 15:35:04.062 DEBUG 5148 --- [http-nio-8080-exec-2] c.c.b.mapper.BlogMapper.selectByExample  : <==      Total: 5
+2020-09-10 15:35:04.063  INFO 5148 --- [http-nio-8080-exec-2] com.chenxin.blog.aspect.LogAspect        : Return ------ /index
+2020-09-10 15:35:15.242  INFO 5148 --- [http-nio-8080-exec-7] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/blog/19', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.BlogController.BlogPage', args=[19, {}]}
+2020-09-10 15:35:15.242 DEBUG 5148 --- [http-nio-8080-exec-7] c.c.blog.mapper.BlogMapper.findBlogById  : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag, b.description,b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id, t.id t_id,t.name t_name,y.id y_id,y.name y_name,u.id u_id,u.petname, u.username, u.password, u.mail, u.type, u.headportrait, u.createtime, u.updatetime from cx_blog b LEFT JOIN cx_blog_tag bt ON b.id = bt.blog_id LEFT JOIN cx_type y ON b.type_id=y.id LEFT JOIN cx_tag t ON bt.tag_id=t.id LEFT JOIN cx_user u on b.user_id = u.id WHERE b.id=?
+2020-09-10 15:35:15.243 DEBUG 5148 --- [http-nio-8080-exec-7] c.c.blog.mapper.BlogMapper.findBlogById  : ==> Parameters: 19(Long)
+2020-09-10 15:35:15.249 DEBUG 5148 --- [http-nio-8080-exec-7] c.c.blog.mapper.BlogMapper.findBlogById  : <==      Total: 3
+2020-09-10 15:35:15.256  INFO 5148 --- [http-nio-8080-exec-7] com.chenxin.blog.aspect.LogAspect        : Return ------ blog
+2020-09-10 15:35:15.313 ERROR 5148 --- [http-nio-8080-exec-2] com.chenxin.blog.handler.ErrorHandler    : Request URL : http://localhost:8080/blog/hhhhh , Exception : {}
+
+org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "hhhhh"
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:133)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:167)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NumberFormatException: For input string: "hhhhh"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:589)
+	at java.lang.Long.valueOf(Long.java:803)
+	at org.springframework.util.NumberUtils.parseNumber(NumberUtils.java:214)
+	at org.springframework.beans.propertyeditors.CustomNumberEditor.setAsText(CustomNumberEditor.java:115)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:429)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:402)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:155)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:73)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:53)
+	at org.springframework.validation.DataBinder.convertIfNecessary(DataBinder.java:693)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
+	... 50 common frames omitted
+
+2020-09-10 15:35:15.313  WARN 5148 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "hhhhh"]

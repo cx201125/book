@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common/fragments::#head(title='关于我')}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我</title>
+  <link rel="stylesheet" href="../static/css/semantic.css">
+  <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+
+<!--导航(bar)-->
+<nav th:replace="~{common/fragments::#bar(active='about')}">
+</nav>
+
+  <!--中间内容-->
+  <div  class="m-container m-padded-tb-big">
+    <div class="ui container">
+
+      <div class="ui stackable grid">
+        <div class="eleven wide column">
+          <div class="ui segment">
+            <img src="https://unsplash.it/800/600?image=1005" th:src="@{${about.images}}" alt="" class="ui rounded image">
+          </div>
+        </div>
+        <div class="five wide column">
+          <div class="ui top attached segment">
+            <div class="ui header">关于我</div>
+          </div>
+          <div class="ui attached segment">
+            <p class="m-text">[[${about.petname}]]，[[${about.intro_1}]]</p>
+            <p class="m-text" th:text="${about.intro_2}">热爱编程，喜欢折腾，正在探索高效学习编程技术的方法...</p>
+          </div>
+          <div class="ui attached segment">
+            <div class="ui orange basic left pointing label" th:each="about:${about.loves}" th:text="${about}">编程</div>
+          </div>
+          <div class="ui attached segment">
+            <div class="ui teal basic left pointing label m-margin-tb-tiny" th:each="about:${about.skill}" th:text="${about}">Java</div>
+
+          <div class="ui bottom attached segment">
+            <a href="#" class="ui circular icon button"><i class="github icon"></i></a>
+            <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+            <a href="#" class="ui qq circular icon button"  th:attr="data-content=${about.qq}" data-position="bottom center"><i class="qq icon"></i></a>
+          </div>
+
+          <div class="ui wechat-qr flowing popup transition hidden">
+            <img src="../static/images/wechat.jpg" th:src="@{#{weixing.images}}" alt="" class="ui rounded image" style="width: 110px">
+          </div>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+  <br>
+  <br>
+<!--底部footer-->
+<footer th:replace="~{common/fragments::#footer}"></footer>
+
+  <script src="../static/js/jquery-3.2.0.js"></script>
+  <script src="../static/js/semantic.js"></script>
+
+  <script>
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.wechat').popup({
+      popup : $('.wechat-qr'),
+      position: 'bottom center'
+    });
+    $('.qq').popup();
+
+  </script>
+</body>
+</html>

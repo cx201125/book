@@ -1,0 +1,5577 @@
+2020-09-16 09:19:05.403  INFO 1040 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 1040 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-16 09:19:05.408 DEBUG 1040 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-16 09:19:05.408  INFO 1040 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-16 09:19:05.568  INFO 1040 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-16 09:19:05.568  INFO 1040 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-16 09:19:07.242  INFO 1040 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-16 09:19:07.244  INFO 1040 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-16 09:19:07.336  INFO 1040 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44ms. Found 0 Redis repository interfaces.
+2020-09-16 09:19:08.372  INFO 1040 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-16 09:19:08.386  INFO 1040 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-16 09:19:08.387  INFO 1040 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-16 09:19:08.464  INFO 1040 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-16 09:19:08.464  INFO 1040 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2896 ms
+2020-09-16 09:19:10.033  INFO 1040 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-16 09:19:10.149  INFO 1040 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-16 09:19:11.115  INFO 1040 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-16 09:19:11.182  INFO 1040 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-16 09:19:11.190  INFO 1040 --- [restartedMain] com.chenxin.blog.BlogApplication         : Started BlogApplication in 6.957 seconds (JVM running for 8.637)
+2020-09-16 09:19:45.096  INFO 1040 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-16 09:19:45.096  INFO 1040 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-16 09:19:45.108  INFO 1040 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-09-16 09:19:45.179  INFO 1040 --- [http-nio-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.IndexController.indexoage', args=[null, {}]}
+2020-09-16 09:19:46.247  INFO 1040 --- [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-16 09:19:46.335 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.b.m.B.findBlogByPaging_COUNT         : ==>  Preparing: SELECT count(0) FROM cx_blog b LEFT JOIN cx_type y ON b.type_id = y.id LEFT JOIN cx_user u ON b.user_id = u.id WHERE b.isrecommend = 0
+2020-09-16 09:19:46.460 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.b.m.B.findBlogByPaging_COUNT         : ==> Parameters: 
+2020-09-16 09:19:46.529 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.b.m.B.findBlogByPaging_COUNT         : <==      Total: 1
+2020-09-16 09:19:46.532 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.b.m.BlogMapper.findBlogByPaging      : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag,b.description, b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,y.id y_id,y.name y_name,u.id u_id, u.petname, u.username, u.password, u.mail, u.type, u.headportrait u_headportrait, u.createtime u_createtime, u.updatetime u_updatetime FROM cx_blog b left join cx_type y on b.type_id=y.id left join cx_user u on b.user_id=u.id WHERE b.isrecommend=0 LIMIT ?
+2020-09-16 09:19:46.536 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.b.m.BlogMapper.findBlogByPaging      : ==> Parameters: 10(Integer)
+2020-09-16 09:19:46.545 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.b.m.BlogMapper.findBlogByPaging      : <==      Total: 5
+2020-09-16 09:19:46.562 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.b.mapper.TypeMapper.findByExample    : ==>  Preparing: SELECT y.id, y.NAME, COUNT(b.id) countBlog FROM cx_type y LEFT JOIN cx_blog b ON y.id = b.type_id WHERE b.isrecommend=0 GROUP BY id ORDER BY countBlog DESC limit 0,6
+2020-09-16 09:19:46.564 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.b.mapper.TypeMapper.findByExample    : ==> Parameters: 
+2020-09-16 09:19:46.566 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.b.mapper.TypeMapper.findByExample    : <==      Total: 2
+2020-09-16 09:19:46.570 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.blog.mapper.TagMapper.findByExample  : ==>  Preparing: SELECT t.id, t.NAME, COUNT( bt.blog_id ) countBlog FROM cx_tag t LEFT JOIN cx_blog_tag bt ON t.id = bt.tag_id LEFT JOIN cx_blog b ON b.id = bt.blog_id WHERE b.isrecommend = 0 GROUP BY id ORDER BY countBlog DESC limit 0,10
+2020-09-16 09:19:46.571 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.blog.mapper.TagMapper.findByExample  : ==> Parameters: 
+2020-09-16 09:19:46.575 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.blog.mapper.TagMapper.findByExample  : <==      Total: 5
+2020-09-16 09:19:46.579 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : ==>  Preparing: select id, title, content, firstPicture, flag, description,viewcount, isadmire, iscopyright, iscomment, isrecommend issue, createtime, updatetime, user_id, type_id from cx_blog order by updatetime DESC limit 0,10
+2020-09-16 09:19:46.580 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : ==> Parameters: 
+2020-09-16 09:19:46.585 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : <==      Total: 5
+2020-09-16 09:19:46.585  INFO 1040 --- [http-nio-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Return ------ /index
+2020-09-16 09:19:46.586 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.blog.mapper.LogMapper.insertLog      : ==>  Preparing: insert into log values(?,?,?,?,?,?)
+2020-09-16 09:19:46.588 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.blog.mapper.LogMapper.insertLog      : ==> Parameters: null, http://localhost:8080/(String), 0:0:0:0:0:0:0:1(String), com.chenxin.blog.controller.IndexController.indexoage(String), null,{page=Page{count=true, pageNum=1, pageSize=10, startRow=0, endRow=10, total=5, pages=1, reasonable=false, pageSizeZero=false}, toptype=[Type{id=2, name='JAVA', blogs=[]}, Type{id=1, name='CSS', blogs=[]}], toptag=[Tag{id=1, name='mysql', Tag{id=6, name='mybaits', Tag{id=4, name='spring', Tag{id=2, name='大数据', Tag{id=8, name='python'], topblog=[Blog{id=19, title='mysql数据库的查询拉', content='# Spring Boot开发小而美的个人博客
+
+>  作者：李仁密
+
+
+
+**个人博客功能：**
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+**技术组合：**
+
+*  后端：Spring Boot + JPA + thymeleaf模板
+*  数据库：MySQL
+*  前端UI：Semantic UI框架
+
+**工具与环境：**
+
+*  IDEA
+*  Maven 3
+*  JDK 8
+*  Axure RP 8
+
+**课程内容模块：**
+
+*  需求分析与功能规划
+*  页面设计与开发
+*  技术框架搭建
+*  后端管理功能实现
+*  前端管理功能实现
+
+**你能学得什么？**
+
+*  基于Spring Boot的完整全栈式的开发套路
+*  Semantic UI框架的使用
+*  一套博客系统的源代码与设计
+
+## 1、需求与功能
+
+### 1.1 用户故事
+
+用户故事是敏捷框架中的一种开发方法。可以帮助开发者转换视角，以用户的角度更好的把握需求，从而实现具有商业价值的功能。
+
+>  用户故事最好是用户团队编写
+
+**用户故事模板**：
+
+-  As a (role of user), I want (some feature) so that (some business value).
+-  作为一个(某个角色) 使用者，我可以做(某个功能) 事情，如此可以有(某个商业价值) 的好处
+
+**关键点**：角色、功能、商业价值
+
+**举例**：
+
+-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成
+
+
+
+[编辑器 Markdown](https://pandao.github.io/editor.md/)
+
+[内容排版 typo.css](https://github.com/sofish/typo.css)
+
+[动画 animate.css](https://daneden.github.io/animate.css/)
+
+[代码高亮 prism](https://github.com/PrismJS/prism)
+
+[目录生成 Tocbot](https://tscanlin.github.io/tocbot/)
+
+[滚动侦测 waypoints](http://imakewebthings.com/waypoints/)
+
+[平滑滚动 jquery.scrollTo](https://github.com/flesler/jquery.scrollTo)
+
+[二维码生成 qrcode.js](https://davidshimjs.github.io/qrcodejs/)
+
+## 3、框架搭建
+
+>  [IDEA下载 https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
+
+### 3.1 构建与配置
+
+**1、引入Spring Boot模块：**
+
+*  web
+*  Thymeleaf
+*  JPA
+*  MySQL
+*  Aspects
+*  DevTools
+
+**2、application.yml配置**
+
+*  使用 thymeleaf 3
+
+   pom.xml:
+
+```xml
+<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+<thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+```
+
+
+  	application.yml:
+
+```yaml
+spring:
+  thymeleaf:
+    mode: HTML
+```
+
+*  数据库连接配置
+
+```yaml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+```
+
+*  日志配置
+
+   application.yml:
+
+```yaml
+logging:
+  level:
+    root: info
+    com.imcoding: debug
+  file: log/imcoding.log
+```
+
+​	logback-spring.xml：
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!--包含Spring boot对logback日志的默认配置-->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <!--重写了Spring Boot框架 org/springframework/boot/logging/logback/file-appender.xml 配置-->
+    <appender name="TIME_FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <!--保留历史日志一个月的时间-->
+            <maxHistory>30</maxHistory>
+            <!--
+            Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志
+            -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="TIME_FILE" />
+    </root>
+
+</configuration>
+<!--
+    1、继承Spring boot logback设置（可以在appliaction.yml或者application.properties设置logging.*属性）
+    2、重写了默认配置，设置日志文件大小在100MB时，按日期切分日志，切分后目录：
+
+        my.2017-08-01.0   80MB
+        my.2017-08-01.1   10MB
+        my.2017-08-02.0   56MB
+        my.2017-08-03.0   53MB
+        ......
+-->
+```
+
+*  生产环境与开发环境配置
+   *  application-dev.yml
+   *  application-pro.yml
+
+### 3.2 异常处理
+
+**1、定义错误页面**
+
+*  404
+*  500
+*  error
+
+**2、全局处理异常**
+
+统一处理异常：
+
+```java
+@ControllerAdvice
+public class ControllerExceptionHandler {
+
+    private final Logger logger = LoggerFactory.getLogger(ControllerExceptionHandler.class);
+    /**
+     * 异常处理
+     * @param request
+     * @param e
+     * @return
+     */
+    @ExceptionHandler({Exception.class})
+    public ModelAndView handleException(HttpServletRequest request, Exception e) throws Exception {
+
+        logger.error("Request URL : {} , Exception : {}", request.getRequestURL(), e);
+
+        if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
+            throw e;
+        }
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("url", request.getRequestURL());
+        mav.addObject("exception", e);
+        mav.setViewName("error/error");
+
+        return mav;
+    }
+}
+```
+
+
+
+错误页面异常信息显示处理：
+
+```html
+<div>
+    <div th:utext="'&lt;!--'" th:remove="tag"></div>
+    <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
+    <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
+    <ul th:remove="tag">
+        <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+    </ul>
+    <div th:utext="'--&gt;'" th:remove="tag"></div>
+</div>
+```
+
+
+
+**3、资源找不到异常**
+
+```java
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class NotFoundExcepiton extends RuntimeException {
+
+    public NotFoundExcepiton() {
+    }
+
+    public NotFoundExcepiton(String message) {
+        super(message);
+    }
+
+    public NotFoundExcepiton(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+```
+
+
+
+### 3.3 日志处理
+
+**1、记录日志内容**
+
+*  请求 url
+*  访问者 ip
+*  调用方法 classMethod
+*  参数 args
+*  返回内容
+
+**2、记录日志类：**
+
+```java
+@Aspect
+@Component
+public class LogAspect {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    /**
+     * 定义切面
+     */
+    @Pointcut("execution(* com.imcoding.web.*.*(..))")
+    public void log() {
+    }
+
+    @Before("log()")
+    public void doBefore(JoinPoint joinPoint) {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        String classMethod = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
+        ReqeustLog reqeustLog = new ReqeustLog(
+                request.getRequestURL().toString(),
+                request.getRemoteAddr(),
+                classMethod,
+                joinPoint.getArgs()
+        );
+        logger.info("Rquest  ----- {}",reqeustLog);
+    }
+
+    @After("log()")
+    public void doAfter() {
+        //logger.info("---------- doAfter 2 ----------");
+    }
+
+    @AfterReturning(returning = "result",pointcut = "log()")
+    public void doAtfertRturning(Object result) {
+        logger.info("Return ------ {}",result );
+    }
+
+
+    private class ReqeustLog {
+        private String url;
+        private String ip;
+        private String classMethod;
+        private Object[] args;
+
+        public ReqeustLog(String url, String ip, String classMethod, Object[] args) {
+            this.url = url;
+            this.ip = ip;
+            this.classMethod = classMethod;
+            this.args = args;
+        }
+
+        @Override
+        public String toString() {
+            return "ReqeustLog{" +
+                    "url='" + url + '\'' +
+                    ", ip='" + ip + '\'' +
+                    ", classMethod='" + classMethod + '\'' +
+                    ", args=" + Arrays.toString(args) +
+                    '}';
+        }
+    }
+
+}
+```
+
+
+
+### 3.4 页面处理
+
+
+
+**1、静态页面导入project**
+
+**2、thymeleaf布局**
+
+*  定义fragment
+*  使用fragment布局
+
+**3、错误页面美化**
+
+4、设计与规范
+
+### 4.1 实体设计
+
+**实体类：**
+
+*  博客 Blog
+*  博客分类 Type
+*  博客标签 Tag
+*  博客评论 Comment
+*  用户 User
+
+
+
+**实体关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/87092095.jpg)
+
+**评论类自关联关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/41296045.jpg)
+
+**Blog类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/38390041.jpg)
+
+**Type类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/22984471.jpg)
+
+**Tag类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/70860077.jpg)
+
+**Comment类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/77104424.jpg)
+
+
+
+**User类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/10367795.jpg)
+
+
+
+### 4.2 应用分层
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/64528736.jpg)
+
+### 4.3 命名约定
+
+**Service/DAO层命名约定：**
+
+*  获取单个对象的方法用get做前缀。
+*  获取多个对象的方法用list做前缀。
+*  获取统计值的方法用count做前缀。
+*  插入的方法用save(推荐)或insert做前缀。
+*  删除的方法用remove(推荐)或delete做前缀。
+*  修改的方法用update做前缀。
+
+
+
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 5、后台管理功能实现
+
+### 5.1 登录
+
+
+
+**1、构建登录页面和后台管理首页**
+
+**2、UserService和UserRepository**
+
+**3、LoginController实现登录**
+
+**4、MD5加密**
+
+**5、登录拦截器**
+
+### 5.2 分类管理
+
+
+
+**1、分类管理页面**
+
+**2、分类列表分页**
+
+````javascript
+{
+  "content":[
+    {"id":123,"title":"blog122","content":"this is blog content"},
+    {"id":122,"title":"blog121","content":"this is blog content"},
+    {"id":121,"title":"blog120","content":"this is blog content"},
+    {"id":120,"title":"blog119","content":"this is blog content"},
+    {"id":119,"title":"blog118","content":"this is blog content"},
+    {"id":118,"title":"blog117","content":"this is blog content"},
+    {"id":117,"title":"blog116","content":"this is blog content"},
+    {"id":116,"title":"blog115","content":"this is blog content"},
+    {"id":115,"title":"blog114","content":"this is blog content"},
+    {"id":114,"title":"blog113","content":"this is blog content"},
+    {"id":113,"title":"blog112","content":"this is blog content"},
+    {"id":112,"title":"blog111","content":"this is blog content"},
+    {"id":111,"title":"blog110","content":"this is blog content"},
+    {"id":110,"title":"blog109","content":"this is blog content"},
+    {"id":109,"title":"blog108","content":"this is blog content"}],
+  "last":false,
+  "totalPages":9,
+  "totalElements":123,
+  "size":15,
+  "number":0,
+  "first":true,
+  "sort":[{
+    "direction":"DESC",
+    "property":"id",
+    "ignoreCase":false,
+    "nullHandling":"NATIVE",
+    "ascending":false
+  }],
+  "numberOfElements":15
+}
+````
+
+
+
+**3、分类新增、修改、删除**
+
+### 5.3 标签管理
+
+### 5.4 博客管理
+
+
+
+**1、博客分页查询**
+
+**2、博客新增**
+
+**3、博客修改**
+
+**4、博客删除**
+
+## 6、前端展示功能实现
+
+### 6.1 首页展示
+
+
+
+**1、博客列表**
+
+**2、top分类**
+
+**3、top标签**
+
+**4、最新博客推荐**
+
+**5、博客详情**
+
+**1、Markdown 转换 HTML**
+
+*  [commonmark-java  https://github.com/atlassian/commonmark-java](https://github.com/atlassian/commonmark-java)
+*  pom.xml引用commonmark和扩展插件
+
+```xml
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-heading-anchor</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-gfm-tables</artifactId>
+   <version>0.10.0</version>
+</dependency>
+```
+
+
+
+**2、评论功能**
+
+
+
+*  评论信息提交与回复功能
+*  评论信息列表展示功能
+*  管理员回复评论功能
+
+
+### 6.2 分类页
+
+### 6.3 标签页
+
+### 6.4 归档页
+
+### 6.5 关于我', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='这个是关于springmvc描述的', viewcount=21, isadmire=0, iscopyright=0, isrecommend=null, iscomment=1, issue=0, createtime=Fri Sep 04 18:19:30 CST 2020, updatetime=Sun Sep 13 11:13:04 CST 2020, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=22, title='测试博客', content='sssss拉', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='ssss', viewcount=0, isadmire=0, iscopyright=0, isrecommend=null, iscomment=1, issue=0, createtime=Sat Sep 05 09:49:55 CST 2020, updatetime=Sat Sep 05 09:49:55 CST 2020, userId=1, typeId=1, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=21, title='java是什么', content='-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成拉', firstpicture='https://unsplash.it/800/450?image=1005', flag='转载', description='这个是一篇关于java的博客', viewcount=16, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 05 09:46:41 CST 2019, updatetime=Thu Sep 05 09:46:41 CST 2019, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=20, title='mysql数据库的查询拉', content='**3、分类新增、修改、删除**
+
+### 5.3 标签管理
+
+### 5.4 博客管理
+
+
+
+**1、博客分页查询**
+
+**2、博客新增**
+
+**3、博客修改**
+
+**4、博客删除**
+
+## 6、前端展示功能实现
+
+### 6.1 首页展示
+
+
+
+**1、博客列表**
+
+**2、top分类**
+
+**3、top标签**
+
+**4、最新博客推荐**
+
+**5、博客详情**
+
+**1、Markdown 转换 HTML**
+
+*  [commonmark-java  https://github.com/atlassian/commonmark-java](https://github.com/atlassian/commonmark-java)
+*  pom.xml引用commonmark和扩展插件
+
+```xml
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-heading-anchor</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-gfm-tables</artifactId>
+   <version>0.10.0</version>
+</dependency>
+```
+
+
+
+**2、评论功能**
+
+
+
+*  评论信息提交与回复功能
+*  评论信息列表展示功能
+*  管理员回复评论功能
+
+
+### 6.2 分类页
+
+### 6.3 标签页
+
+### 6.4 归档页
+
+### 6.5 关于我', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='这是一篇好博客', viewcount=0, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 05 09:27:27 CST 2019, updatetime=Thu Sep 05 09:44:20 CST 2019, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=24, title='JAVA是什么', content='##java是什么&sup3; &hearts;
+虹口区我说的浓氨水', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='我is单词vhuiowdecvb', viewcount=0, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 13 11:08:48 CST 2018, updatetime=Thu Sep 13 11:08:48 CST 2018, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}]}(String), /index(String)
+2020-09-16 09:19:46.770 DEBUG 1040 --- [http-nio-8080-exec-1] c.c.blog.mapper.LogMapper.insertLog      : <==    Updates: 1
+2020-09-16 09:19:48.137  INFO 1040 --- [http-nio-8080-exec-4] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/fragments/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.IndexController.newblogs', args=[{}]}
+2020-09-16 09:19:48.138 DEBUG 1040 --- [http-nio-8080-exec-4] c.c.b.mapper.BlogMapper.selectByExample  : ==>  Preparing: select id, title, content, firstPicture, flag, description,viewcount, isadmire, iscopyright, iscomment, isrecommend issue, createtime, updatetime, user_id, type_id from cx_blog order by updatetime DESC limit 0,3
+2020-09-16 09:19:48.139 DEBUG 1040 --- [http-nio-8080-exec-4] c.c.b.mapper.BlogMapper.selectByExample  : ==> Parameters: 
+2020-09-16 09:19:48.145 DEBUG 1040 --- [http-nio-8080-exec-4] c.c.b.mapper.BlogMapper.selectByExample  : <==      Total: 3
+2020-09-16 09:19:48.147  INFO 1040 --- [http-nio-8080-exec-4] com.chenxin.blog.aspect.LogAspect        : Return ------ common/fragments :: newbloglist
+2020-09-16 09:19:48.147 DEBUG 1040 --- [http-nio-8080-exec-4] c.c.blog.mapper.LogMapper.insertLog      : ==>  Preparing: insert into log values(?,?,?,?,?,?)
+2020-09-16 09:19:48.149 DEBUG 1040 --- [http-nio-8080-exec-4] c.c.blog.mapper.LogMapper.insertLog      : ==> Parameters: null, http://localhost:8080/fragments/newblog(String), 0:0:0:0:0:0:0:1(String), com.chenxin.blog.controller.IndexController.newblogs(String), {newblogs=[Blog{id=19, title='mysql数据库的查询拉', content='# Spring Boot开发小而美的个人博客
+
+>  作者：李仁密
+
+
+
+**个人博客功能：**
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+**技术组合：**
+
+*  后端：Spring Boot + JPA + thymeleaf模板
+*  数据库：MySQL
+*  前端UI：Semantic UI框架
+
+**工具与环境：**
+
+*  IDEA
+*  Maven 3
+*  JDK 8
+*  Axure RP 8
+
+**课程内容模块：**
+
+*  需求分析与功能规划
+*  页面设计与开发
+*  技术框架搭建
+*  后端管理功能实现
+*  前端管理功能实现
+
+**你能学得什么？**
+
+*  基于Spring Boot的完整全栈式的开发套路
+*  Semantic UI框架的使用
+*  一套博客系统的源代码与设计
+
+## 1、需求与功能
+
+### 1.1 用户故事
+
+用户故事是敏捷框架中的一种开发方法。可以帮助开发者转换视角，以用户的角度更好的把握需求，从而实现具有商业价值的功能。
+
+>  用户故事最好是用户团队编写
+
+**用户故事模板**：
+
+-  As a (role of user), I want (some feature) so that (some business value).
+-  作为一个(某个角色) 使用者，我可以做(某个功能) 事情，如此可以有(某个商业价值) 的好处
+
+**关键点**：角色、功能、商业价值
+
+**举例**：
+
+-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成
+
+
+
+[编辑器 Markdown](https://pandao.github.io/editor.md/)
+
+[内容排版 typo.css](https://github.com/sofish/typo.css)
+
+[动画 animate.css](https://daneden.github.io/animate.css/)
+
+[代码高亮 prism](https://github.com/PrismJS/prism)
+
+[目录生成 Tocbot](https://tscanlin.github.io/tocbot/)
+
+[滚动侦测 waypoints](http://imakewebthings.com/waypoints/)
+
+[平滑滚动 jquery.scrollTo](https://github.com/flesler/jquery.scrollTo)
+
+[二维码生成 qrcode.js](https://davidshimjs.github.io/qrcodejs/)
+
+## 3、框架搭建
+
+>  [IDEA下载 https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
+
+### 3.1 构建与配置
+
+**1、引入Spring Boot模块：**
+
+*  web
+*  Thymeleaf
+*  JPA
+*  MySQL
+*  Aspects
+*  DevTools
+
+**2、application.yml配置**
+
+*  使用 thymeleaf 3
+
+   pom.xml:
+
+```xml
+<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+<thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+```
+
+
+  	application.yml:
+
+```yaml
+spring:
+  thymeleaf:
+    mode: HTML
+```
+
+*  数据库连接配置
+
+```yaml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+```
+
+*  日志配置
+
+   application.yml:
+
+```yaml
+logging:
+  level:
+    root: info
+    com.imcoding: debug
+  file: log/imcoding.log
+```
+
+​	logback-spring.xml：
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!--包含Spring boot对logback日志的默认配置-->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <!--重写了Spring Boot框架 org/springframework/boot/logging/logback/file-appender.xml 配置-->
+    <appender name="TIME_FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <!--保留历史日志一个月的时间-->
+            <maxHistory>30</maxHistory>
+            <!--
+            Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志
+            -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="TIME_FILE" />
+    </root>
+
+</configuration>
+<!--
+    1、继承Spring boot logback设置（可以在appliaction.yml或者application.properties设置logging.*属性）
+    2、重写了默认配置，设置日志文件大小在100MB时，按日期切分日志，切分后目录：
+
+        my.2017-08-01.0   80MB
+        my.2017-08-01.1   10MB
+        my.2017-08-02.0   56MB
+        my.2017-08-03.0   53MB
+        ......
+-->
+```
+
+*  生产环境与开发环境配置
+   *  application-dev.yml
+   *  application-pro.yml
+
+### 3.2 异常处理
+
+**1、定义错误页面**
+
+*  404
+*  500
+*  error
+
+**2、全局处理异常**
+
+统一处理异常：
+
+```java
+@ControllerAdvice
+public class ControllerExceptionHandler {
+
+    private final Logger logger = LoggerFactory.getLogger(ControllerExceptionHandler.class);
+    /**
+     * 异常处理
+     * @param request
+     * @param e
+     * @return
+     */
+    @ExceptionHandler({Exception.class})
+    public ModelAndView handleException(HttpServletRequest request, Exception e) throws Exception {
+
+        logger.error("Request URL : {} , Exception : {}", request.getRequestURL(), e);
+
+        if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
+            throw e;
+        }
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("url", request.getRequestURL());
+        mav.addObject("exception", e);
+        mav.setViewName("error/error");
+
+        return mav;
+    }
+}
+```
+
+
+
+错误页面异常信息显示处理：
+
+```html
+<div>
+    <div th:utext="'&lt;!--'" th:remove="tag"></div>
+    <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
+    <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
+    <ul th:remove="tag">
+        <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+    </ul>
+    <div th:utext="'--&gt;'" th:remove="tag"></div>
+</div>
+```
+
+
+
+**3、资源找不到异常**
+
+```java
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class NotFoundExcepiton extends RuntimeException {
+
+    public NotFoundExcepiton() {
+    }
+
+    public NotFoundExcepiton(String message) {
+        super(message);
+    }
+
+    public NotFoundExcepiton(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+```
+
+
+
+### 3.3 日志处理
+
+**1、记录日志内容**
+
+*  请求 url
+*  访问者 ip
+*  调用方法 classMethod
+*  参数 args
+*  返回内容
+
+**2、记录日志类：**
+
+```java
+@Aspect
+@Component
+public class LogAspect {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    /**
+     * 定义切面
+     */
+    @Pointcut("execution(* com.imcoding.web.*.*(..))")
+    public void log() {
+    }
+
+    @Before("log()")
+    public void doBefore(JoinPoint joinPoint) {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        String classMethod = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
+        ReqeustLog reqeustLog = new ReqeustLog(
+                request.getRequestURL().toString(),
+                request.getRemoteAddr(),
+                classMethod,
+                joinPoint.getArgs()
+        );
+        logger.info("Rquest  ----- {}",reqeustLog);
+    }
+
+    @After("log()")
+    public void doAfter() {
+        //logger.info("---------- doAfter 2 ----------");
+    }
+
+    @AfterReturning(returning = "result",pointcut = "log()")
+    public void doAtfertRturning(Object result) {
+        logger.info("Return ------ {}",result );
+    }
+
+
+    private class ReqeustLog {
+        private String url;
+        private String ip;
+        private String classMethod;
+        private Object[] args;
+
+        public ReqeustLog(String url, String ip, String classMethod, Object[] args) {
+            this.url = url;
+            this.ip = ip;
+            this.classMethod = classMethod;
+            this.args = args;
+        }
+
+        @Override
+        public String toString() {
+            return "ReqeustLog{" +
+                    "url='" + url + '\'' +
+                    ", ip='" + ip + '\'' +
+                    ", classMethod='" + classMethod + '\'' +
+                    ", args=" + Arrays.toString(args) +
+                    '}';
+        }
+    }
+
+}
+```
+
+
+
+### 3.4 页面处理
+
+
+
+**1、静态页面导入project**
+
+**2、thymeleaf布局**
+
+*  定义fragment
+*  使用fragment布局
+
+**3、错误页面美化**
+
+4、设计与规范
+
+### 4.1 实体设计
+
+**实体类：**
+
+*  博客 Blog
+*  博客分类 Type
+*  博客标签 Tag
+*  博客评论 Comment
+*  用户 User
+
+
+
+**实体关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/87092095.jpg)
+
+**评论类自关联关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/41296045.jpg)
+
+**Blog类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/38390041.jpg)
+
+**Type类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/22984471.jpg)
+
+**Tag类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/70860077.jpg)
+
+**Comment类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/77104424.jpg)
+
+
+
+**User类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/10367795.jpg)
+
+
+
+### 4.2 应用分层
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/64528736.jpg)
+
+### 4.3 命名约定
+
+**Service/DAO层命名约定：**
+
+*  获取单个对象的方法用get做前缀。
+*  获取多个对象的方法用list做前缀。
+*  获取统计值的方法用count做前缀。
+*  插入的方法用save(推荐)或insert做前缀。
+*  删除的方法用remove(推荐)或delete做前缀。
+*  修改的方法用update做前缀。
+
+
+
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 5、后台管理功能实现
+
+### 5.1 登录
+
+
+
+**1、构建登录页面和后台管理首页**
+
+**2、UserService和UserRepository**
+
+**3、LoginController实现登录**
+
+**4、MD5加密**
+
+**5、登录拦截器**
+
+### 5.2 分类管理
+
+
+
+**1、分类管理页面**
+
+**2、分类列表分页**
+
+````javascript
+{
+  "content":[
+    {"id":123,"title":"blog122","content":"this is blog content"},
+    {"id":122,"title":"blog121","content":"this is blog content"},
+    {"id":121,"title":"blog120","content":"this is blog content"},
+    {"id":120,"title":"blog119","content":"this is blog content"},
+    {"id":119,"title":"blog118","content":"this is blog content"},
+    {"id":118,"title":"blog117","content":"this is blog content"},
+    {"id":117,"title":"blog116","content":"this is blog content"},
+    {"id":116,"title":"blog115","content":"this is blog content"},
+    {"id":115,"title":"blog114","content":"this is blog content"},
+    {"id":114,"title":"blog113","content":"this is blog content"},
+    {"id":113,"title":"blog112","content":"this is blog content"},
+    {"id":112,"title":"blog111","content":"this is blog content"},
+    {"id":111,"title":"blog110","content":"this is blog content"},
+    {"id":110,"title":"blog109","content":"this is blog content"},
+    {"id":109,"title":"blog108","content":"this is blog content"}],
+  "last":false,
+  "totalPages":9,
+  "totalElements":123,
+  "size":15,
+  "number":0,
+  "first":true,
+  "sort":[{
+    "direction":"DESC",
+    "property":"id",
+    "ignoreCase":false,
+    "nullHandling":"NATIVE",
+    "ascending":false
+  }],
+  "numberOfElements":15
+}
+````
+
+
+
+**3、分类新增、修改、删除**
+
+### 5.3 标签管理
+
+### 5.4 博客管理
+
+
+
+**1、博客分页查询**
+
+**2、博客新增**
+
+**3、博客修改**
+
+**4、博客删除**
+
+## 6、前端展示功能实现
+
+### 6.1 首页展示
+
+
+
+**1、博客列表**
+
+**2、top分类**
+
+**3、top标签**
+
+**4、最新博客推荐**
+
+**5、博客详情**
+
+**1、Markdown 转换 HTML**
+
+*  [commonmark-java  https://github.com/atlassian/commonmark-java](https://github.com/atlassian/commonmark-java)
+*  pom.xml引用commonmark和扩展插件
+
+```xml
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-heading-anchor</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-gfm-tables</artifactId>
+   <version>0.10.0</version>
+</dependency>
+```
+
+
+
+**2、评论功能**
+
+
+
+*  评论信息提交与回复功能
+*  评论信息列表展示功能
+*  管理员回复评论功能
+
+
+### 6.2 分类页
+
+### 6.3 标签页
+
+### 6.4 归档页
+
+### 6.5 关于我', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='这个是关于springmvc描述的', viewcount=21, isadmire=0, iscopyright=0, isrecommend=null, iscomment=1, issue=0, createtime=Fri Sep 04 18:19:30 CST 2020, updatetime=Sun Sep 13 11:13:04 CST 2020, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=22, title='测试博客', content='sssss拉', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='ssss', viewcount=0, isadmire=0, iscopyright=0, isrecommend=null, iscomment=1, issue=0, createtime=Sat Sep 05 09:49:55 CST 2020, updatetime=Sat Sep 05 09:49:55 CST 2020, userId=1, typeId=1, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=21, title='java是什么', content='-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成拉', firstpicture='https://unsplash.it/800/450?image=1005', flag='转载', description='这个是一篇关于java的博客', viewcount=16, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 05 09:46:41 CST 2019, updatetime=Thu Sep 05 09:46:41 CST 2019, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}]}(String), common/fragments :: newbloglist(String)
+2020-09-16 09:19:48.275 DEBUG 1040 --- [http-nio-8080-exec-4] c.c.blog.mapper.LogMapper.insertLog      : <==    Updates: 1
+2020-09-16 10:45:27.450  INFO 3756 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 3756 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-16 10:45:27.465 DEBUG 3756 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-16 10:45:27.465  INFO 3756 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-16 10:45:27.522  INFO 3756 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-16 10:45:27.522  INFO 3756 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-16 10:45:28.236  INFO 3756 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-16 10:45:28.238  INFO 3756 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-16 10:45:28.269  INFO 3756 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20ms. Found 0 Redis repository interfaces.
+2020-09-16 10:45:28.894  INFO 3756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-16 10:45:28.901  INFO 3756 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-16 10:45:28.901  INFO 3756 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-16 10:45:28.979  INFO 3756 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-16 10:45:28.980  INFO 3756 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1457 ms
+2020-09-16 10:45:30.065  INFO 3756 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-16 10:45:30.159  INFO 3756 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-16 10:45:30.657  INFO 3756 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-16 10:45:30.689  INFO 3756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-16 10:45:30.697  INFO 3756 --- [restartedMain] com.chenxin.blog.BlogApplication         : Started BlogApplication in 3.776 seconds (JVM running for 4.843)
+2020-09-16 10:46:29.314  INFO 3756 --- [http-nio-0.0.0.0-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-16 10:46:29.314  INFO 3756 --- [http-nio-0.0.0.0-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-16 10:46:29.331  INFO 3756 --- [http-nio-0.0.0.0-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
+2020-09-16 10:46:29.361  INFO 3756 --- [http-nio-0.0.0.0-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://192.168.56.1:8080/', ip='192.168.56.1', classMethod='com.chenxin.blog.controller.IndexController.indexoage', args=[null, {}]}
+2020-09-16 10:46:30.263  INFO 3756 --- [http-nio-0.0.0.0-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-16 10:46:30.344 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.m.B.findBlogByPaging_COUNT         : ==>  Preparing: SELECT count(0) FROM cx_blog b LEFT JOIN cx_type y ON b.type_id = y.id LEFT JOIN cx_user u ON b.user_id = u.id WHERE b.isrecommend = 0
+2020-09-16 10:46:30.485 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.m.B.findBlogByPaging_COUNT         : ==> Parameters: 
+2020-09-16 10:46:30.592 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.m.B.findBlogByPaging_COUNT         : <==      Total: 1
+2020-09-16 10:46:30.595 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.m.BlogMapper.findBlogByPaging      : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag,b.description, b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,y.id y_id,y.name y_name,u.id u_id, u.petname, u.username, u.password, u.mail, u.type, u.headportrait u_headportrait, u.createtime u_createtime, u.updatetime u_updatetime FROM cx_blog b left join cx_type y on b.type_id=y.id left join cx_user u on b.user_id=u.id WHERE b.isrecommend=0 LIMIT ?
+2020-09-16 10:46:30.598 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.m.BlogMapper.findBlogByPaging      : ==> Parameters: 10(Integer)
+2020-09-16 10:46:30.622 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.m.BlogMapper.findBlogByPaging      : <==      Total: 5
+2020-09-16 10:46:30.640 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.mapper.TypeMapper.findByExample    : ==>  Preparing: SELECT y.id, y.NAME, COUNT(b.id) countBlog FROM cx_type y LEFT JOIN cx_blog b ON y.id = b.type_id WHERE b.isrecommend=0 GROUP BY id ORDER BY countBlog DESC limit 0,6
+2020-09-16 10:46:30.647 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.mapper.TypeMapper.findByExample    : ==> Parameters: 
+2020-09-16 10:46:30.653 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.mapper.TypeMapper.findByExample    : <==      Total: 2
+2020-09-16 10:46:30.657 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.blog.mapper.TagMapper.findByExample  : ==>  Preparing: SELECT t.id, t.NAME, COUNT( bt.blog_id ) countBlog FROM cx_tag t LEFT JOIN cx_blog_tag bt ON t.id = bt.tag_id LEFT JOIN cx_blog b ON b.id = bt.blog_id WHERE b.isrecommend = 0 GROUP BY id ORDER BY countBlog DESC limit 0,10
+2020-09-16 10:46:30.658 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.blog.mapper.TagMapper.findByExample  : ==> Parameters: 
+2020-09-16 10:46:30.672 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.blog.mapper.TagMapper.findByExample  : <==      Total: 5
+2020-09-16 10:46:30.676 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : ==>  Preparing: select id, title, content, firstPicture, flag, description,viewcount, isadmire, iscopyright, iscomment, isrecommend issue, createtime, updatetime, user_id, type_id from cx_blog order by updatetime DESC limit 0,10
+2020-09-16 10:46:30.677 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : ==> Parameters: 
+2020-09-16 10:46:30.681 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : <==      Total: 5
+2020-09-16 10:46:30.682  INFO 3756 --- [http-nio-0.0.0.0-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Return ------ index
+2020-09-16 10:46:30.683 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.blog.mapper.LogMapper.insertLog      : ==>  Preparing: insert into log values(?,?,?,?,?,?)
+2020-09-16 10:46:30.699 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.blog.mapper.LogMapper.insertLog      : ==> Parameters: null, http://192.168.56.1:8080/(String), 192.168.56.1(String), com.chenxin.blog.controller.IndexController.indexoage(String), null,{page=Page{count=true, pageNum=1, pageSize=10, startRow=0, endRow=10, total=5, pages=1, reasonable=false, pageSizeZero=false}, toptype=[Type{id=2, name='JAVA', blogs=[]}, Type{id=1, name='CSS', blogs=[]}], toptag=[Tag{id=1, name='mysql', Tag{id=6, name='mybaits', Tag{id=4, name='spring', Tag{id=2, name='大数据', Tag{id=8, name='python'], topblog=[Blog{id=19, title='mysql数据库的查询拉', content='# Spring Boot开发小而美的个人博客
+
+>  作者：李仁密
+
+
+
+**个人博客功能：**
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+**技术组合：**
+
+*  后端：Spring Boot + JPA + thymeleaf模板
+*  数据库：MySQL
+*  前端UI：Semantic UI框架
+
+**工具与环境：**
+
+*  IDEA
+*  Maven 3
+*  JDK 8
+*  Axure RP 8
+
+**课程内容模块：**
+
+*  需求分析与功能规划
+*  页面设计与开发
+*  技术框架搭建
+*  后端管理功能实现
+*  前端管理功能实现
+
+**你能学得什么？**
+
+*  基于Spring Boot的完整全栈式的开发套路
+*  Semantic UI框架的使用
+*  一套博客系统的源代码与设计
+
+## 1、需求与功能
+
+### 1.1 用户故事
+
+用户故事是敏捷框架中的一种开发方法。可以帮助开发者转换视角，以用户的角度更好的把握需求，从而实现具有商业价值的功能。
+
+>  用户故事最好是用户团队编写
+
+**用户故事模板**：
+
+-  As a (role of user), I want (some feature) so that (some business value).
+-  作为一个(某个角色) 使用者，我可以做(某个功能) 事情，如此可以有(某个商业价值) 的好处
+
+**关键点**：角色、功能、商业价值
+
+**举例**：
+
+-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成
+
+
+
+[编辑器 Markdown](https://pandao.github.io/editor.md/)
+
+[内容排版 typo.css](https://github.com/sofish/typo.css)
+
+[动画 animate.css](https://daneden.github.io/animate.css/)
+
+[代码高亮 prism](https://github.com/PrismJS/prism)
+
+[目录生成 Tocbot](https://tscanlin.github.io/tocbot/)
+
+[滚动侦测 waypoints](http://imakewebthings.com/waypoints/)
+
+[平滑滚动 jquery.scrollTo](https://github.com/flesler/jquery.scrollTo)
+
+[二维码生成 qrcode.js](https://davidshimjs.github.io/qrcodejs/)
+
+## 3、框架搭建
+
+>  [IDEA下载 https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
+
+### 3.1 构建与配置
+
+**1、引入Spring Boot模块：**
+
+*  web
+*  Thymeleaf
+*  JPA
+*  MySQL
+*  Aspects
+*  DevTools
+
+**2、application.yml配置**
+
+*  使用 thymeleaf 3
+
+   pom.xml:
+
+```xml
+<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+<thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+```
+
+
+  	application.yml:
+
+```yaml
+spring:
+  thymeleaf:
+    mode: HTML
+```
+
+*  数据库连接配置
+
+```yaml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+```
+
+*  日志配置
+
+   application.yml:
+
+```yaml
+logging:
+  level:
+    root: info
+    com.imcoding: debug
+  file: log/imcoding.log
+```
+
+​	logback-spring.xml：
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!--包含Spring boot对logback日志的默认配置-->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <!--重写了Spring Boot框架 org/springframework/boot/logging/logback/file-appender.xml 配置-->
+    <appender name="TIME_FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <!--保留历史日志一个月的时间-->
+            <maxHistory>30</maxHistory>
+            <!--
+            Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志
+            -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="TIME_FILE" />
+    </root>
+
+</configuration>
+<!--
+    1、继承Spring boot logback设置（可以在appliaction.yml或者application.properties设置logging.*属性）
+    2、重写了默认配置，设置日志文件大小在100MB时，按日期切分日志，切分后目录：
+
+        my.2017-08-01.0   80MB
+        my.2017-08-01.1   10MB
+        my.2017-08-02.0   56MB
+        my.2017-08-03.0   53MB
+        ......
+-->
+```
+
+*  生产环境与开发环境配置
+   *  application-dev.yml
+   *  application-pro.yml
+
+### 3.2 异常处理
+
+**1、定义错误页面**
+
+*  404
+*  500
+*  error
+
+**2、全局处理异常**
+
+统一处理异常：
+
+```java
+@ControllerAdvice
+public class ControllerExceptionHandler {
+
+    private final Logger logger = LoggerFactory.getLogger(ControllerExceptionHandler.class);
+    /**
+     * 异常处理
+     * @param request
+     * @param e
+     * @return
+     */
+    @ExceptionHandler({Exception.class})
+    public ModelAndView handleException(HttpServletRequest request, Exception e) throws Exception {
+
+        logger.error("Request URL : {} , Exception : {}", request.getRequestURL(), e);
+
+        if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
+            throw e;
+        }
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("url", request.getRequestURL());
+        mav.addObject("exception", e);
+        mav.setViewName("error/error");
+
+        return mav;
+    }
+}
+```
+
+
+
+错误页面异常信息显示处理：
+
+```html
+<div>
+    <div th:utext="'&lt;!--'" th:remove="tag"></div>
+    <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
+    <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
+    <ul th:remove="tag">
+        <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+    </ul>
+    <div th:utext="'--&gt;'" th:remove="tag"></div>
+</div>
+```
+
+
+
+**3、资源找不到异常**
+
+```java
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class NotFoundExcepiton extends RuntimeException {
+
+    public NotFoundExcepiton() {
+    }
+
+    public NotFoundExcepiton(String message) {
+        super(message);
+    }
+
+    public NotFoundExcepiton(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+```
+
+
+
+### 3.3 日志处理
+
+**1、记录日志内容**
+
+*  请求 url
+*  访问者 ip
+*  调用方法 classMethod
+*  参数 args
+*  返回内容
+
+**2、记录日志类：**
+
+```java
+@Aspect
+@Component
+public class LogAspect {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    /**
+     * 定义切面
+     */
+    @Pointcut("execution(* com.imcoding.web.*.*(..))")
+    public void log() {
+    }
+
+    @Before("log()")
+    public void doBefore(JoinPoint joinPoint) {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        String classMethod = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
+        ReqeustLog reqeustLog = new ReqeustLog(
+                request.getRequestURL().toString(),
+                request.getRemoteAddr(),
+                classMethod,
+                joinPoint.getArgs()
+        );
+        logger.info("Rquest  ----- {}",reqeustLog);
+    }
+
+    @After("log()")
+    public void doAfter() {
+        //logger.info("---------- doAfter 2 ----------");
+    }
+
+    @AfterReturning(returning = "result",pointcut = "log()")
+    public void doAtfertRturning(Object result) {
+        logger.info("Return ------ {}",result );
+    }
+
+
+    private class ReqeustLog {
+        private String url;
+        private String ip;
+        private String classMethod;
+        private Object[] args;
+
+        public ReqeustLog(String url, String ip, String classMethod, Object[] args) {
+            this.url = url;
+            this.ip = ip;
+            this.classMethod = classMethod;
+            this.args = args;
+        }
+
+        @Override
+        public String toString() {
+            return "ReqeustLog{" +
+                    "url='" + url + '\'' +
+                    ", ip='" + ip + '\'' +
+                    ", classMethod='" + classMethod + '\'' +
+                    ", args=" + Arrays.toString(args) +
+                    '}';
+        }
+    }
+
+}
+```
+
+
+
+### 3.4 页面处理
+
+
+
+**1、静态页面导入project**
+
+**2、thymeleaf布局**
+
+*  定义fragment
+*  使用fragment布局
+
+**3、错误页面美化**
+
+4、设计与规范
+
+### 4.1 实体设计
+
+**实体类：**
+
+*  博客 Blog
+*  博客分类 Type
+*  博客标签 Tag
+*  博客评论 Comment
+*  用户 User
+
+
+
+**实体关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/87092095.jpg)
+
+**评论类自关联关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/41296045.jpg)
+
+**Blog类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/38390041.jpg)
+
+**Type类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/22984471.jpg)
+
+**Tag类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/70860077.jpg)
+
+**Comment类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/77104424.jpg)
+
+
+
+**User类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/10367795.jpg)
+
+
+
+### 4.2 应用分层
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/64528736.jpg)
+
+### 4.3 命名约定
+
+**Service/DAO层命名约定：**
+
+*  获取单个对象的方法用get做前缀。
+*  获取多个对象的方法用list做前缀。
+*  获取统计值的方法用count做前缀。
+*  插入的方法用save(推荐)或insert做前缀。
+*  删除的方法用remove(推荐)或delete做前缀。
+*  修改的方法用update做前缀。
+
+
+
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 5、后台管理功能实现
+
+### 5.1 登录
+
+
+
+**1、构建登录页面和后台管理首页**
+
+**2、UserService和UserRepository**
+
+**3、LoginController实现登录**
+
+**4、MD5加密**
+
+**5、登录拦截器**
+
+### 5.2 分类管理
+
+
+
+**1、分类管理页面**
+
+**2、分类列表分页**
+
+````javascript
+{
+  "content":[
+    {"id":123,"title":"blog122","content":"this is blog content"},
+    {"id":122,"title":"blog121","content":"this is blog content"},
+    {"id":121,"title":"blog120","content":"this is blog content"},
+    {"id":120,"title":"blog119","content":"this is blog content"},
+    {"id":119,"title":"blog118","content":"this is blog content"},
+    {"id":118,"title":"blog117","content":"this is blog content"},
+    {"id":117,"title":"blog116","content":"this is blog content"},
+    {"id":116,"title":"blog115","content":"this is blog content"},
+    {"id":115,"title":"blog114","content":"this is blog content"},
+    {"id":114,"title":"blog113","content":"this is blog content"},
+    {"id":113,"title":"blog112","content":"this is blog content"},
+    {"id":112,"title":"blog111","content":"this is blog content"},
+    {"id":111,"title":"blog110","content":"this is blog content"},
+    {"id":110,"title":"blog109","content":"this is blog content"},
+    {"id":109,"title":"blog108","content":"this is blog content"}],
+  "last":false,
+  "totalPages":9,
+  "totalElements":123,
+  "size":15,
+  "number":0,
+  "first":true,
+  "sort":[{
+    "direction":"DESC",
+    "property":"id",
+    "ignoreCase":false,
+    "nullHandling":"NATIVE",
+    "ascending":false
+  }],
+  "numberOfElements":15
+}
+````
+
+
+
+**3、分类新增、修改、删除**
+
+### 5.3 标签管理
+
+### 5.4 博客管理
+
+
+
+**1、博客分页查询**
+
+**2、博客新增**
+
+**3、博客修改**
+
+**4、博客删除**
+
+## 6、前端展示功能实现
+
+### 6.1 首页展示
+
+
+
+**1、博客列表**
+
+**2、top分类**
+
+**3、top标签**
+
+**4、最新博客推荐**
+
+**5、博客详情**
+
+**1、Markdown 转换 HTML**
+
+*  [commonmark-java  https://github.com/atlassian/commonmark-java](https://github.com/atlassian/commonmark-java)
+*  pom.xml引用commonmark和扩展插件
+
+```xml
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-heading-anchor</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-gfm-tables</artifactId>
+   <version>0.10.0</version>
+</dependency>
+```
+
+
+
+**2、评论功能**
+
+
+
+*  评论信息提交与回复功能
+*  评论信息列表展示功能
+*  管理员回复评论功能
+
+
+### 6.2 分类页
+
+### 6.3 标签页
+
+### 6.4 归档页
+
+### 6.5 关于我', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='这个是关于springmvc描述的', viewcount=22, isadmire=0, iscopyright=0, isrecommend=null, iscomment=1, issue=0, createtime=Fri Sep 04 18:19:30 CST 2020, updatetime=Sun Sep 13 11:13:04 CST 2020, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=22, title='测试博客', content='sssss拉', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='ssss', viewcount=0, isadmire=0, iscopyright=0, isrecommend=null, iscomment=1, issue=0, createtime=Sat Sep 05 09:49:55 CST 2020, updatetime=Sat Sep 05 09:49:55 CST 2020, userId=1, typeId=1, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=21, title='java是什么', content='-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成拉', firstpicture='https://unsplash.it/800/450?image=1005', flag='转载', description='这个是一篇关于java的博客', viewcount=16, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 05 09:46:41 CST 2019, updatetime=Thu Sep 05 09:46:41 CST 2019, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=20, title='mysql数据库的查询拉', content='**3、分类新增、修改、删除**
+
+### 5.3 标签管理
+
+### 5.4 博客管理
+
+
+
+**1、博客分页查询**
+
+**2、博客新增**
+
+**3、博客修改**
+
+**4、博客删除**
+
+## 6、前端展示功能实现
+
+### 6.1 首页展示
+
+
+
+**1、博客列表**
+
+**2、top分类**
+
+**3、top标签**
+
+**4、最新博客推荐**
+
+**5、博客详情**
+
+**1、Markdown 转换 HTML**
+
+*  [commonmark-java  https://github.com/atlassian/commonmark-java](https://github.com/atlassian/commonmark-java)
+*  pom.xml引用commonmark和扩展插件
+
+```xml
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-heading-anchor</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-gfm-tables</artifactId>
+   <version>0.10.0</version>
+</dependency>
+```
+
+
+
+**2、评论功能**
+
+
+
+*  评论信息提交与回复功能
+*  评论信息列表展示功能
+*  管理员回复评论功能
+
+
+### 6.2 分类页
+
+### 6.3 标签页
+
+### 6.4 归档页
+
+### 6.5 关于我', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='这是一篇好博客', viewcount=1, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 05 09:27:27 CST 2019, updatetime=Thu Sep 05 09:44:20 CST 2019, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=24, title='JAVA是什么', content='##java是什么&sup3; &hearts;
+虹口区我说的浓氨水', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='我is单词vhuiowdecvb', viewcount=0, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 13 11:08:48 CST 2018, updatetime=Thu Sep 13 11:08:48 CST 2018, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}]}(String), index(String)
+2020-09-16 10:46:30.891 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.blog.mapper.LogMapper.insertLog      : <==    Updates: 1
+2020-09-16 10:46:31.907  INFO 3756 --- [http-nio-0.0.0.0-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://192.168.56.1:8080/fragments/newblog', ip='192.168.56.1', classMethod='com.chenxin.blog.controller.IndexController.newblogs', args=[{}]}
+2020-09-16 10:46:31.907 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : ==>  Preparing: select id, title, content, firstPicture, flag, description,viewcount, isadmire, iscopyright, iscomment, isrecommend issue, createtime, updatetime, user_id, type_id from cx_blog order by updatetime DESC limit 0,3
+2020-09-16 10:46:31.908 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : ==> Parameters: 
+2020-09-16 10:46:31.911 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : <==      Total: 3
+2020-09-16 10:46:31.911  INFO 3756 --- [http-nio-0.0.0.0-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Return ------ common/fragments :: newbloglist
+2020-09-16 10:46:31.912 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.blog.mapper.LogMapper.insertLog      : ==>  Preparing: insert into log values(?,?,?,?,?,?)
+2020-09-16 10:46:31.915 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.blog.mapper.LogMapper.insertLog      : ==> Parameters: null, http://192.168.56.1:8080/fragments/newblog(String), 192.168.56.1(String), com.chenxin.blog.controller.IndexController.newblogs(String), {newblogs=[Blog{id=19, title='mysql数据库的查询拉', content='# Spring Boot开发小而美的个人博客
+
+>  作者：李仁密
+
+
+
+**个人博客功能：**
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+**技术组合：**
+
+*  后端：Spring Boot + JPA + thymeleaf模板
+*  数据库：MySQL
+*  前端UI：Semantic UI框架
+
+**工具与环境：**
+
+*  IDEA
+*  Maven 3
+*  JDK 8
+*  Axure RP 8
+
+**课程内容模块：**
+
+*  需求分析与功能规划
+*  页面设计与开发
+*  技术框架搭建
+*  后端管理功能实现
+*  前端管理功能实现
+
+**你能学得什么？**
+
+*  基于Spring Boot的完整全栈式的开发套路
+*  Semantic UI框架的使用
+*  一套博客系统的源代码与设计
+
+## 1、需求与功能
+
+### 1.1 用户故事
+
+用户故事是敏捷框架中的一种开发方法。可以帮助开发者转换视角，以用户的角度更好的把握需求，从而实现具有商业价值的功能。
+
+>  用户故事最好是用户团队编写
+
+**用户故事模板**：
+
+-  As a (role of user), I want (some feature) so that (some business value).
+-  作为一个(某个角色) 使用者，我可以做(某个功能) 事情，如此可以有(某个商业价值) 的好处
+
+**关键点**：角色、功能、商业价值
+
+**举例**：
+
+-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成
+
+
+
+[编辑器 Markdown](https://pandao.github.io/editor.md/)
+
+[内容排版 typo.css](https://github.com/sofish/typo.css)
+
+[动画 animate.css](https://daneden.github.io/animate.css/)
+
+[代码高亮 prism](https://github.com/PrismJS/prism)
+
+[目录生成 Tocbot](https://tscanlin.github.io/tocbot/)
+
+[滚动侦测 waypoints](http://imakewebthings.com/waypoints/)
+
+[平滑滚动 jquery.scrollTo](https://github.com/flesler/jquery.scrollTo)
+
+[二维码生成 qrcode.js](https://davidshimjs.github.io/qrcodejs/)
+
+## 3、框架搭建
+
+>  [IDEA下载 https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
+
+### 3.1 构建与配置
+
+**1、引入Spring Boot模块：**
+
+*  web
+*  Thymeleaf
+*  JPA
+*  MySQL
+*  Aspects
+*  DevTools
+
+**2、application.yml配置**
+
+*  使用 thymeleaf 3
+
+   pom.xml:
+
+```xml
+<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+<thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+```
+
+
+  	application.yml:
+
+```yaml
+spring:
+  thymeleaf:
+    mode: HTML
+```
+
+*  数据库连接配置
+
+```yaml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+```
+
+*  日志配置
+
+   application.yml:
+
+```yaml
+logging:
+  level:
+    root: info
+    com.imcoding: debug
+  file: log/imcoding.log
+```
+
+​	logback-spring.xml：
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!--包含Spring boot对logback日志的默认配置-->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <!--重写了Spring Boot框架 org/springframework/boot/logging/logback/file-appender.xml 配置-->
+    <appender name="TIME_FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <!--保留历史日志一个月的时间-->
+            <maxHistory>30</maxHistory>
+            <!--
+            Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志
+            -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="TIME_FILE" />
+    </root>
+
+</configuration>
+<!--
+    1、继承Spring boot logback设置（可以在appliaction.yml或者application.properties设置logging.*属性）
+    2、重写了默认配置，设置日志文件大小在100MB时，按日期切分日志，切分后目录：
+
+        my.2017-08-01.0   80MB
+        my.2017-08-01.1   10MB
+        my.2017-08-02.0   56MB
+        my.2017-08-03.0   53MB
+        ......
+-->
+```
+
+*  生产环境与开发环境配置
+   *  application-dev.yml
+   *  application-pro.yml
+
+### 3.2 异常处理
+
+**1、定义错误页面**
+
+*  404
+*  500
+*  error
+
+**2、全局处理异常**
+
+统一处理异常：
+
+```java
+@ControllerAdvice
+public class ControllerExceptionHandler {
+
+    private final Logger logger = LoggerFactory.getLogger(ControllerExceptionHandler.class);
+    /**
+     * 异常处理
+     * @param request
+     * @param e
+     * @return
+     */
+    @ExceptionHandler({Exception.class})
+    public ModelAndView handleException(HttpServletRequest request, Exception e) throws Exception {
+
+        logger.error("Request URL : {} , Exception : {}", request.getRequestURL(), e);
+
+        if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
+            throw e;
+        }
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("url", request.getRequestURL());
+        mav.addObject("exception", e);
+        mav.setViewName("error/error");
+
+        return mav;
+    }
+}
+```
+
+
+
+错误页面异常信息显示处理：
+
+```html
+<div>
+    <div th:utext="'&lt;!--'" th:remove="tag"></div>
+    <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
+    <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
+    <ul th:remove="tag">
+        <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+    </ul>
+    <div th:utext="'--&gt;'" th:remove="tag"></div>
+</div>
+```
+
+
+
+**3、资源找不到异常**
+
+```java
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class NotFoundExcepiton extends RuntimeException {
+
+    public NotFoundExcepiton() {
+    }
+
+    public NotFoundExcepiton(String message) {
+        super(message);
+    }
+
+    public NotFoundExcepiton(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+```
+
+
+
+### 3.3 日志处理
+
+**1、记录日志内容**
+
+*  请求 url
+*  访问者 ip
+*  调用方法 classMethod
+*  参数 args
+*  返回内容
+
+**2、记录日志类：**
+
+```java
+@Aspect
+@Component
+public class LogAspect {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    /**
+     * 定义切面
+     */
+    @Pointcut("execution(* com.imcoding.web.*.*(..))")
+    public void log() {
+    }
+
+    @Before("log()")
+    public void doBefore(JoinPoint joinPoint) {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        String classMethod = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
+        ReqeustLog reqeustLog = new ReqeustLog(
+                request.getRequestURL().toString(),
+                request.getRemoteAddr(),
+                classMethod,
+                joinPoint.getArgs()
+        );
+        logger.info("Rquest  ----- {}",reqeustLog);
+    }
+
+    @After("log()")
+    public void doAfter() {
+        //logger.info("---------- doAfter 2 ----------");
+    }
+
+    @AfterReturning(returning = "result",pointcut = "log()")
+    public void doAtfertRturning(Object result) {
+        logger.info("Return ------ {}",result );
+    }
+
+
+    private class ReqeustLog {
+        private String url;
+        private String ip;
+        private String classMethod;
+        private Object[] args;
+
+        public ReqeustLog(String url, String ip, String classMethod, Object[] args) {
+            this.url = url;
+            this.ip = ip;
+            this.classMethod = classMethod;
+            this.args = args;
+        }
+
+        @Override
+        public String toString() {
+            return "ReqeustLog{" +
+                    "url='" + url + '\'' +
+                    ", ip='" + ip + '\'' +
+                    ", classMethod='" + classMethod + '\'' +
+                    ", args=" + Arrays.toString(args) +
+                    '}';
+        }
+    }
+
+}
+```
+
+
+
+### 3.4 页面处理
+
+
+
+**1、静态页面导入project**
+
+**2、thymeleaf布局**
+
+*  定义fragment
+*  使用fragment布局
+
+**3、错误页面美化**
+
+4、设计与规范
+
+### 4.1 实体设计
+
+**实体类：**
+
+*  博客 Blog
+*  博客分类 Type
+*  博客标签 Tag
+*  博客评论 Comment
+*  用户 User
+
+
+
+**实体关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/87092095.jpg)
+
+**评论类自关联关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/41296045.jpg)
+
+**Blog类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/38390041.jpg)
+
+**Type类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/22984471.jpg)
+
+**Tag类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/70860077.jpg)
+
+**Comment类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/77104424.jpg)
+
+
+
+**User类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/10367795.jpg)
+
+
+
+### 4.2 应用分层
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/64528736.jpg)
+
+### 4.3 命名约定
+
+**Service/DAO层命名约定：**
+
+*  获取单个对象的方法用get做前缀。
+*  获取多个对象的方法用list做前缀。
+*  获取统计值的方法用count做前缀。
+*  插入的方法用save(推荐)或insert做前缀。
+*  删除的方法用remove(推荐)或delete做前缀。
+*  修改的方法用update做前缀。
+
+
+
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 5、后台管理功能实现
+
+### 5.1 登录
+
+
+
+**1、构建登录页面和后台管理首页**
+
+**2、UserService和UserRepository**
+
+**3、LoginController实现登录**
+
+**4、MD5加密**
+
+**5、登录拦截器**
+
+### 5.2 分类管理
+
+
+
+**1、分类管理页面**
+
+**2、分类列表分页**
+
+````javascript
+{
+  "content":[
+    {"id":123,"title":"blog122","content":"this is blog content"},
+    {"id":122,"title":"blog121","content":"this is blog content"},
+    {"id":121,"title":"blog120","content":"this is blog content"},
+    {"id":120,"title":"blog119","content":"this is blog content"},
+    {"id":119,"title":"blog118","content":"this is blog content"},
+    {"id":118,"title":"blog117","content":"this is blog content"},
+    {"id":117,"title":"blog116","content":"this is blog content"},
+    {"id":116,"title":"blog115","content":"this is blog content"},
+    {"id":115,"title":"blog114","content":"this is blog content"},
+    {"id":114,"title":"blog113","content":"this is blog content"},
+    {"id":113,"title":"blog112","content":"this is blog content"},
+    {"id":112,"title":"blog111","content":"this is blog content"},
+    {"id":111,"title":"blog110","content":"this is blog content"},
+    {"id":110,"title":"blog109","content":"this is blog content"},
+    {"id":109,"title":"blog108","content":"this is blog content"}],
+  "last":false,
+  "totalPages":9,
+  "totalElements":123,
+  "size":15,
+  "number":0,
+  "first":true,
+  "sort":[{
+    "direction":"DESC",
+    "property":"id",
+    "ignoreCase":false,
+    "nullHandling":"NATIVE",
+    "ascending":false
+  }],
+  "numberOfElements":15
+}
+````
+
+
+
+**3、分类新增、修改、删除**
+
+### 5.3 标签管理
+
+### 5.4 博客管理
+
+
+
+**1、博客分页查询**
+
+**2、博客新增**
+
+**3、博客修改**
+
+**4、博客删除**
+
+## 6、前端展示功能实现
+
+### 6.1 首页展示
+
+
+
+**1、博客列表**
+
+**2、top分类**
+
+**3、top标签**
+
+**4、最新博客推荐**
+
+**5、博客详情**
+
+**1、Markdown 转换 HTML**
+
+*  [commonmark-java  https://github.com/atlassian/commonmark-java](https://github.com/atlassian/commonmark-java)
+*  pom.xml引用commonmark和扩展插件
+
+```xml
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-heading-anchor</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-gfm-tables</artifactId>
+   <version>0.10.0</version>
+</dependency>
+```
+
+
+
+**2、评论功能**
+
+
+
+*  评论信息提交与回复功能
+*  评论信息列表展示功能
+*  管理员回复评论功能
+
+
+### 6.2 分类页
+
+### 6.3 标签页
+
+### 6.4 归档页
+
+### 6.5 关于我', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='这个是关于springmvc描述的', viewcount=22, isadmire=0, iscopyright=0, isrecommend=null, iscomment=1, issue=0, createtime=Fri Sep 04 18:19:30 CST 2020, updatetime=Sun Sep 13 11:13:04 CST 2020, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=22, title='测试博客', content='sssss拉', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='ssss', viewcount=0, isadmire=0, iscopyright=0, isrecommend=null, iscomment=1, issue=0, createtime=Sat Sep 05 09:49:55 CST 2020, updatetime=Sat Sep 05 09:49:55 CST 2020, userId=1, typeId=1, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=21, title='java是什么', content='-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成拉', firstpicture='https://unsplash.it/800/450?image=1005', flag='转载', description='这个是一篇关于java的博客', viewcount=16, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 05 09:46:41 CST 2019, updatetime=Thu Sep 05 09:46:41 CST 2019, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}]}(String), common/fragments :: newbloglist(String)
+2020-09-16 10:46:32.090 DEBUG 3756 --- [http-nio-0.0.0.0-8080-exec-1] c.c.blog.mapper.LogMapper.insertLog      : <==    Updates: 1
+2020-09-16 10:48:03.886  INFO 3756 --- [Thread-12] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-16 10:48:03.981  INFO 3756 --- [Thread-12] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-09-16 10:48:04.247  INFO 3756 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 3756 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-16 10:48:04.247 DEBUG 3756 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-16 10:48:04.247  INFO 3756 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-16 10:48:04.440  INFO 3756 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-16 10:48:04.440  INFO 3756 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-16 10:48:04.454  INFO 3756 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-16 10:48:04.638  INFO 3756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-16 10:48:04.639  INFO 3756 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-16 10:48:04.639  INFO 3756 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-16 10:48:04.661  INFO 3756 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-16 10:48:04.661  INFO 3756 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 412 ms
+2020-09-16 10:48:05.084  INFO 3756 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-16 10:48:05.124  INFO 3756 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-16 10:48:05.475  INFO 3756 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-16 10:48:05.488  INFO 3756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-16 10:48:05.492  INFO 3756 --- [restartedMain] com.chenxin.blog.BlogApplication         : Started BlogApplication in 1.291 seconds (JVM running for 159.637)
+2020-09-16 10:48:05.493  INFO 3756 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-09-16 10:48:13.702  INFO 5776 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 5776 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-16 10:48:13.705 DEBUG 5776 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-16 10:48:13.705  INFO 5776 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-16 10:48:13.759  INFO 5776 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-16 10:48:13.759  INFO 5776 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-16 10:48:14.396  INFO 5776 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-16 10:48:14.397  INFO 5776 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-16 10:48:14.428  INFO 5776 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20ms. Found 0 Redis repository interfaces.
+2020-09-16 10:48:15.038  INFO 5776 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-16 10:48:15.044  INFO 5776 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-16 10:48:15.045  INFO 5776 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-16 10:48:15.134  INFO 5776 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-16 10:48:15.134  INFO 5776 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1375 ms
+2020-09-16 10:48:16.008  INFO 5776 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-16 10:48:16.086  INFO 5776 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-16 10:48:16.559  INFO 5776 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-16 10:48:16.591  INFO 5776 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-16 10:48:16.599  INFO 5776 --- [restartedMain] com.chenxin.blog.BlogApplication         : Started BlogApplication in 3.333 seconds (JVM running for 4.35)
+2020-09-16 10:48:33.488  INFO 5776 --- [http-nio-192.168.56.1-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-16 10:48:33.488  INFO 5776 --- [http-nio-192.168.56.1-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-16 10:48:33.496  INFO 5776 --- [http-nio-192.168.56.1-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-09-16 10:48:33.518  INFO 5776 --- [http-nio-192.168.56.1-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://192.168.56.1:8080/', ip='192.168.56.1', classMethod='com.chenxin.blog.controller.IndexController.indexoage', args=[null, {}]}
+2020-09-16 10:48:34.166  INFO 5776 --- [http-nio-192.168.56.1-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-16 10:48:34.193 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.b.m.B.findBlogByPaging_COUNT         : ==>  Preparing: SELECT count(0) FROM cx_blog b LEFT JOIN cx_type y ON b.type_id = y.id LEFT JOIN cx_user u ON b.user_id = u.id WHERE b.isrecommend = 0
+2020-09-16 10:48:34.277 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.b.m.B.findBlogByPaging_COUNT         : ==> Parameters: 
+2020-09-16 10:48:34.298 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.b.m.B.findBlogByPaging_COUNT         : <==      Total: 1
+2020-09-16 10:48:34.301 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.b.m.BlogMapper.findBlogByPaging      : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag,b.description, b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,y.id y_id,y.name y_name,u.id u_id, u.petname, u.username, u.password, u.mail, u.type, u.headportrait u_headportrait, u.createtime u_createtime, u.updatetime u_updatetime FROM cx_blog b left join cx_type y on b.type_id=y.id left join cx_user u on b.user_id=u.id WHERE b.isrecommend=0 LIMIT ?
+2020-09-16 10:48:34.304 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.b.m.BlogMapper.findBlogByPaging      : ==> Parameters: 10(Integer)
+2020-09-16 10:48:34.313 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.b.m.BlogMapper.findBlogByPaging      : <==      Total: 5
+2020-09-16 10:48:34.329 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.b.mapper.TypeMapper.findByExample    : ==>  Preparing: SELECT y.id, y.NAME, COUNT(b.id) countBlog FROM cx_type y LEFT JOIN cx_blog b ON y.id = b.type_id WHERE b.isrecommend=0 GROUP BY id ORDER BY countBlog DESC limit 0,6
+2020-09-16 10:48:34.332 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.b.mapper.TypeMapper.findByExample    : ==> Parameters: 
+2020-09-16 10:48:34.334 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.b.mapper.TypeMapper.findByExample    : <==      Total: 2
+2020-09-16 10:48:34.338 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.blog.mapper.TagMapper.findByExample  : ==>  Preparing: SELECT t.id, t.NAME, COUNT( bt.blog_id ) countBlog FROM cx_tag t LEFT JOIN cx_blog_tag bt ON t.id = bt.tag_id LEFT JOIN cx_blog b ON b.id = bt.blog_id WHERE b.isrecommend = 0 GROUP BY id ORDER BY countBlog DESC limit 0,10
+2020-09-16 10:48:34.339 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.blog.mapper.TagMapper.findByExample  : ==> Parameters: 
+2020-09-16 10:48:34.342 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.blog.mapper.TagMapper.findByExample  : <==      Total: 5
+2020-09-16 10:48:34.346 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : ==>  Preparing: select id, title, content, firstPicture, flag, description,viewcount, isadmire, iscopyright, iscomment, isrecommend issue, createtime, updatetime, user_id, type_id from cx_blog order by updatetime DESC limit 0,10
+2020-09-16 10:48:34.347 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : ==> Parameters: 
+2020-09-16 10:48:34.350 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.b.mapper.BlogMapper.selectByExample  : <==      Total: 5
+2020-09-16 10:48:34.351  INFO 5776 --- [http-nio-192.168.56.1-8080-exec-1] com.chenxin.blog.aspect.LogAspect        : Return ------ index
+2020-09-16 10:48:34.352 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.blog.mapper.LogMapper.insertLog      : ==>  Preparing: insert into log values(?,?,?,?,?,?)
+2020-09-16 10:48:34.355 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.blog.mapper.LogMapper.insertLog      : ==> Parameters: null, http://192.168.56.1:8080/(String), 192.168.56.1(String), com.chenxin.blog.controller.IndexController.indexoage(String), null,{page=Page{count=true, pageNum=1, pageSize=10, startRow=0, endRow=10, total=5, pages=1, reasonable=false, pageSizeZero=false}, toptype=[Type{id=2, name='JAVA', blogs=[]}, Type{id=1, name='CSS', blogs=[]}], toptag=[Tag{id=1, name='mysql', Tag{id=6, name='mybaits', Tag{id=4, name='spring', Tag{id=2, name='大数据', Tag{id=8, name='python'], topblog=[Blog{id=19, title='mysql数据库的查询拉', content='# Spring Boot开发小而美的个人博客
+
+>  作者：李仁密
+
+
+
+**个人博客功能：**
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+**技术组合：**
+
+*  后端：Spring Boot + JPA + thymeleaf模板
+*  数据库：MySQL
+*  前端UI：Semantic UI框架
+
+**工具与环境：**
+
+*  IDEA
+*  Maven 3
+*  JDK 8
+*  Axure RP 8
+
+**课程内容模块：**
+
+*  需求分析与功能规划
+*  页面设计与开发
+*  技术框架搭建
+*  后端管理功能实现
+*  前端管理功能实现
+
+**你能学得什么？**
+
+*  基于Spring Boot的完整全栈式的开发套路
+*  Semantic UI框架的使用
+*  一套博客系统的源代码与设计
+
+## 1、需求与功能
+
+### 1.1 用户故事
+
+用户故事是敏捷框架中的一种开发方法。可以帮助开发者转换视角，以用户的角度更好的把握需求，从而实现具有商业价值的功能。
+
+>  用户故事最好是用户团队编写
+
+**用户故事模板**：
+
+-  As a (role of user), I want (some feature) so that (some business value).
+-  作为一个(某个角色) 使用者，我可以做(某个功能) 事情，如此可以有(某个商业价值) 的好处
+
+**关键点**：角色、功能、商业价值
+
+**举例**：
+
+-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成
+
+
+
+[编辑器 Markdown](https://pandao.github.io/editor.md/)
+
+[内容排版 typo.css](https://github.com/sofish/typo.css)
+
+[动画 animate.css](https://daneden.github.io/animate.css/)
+
+[代码高亮 prism](https://github.com/PrismJS/prism)
+
+[目录生成 Tocbot](https://tscanlin.github.io/tocbot/)
+
+[滚动侦测 waypoints](http://imakewebthings.com/waypoints/)
+
+[平滑滚动 jquery.scrollTo](https://github.com/flesler/jquery.scrollTo)
+
+[二维码生成 qrcode.js](https://davidshimjs.github.io/qrcodejs/)
+
+## 3、框架搭建
+
+>  [IDEA下载 https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
+
+### 3.1 构建与配置
+
+**1、引入Spring Boot模块：**
+
+*  web
+*  Thymeleaf
+*  JPA
+*  MySQL
+*  Aspects
+*  DevTools
+
+**2、application.yml配置**
+
+*  使用 thymeleaf 3
+
+   pom.xml:
+
+```xml
+<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+<thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+```
+
+
+  	application.yml:
+
+```yaml
+spring:
+  thymeleaf:
+    mode: HTML
+```
+
+*  数据库连接配置
+
+```yaml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+```
+
+*  日志配置
+
+   application.yml:
+
+```yaml
+logging:
+  level:
+    root: info
+    com.imcoding: debug
+  file: log/imcoding.log
+```
+
+​	logback-spring.xml：
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!--包含Spring boot对logback日志的默认配置-->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <!--重写了Spring Boot框架 org/springframework/boot/logging/logback/file-appender.xml 配置-->
+    <appender name="TIME_FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <!--保留历史日志一个月的时间-->
+            <maxHistory>30</maxHistory>
+            <!--
+            Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志
+            -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="TIME_FILE" />
+    </root>
+
+</configuration>
+<!--
+    1、继承Spring boot logback设置（可以在appliaction.yml或者application.properties设置logging.*属性）
+    2、重写了默认配置，设置日志文件大小在100MB时，按日期切分日志，切分后目录：
+
+        my.2017-08-01.0   80MB
+        my.2017-08-01.1   10MB
+        my.2017-08-02.0   56MB
+        my.2017-08-03.0   53MB
+        ......
+-->
+```
+
+*  生产环境与开发环境配置
+   *  application-dev.yml
+   *  application-pro.yml
+
+### 3.2 异常处理
+
+**1、定义错误页面**
+
+*  404
+*  500
+*  error
+
+**2、全局处理异常**
+
+统一处理异常：
+
+```java
+@ControllerAdvice
+public class ControllerExceptionHandler {
+
+    private final Logger logger = LoggerFactory.getLogger(ControllerExceptionHandler.class);
+    /**
+     * 异常处理
+     * @param request
+     * @param e
+     * @return
+     */
+    @ExceptionHandler({Exception.class})
+    public ModelAndView handleException(HttpServletRequest request, Exception e) throws Exception {
+
+        logger.error("Request URL : {} , Exception : {}", request.getRequestURL(), e);
+
+        if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
+            throw e;
+        }
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("url", request.getRequestURL());
+        mav.addObject("exception", e);
+        mav.setViewName("error/error");
+
+        return mav;
+    }
+}
+```
+
+
+
+错误页面异常信息显示处理：
+
+```html
+<div>
+    <div th:utext="'&lt;!--'" th:remove="tag"></div>
+    <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
+    <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
+    <ul th:remove="tag">
+        <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+    </ul>
+    <div th:utext="'--&gt;'" th:remove="tag"></div>
+</div>
+```
+
+
+
+**3、资源找不到异常**
+
+```java
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class NotFoundExcepiton extends RuntimeException {
+
+    public NotFoundExcepiton() {
+    }
+
+    public NotFoundExcepiton(String message) {
+        super(message);
+    }
+
+    public NotFoundExcepiton(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+```
+
+
+
+### 3.3 日志处理
+
+**1、记录日志内容**
+
+*  请求 url
+*  访问者 ip
+*  调用方法 classMethod
+*  参数 args
+*  返回内容
+
+**2、记录日志类：**
+
+```java
+@Aspect
+@Component
+public class LogAspect {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    /**
+     * 定义切面
+     */
+    @Pointcut("execution(* com.imcoding.web.*.*(..))")
+    public void log() {
+    }
+
+    @Before("log()")
+    public void doBefore(JoinPoint joinPoint) {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        String classMethod = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
+        ReqeustLog reqeustLog = new ReqeustLog(
+                request.getRequestURL().toString(),
+                request.getRemoteAddr(),
+                classMethod,
+                joinPoint.getArgs()
+        );
+        logger.info("Rquest  ----- {}",reqeustLog);
+    }
+
+    @After("log()")
+    public void doAfter() {
+        //logger.info("---------- doAfter 2 ----------");
+    }
+
+    @AfterReturning(returning = "result",pointcut = "log()")
+    public void doAtfertRturning(Object result) {
+        logger.info("Return ------ {}",result );
+    }
+
+
+    private class ReqeustLog {
+        private String url;
+        private String ip;
+        private String classMethod;
+        private Object[] args;
+
+        public ReqeustLog(String url, String ip, String classMethod, Object[] args) {
+            this.url = url;
+            this.ip = ip;
+            this.classMethod = classMethod;
+            this.args = args;
+        }
+
+        @Override
+        public String toString() {
+            return "ReqeustLog{" +
+                    "url='" + url + '\'' +
+                    ", ip='" + ip + '\'' +
+                    ", classMethod='" + classMethod + '\'' +
+                    ", args=" + Arrays.toString(args) +
+                    '}';
+        }
+    }
+
+}
+```
+
+
+
+### 3.4 页面处理
+
+
+
+**1、静态页面导入project**
+
+**2、thymeleaf布局**
+
+*  定义fragment
+*  使用fragment布局
+
+**3、错误页面美化**
+
+4、设计与规范
+
+### 4.1 实体设计
+
+**实体类：**
+
+*  博客 Blog
+*  博客分类 Type
+*  博客标签 Tag
+*  博客评论 Comment
+*  用户 User
+
+
+
+**实体关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/87092095.jpg)
+
+**评论类自关联关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/41296045.jpg)
+
+**Blog类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/38390041.jpg)
+
+**Type类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/22984471.jpg)
+
+**Tag类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/70860077.jpg)
+
+**Comment类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/77104424.jpg)
+
+
+
+**User类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/10367795.jpg)
+
+
+
+### 4.2 应用分层
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/64528736.jpg)
+
+### 4.3 命名约定
+
+**Service/DAO层命名约定：**
+
+*  获取单个对象的方法用get做前缀。
+*  获取多个对象的方法用list做前缀。
+*  获取统计值的方法用count做前缀。
+*  插入的方法用save(推荐)或insert做前缀。
+*  删除的方法用remove(推荐)或delete做前缀。
+*  修改的方法用update做前缀。
+
+
+
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 5、后台管理功能实现
+
+### 5.1 登录
+
+
+
+**1、构建登录页面和后台管理首页**
+
+**2、UserService和UserRepository**
+
+**3、LoginController实现登录**
+
+**4、MD5加密**
+
+**5、登录拦截器**
+
+### 5.2 分类管理
+
+
+
+**1、分类管理页面**
+
+**2、分类列表分页**
+
+````javascript
+{
+  "content":[
+    {"id":123,"title":"blog122","content":"this is blog content"},
+    {"id":122,"title":"blog121","content":"this is blog content"},
+    {"id":121,"title":"blog120","content":"this is blog content"},
+    {"id":120,"title":"blog119","content":"this is blog content"},
+    {"id":119,"title":"blog118","content":"this is blog content"},
+    {"id":118,"title":"blog117","content":"this is blog content"},
+    {"id":117,"title":"blog116","content":"this is blog content"},
+    {"id":116,"title":"blog115","content":"this is blog content"},
+    {"id":115,"title":"blog114","content":"this is blog content"},
+    {"id":114,"title":"blog113","content":"this is blog content"},
+    {"id":113,"title":"blog112","content":"this is blog content"},
+    {"id":112,"title":"blog111","content":"this is blog content"},
+    {"id":111,"title":"blog110","content":"this is blog content"},
+    {"id":110,"title":"blog109","content":"this is blog content"},
+    {"id":109,"title":"blog108","content":"this is blog content"}],
+  "last":false,
+  "totalPages":9,
+  "totalElements":123,
+  "size":15,
+  "number":0,
+  "first":true,
+  "sort":[{
+    "direction":"DESC",
+    "property":"id",
+    "ignoreCase":false,
+    "nullHandling":"NATIVE",
+    "ascending":false
+  }],
+  "numberOfElements":15
+}
+````
+
+
+
+**3、分类新增、修改、删除**
+
+### 5.3 标签管理
+
+### 5.4 博客管理
+
+
+
+**1、博客分页查询**
+
+**2、博客新增**
+
+**3、博客修改**
+
+**4、博客删除**
+
+## 6、前端展示功能实现
+
+### 6.1 首页展示
+
+
+
+**1、博客列表**
+
+**2、top分类**
+
+**3、top标签**
+
+**4、最新博客推荐**
+
+**5、博客详情**
+
+**1、Markdown 转换 HTML**
+
+*  [commonmark-java  https://github.com/atlassian/commonmark-java](https://github.com/atlassian/commonmark-java)
+*  pom.xml引用commonmark和扩展插件
+
+```xml
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-heading-anchor</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-gfm-tables</artifactId>
+   <version>0.10.0</version>
+</dependency>
+```
+
+
+
+**2、评论功能**
+
+
+
+*  评论信息提交与回复功能
+*  评论信息列表展示功能
+*  管理员回复评论功能
+
+
+### 6.2 分类页
+
+### 6.3 标签页
+
+### 6.4 归档页
+
+### 6.5 关于我', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='这个是关于springmvc描述的', viewcount=22, isadmire=0, iscopyright=0, isrecommend=null, iscomment=1, issue=0, createtime=Fri Sep 04 18:19:30 CST 2020, updatetime=Sun Sep 13 11:13:04 CST 2020, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=22, title='测试博客', content='sssss拉', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='ssss', viewcount=0, isadmire=0, iscopyright=0, isrecommend=null, iscomment=1, issue=0, createtime=Sat Sep 05 09:49:55 CST 2020, updatetime=Sat Sep 05 09:49:55 CST 2020, userId=1, typeId=1, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=21, title='java是什么', content='-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成拉', firstpicture='https://unsplash.it/800/450?image=1005', flag='转载', description='这个是一篇关于java的博客', viewcount=16, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 05 09:46:41 CST 2019, updatetime=Thu Sep 05 09:46:41 CST 2019, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=20, title='mysql数据库的查询拉', content='**3、分类新增、修改、删除**
+
+### 5.3 标签管理
+
+### 5.4 博客管理
+
+
+
+**1、博客分页查询**
+
+**2、博客新增**
+
+**3、博客修改**
+
+**4、博客删除**
+
+## 6、前端展示功能实现
+
+### 6.1 首页展示
+
+
+
+**1、博客列表**
+
+**2、top分类**
+
+**3、top标签**
+
+**4、最新博客推荐**
+
+**5、博客详情**
+
+**1、Markdown 转换 HTML**
+
+*  [commonmark-java  https://github.com/atlassian/commonmark-java](https://github.com/atlassian/commonmark-java)
+*  pom.xml引用commonmark和扩展插件
+
+```xml
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-heading-anchor</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-gfm-tables</artifactId>
+   <version>0.10.0</version>
+</dependency>
+```
+
+
+
+**2、评论功能**
+
+
+
+*  评论信息提交与回复功能
+*  评论信息列表展示功能
+*  管理员回复评论功能
+
+
+### 6.2 分类页
+
+### 6.3 标签页
+
+### 6.4 归档页
+
+### 6.5 关于我', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='这是一篇好博客', viewcount=1, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 05 09:27:27 CST 2019, updatetime=Thu Sep 05 09:44:20 CST 2019, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=24, title='JAVA是什么', content='##java是什么&sup3; &hearts;
+虹口区我说的浓氨水', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='我is单词vhuiowdecvb', viewcount=0, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 13 11:08:48 CST 2018, updatetime=Thu Sep 13 11:08:48 CST 2018, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}]}(String), index(String)
+2020-09-16 10:48:34.464 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-1] c.c.blog.mapper.LogMapper.insertLog      : <==    Updates: 1
+2020-09-16 10:48:35.287  INFO 5776 --- [http-nio-192.168.56.1-8080-exec-5] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://192.168.56.1:8080/fragments/newblog', ip='192.168.56.1', classMethod='com.chenxin.blog.controller.IndexController.newblogs', args=[{}]}
+2020-09-16 10:48:35.288 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-5] c.c.b.mapper.BlogMapper.selectByExample  : ==>  Preparing: select id, title, content, firstPicture, flag, description,viewcount, isadmire, iscopyright, iscomment, isrecommend issue, createtime, updatetime, user_id, type_id from cx_blog order by updatetime DESC limit 0,3
+2020-09-16 10:48:35.290 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-5] c.c.b.mapper.BlogMapper.selectByExample  : ==> Parameters: 
+2020-09-16 10:48:35.297 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-5] c.c.b.mapper.BlogMapper.selectByExample  : <==      Total: 3
+2020-09-16 10:48:35.299  INFO 5776 --- [http-nio-192.168.56.1-8080-exec-5] com.chenxin.blog.aspect.LogAspect        : Return ------ common/fragments :: newbloglist
+2020-09-16 10:48:35.299 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-5] c.c.blog.mapper.LogMapper.insertLog      : ==>  Preparing: insert into log values(?,?,?,?,?,?)
+2020-09-16 10:48:35.302 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-5] c.c.blog.mapper.LogMapper.insertLog      : ==> Parameters: null, http://192.168.56.1:8080/fragments/newblog(String), 192.168.56.1(String), com.chenxin.blog.controller.IndexController.newblogs(String), {newblogs=[Blog{id=19, title='mysql数据库的查询拉', content='# Spring Boot开发小而美的个人博客
+
+>  作者：李仁密
+
+
+
+**个人博客功能：**
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+**技术组合：**
+
+*  后端：Spring Boot + JPA + thymeleaf模板
+*  数据库：MySQL
+*  前端UI：Semantic UI框架
+
+**工具与环境：**
+
+*  IDEA
+*  Maven 3
+*  JDK 8
+*  Axure RP 8
+
+**课程内容模块：**
+
+*  需求分析与功能规划
+*  页面设计与开发
+*  技术框架搭建
+*  后端管理功能实现
+*  前端管理功能实现
+
+**你能学得什么？**
+
+*  基于Spring Boot的完整全栈式的开发套路
+*  Semantic UI框架的使用
+*  一套博客系统的源代码与设计
+
+## 1、需求与功能
+
+### 1.1 用户故事
+
+用户故事是敏捷框架中的一种开发方法。可以帮助开发者转换视角，以用户的角度更好的把握需求，从而实现具有商业价值的功能。
+
+>  用户故事最好是用户团队编写
+
+**用户故事模板**：
+
+-  As a (role of user), I want (some feature) so that (some business value).
+-  作为一个(某个角色) 使用者，我可以做(某个功能) 事情，如此可以有(某个商业价值) 的好处
+
+**关键点**：角色、功能、商业价值
+
+**举例**：
+
+-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成
+
+
+
+[编辑器 Markdown](https://pandao.github.io/editor.md/)
+
+[内容排版 typo.css](https://github.com/sofish/typo.css)
+
+[动画 animate.css](https://daneden.github.io/animate.css/)
+
+[代码高亮 prism](https://github.com/PrismJS/prism)
+
+[目录生成 Tocbot](https://tscanlin.github.io/tocbot/)
+
+[滚动侦测 waypoints](http://imakewebthings.com/waypoints/)
+
+[平滑滚动 jquery.scrollTo](https://github.com/flesler/jquery.scrollTo)
+
+[二维码生成 qrcode.js](https://davidshimjs.github.io/qrcodejs/)
+
+## 3、框架搭建
+
+>  [IDEA下载 https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
+
+### 3.1 构建与配置
+
+**1、引入Spring Boot模块：**
+
+*  web
+*  Thymeleaf
+*  JPA
+*  MySQL
+*  Aspects
+*  DevTools
+
+**2、application.yml配置**
+
+*  使用 thymeleaf 3
+
+   pom.xml:
+
+```xml
+<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+<thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+```
+
+
+  	application.yml:
+
+```yaml
+spring:
+  thymeleaf:
+    mode: HTML
+```
+
+*  数据库连接配置
+
+```yaml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+```
+
+*  日志配置
+
+   application.yml:
+
+```yaml
+logging:
+  level:
+    root: info
+    com.imcoding: debug
+  file: log/imcoding.log
+```
+
+​	logback-spring.xml：
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!--包含Spring boot对logback日志的默认配置-->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <!--重写了Spring Boot框架 org/springframework/boot/logging/logback/file-appender.xml 配置-->
+    <appender name="TIME_FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <!--保留历史日志一个月的时间-->
+            <maxHistory>30</maxHistory>
+            <!--
+            Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志
+            -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="TIME_FILE" />
+    </root>
+
+</configuration>
+<!--
+    1、继承Spring boot logback设置（可以在appliaction.yml或者application.properties设置logging.*属性）
+    2、重写了默认配置，设置日志文件大小在100MB时，按日期切分日志，切分后目录：
+
+        my.2017-08-01.0   80MB
+        my.2017-08-01.1   10MB
+        my.2017-08-02.0   56MB
+        my.2017-08-03.0   53MB
+        ......
+-->
+```
+
+*  生产环境与开发环境配置
+   *  application-dev.yml
+   *  application-pro.yml
+
+### 3.2 异常处理
+
+**1、定义错误页面**
+
+*  404
+*  500
+*  error
+
+**2、全局处理异常**
+
+统一处理异常：
+
+```java
+@ControllerAdvice
+public class ControllerExceptionHandler {
+
+    private final Logger logger = LoggerFactory.getLogger(ControllerExceptionHandler.class);
+    /**
+     * 异常处理
+     * @param request
+     * @param e
+     * @return
+     */
+    @ExceptionHandler({Exception.class})
+    public ModelAndView handleException(HttpServletRequest request, Exception e) throws Exception {
+
+        logger.error("Request URL : {} , Exception : {}", request.getRequestURL(), e);
+
+        if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
+            throw e;
+        }
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("url", request.getRequestURL());
+        mav.addObject("exception", e);
+        mav.setViewName("error/error");
+
+        return mav;
+    }
+}
+```
+
+
+
+错误页面异常信息显示处理：
+
+```html
+<div>
+    <div th:utext="'&lt;!--'" th:remove="tag"></div>
+    <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
+    <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
+    <ul th:remove="tag">
+        <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+    </ul>
+    <div th:utext="'--&gt;'" th:remove="tag"></div>
+</div>
+```
+
+
+
+**3、资源找不到异常**
+
+```java
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class NotFoundExcepiton extends RuntimeException {
+
+    public NotFoundExcepiton() {
+    }
+
+    public NotFoundExcepiton(String message) {
+        super(message);
+    }
+
+    public NotFoundExcepiton(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+```
+
+
+
+### 3.3 日志处理
+
+**1、记录日志内容**
+
+*  请求 url
+*  访问者 ip
+*  调用方法 classMethod
+*  参数 args
+*  返回内容
+
+**2、记录日志类：**
+
+```java
+@Aspect
+@Component
+public class LogAspect {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    /**
+     * 定义切面
+     */
+    @Pointcut("execution(* com.imcoding.web.*.*(..))")
+    public void log() {
+    }
+
+    @Before("log()")
+    public void doBefore(JoinPoint joinPoint) {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        String classMethod = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
+        ReqeustLog reqeustLog = new ReqeustLog(
+                request.getRequestURL().toString(),
+                request.getRemoteAddr(),
+                classMethod,
+                joinPoint.getArgs()
+        );
+        logger.info("Rquest  ----- {}",reqeustLog);
+    }
+
+    @After("log()")
+    public void doAfter() {
+        //logger.info("---------- doAfter 2 ----------");
+    }
+
+    @AfterReturning(returning = "result",pointcut = "log()")
+    public void doAtfertRturning(Object result) {
+        logger.info("Return ------ {}",result );
+    }
+
+
+    private class ReqeustLog {
+        private String url;
+        private String ip;
+        private String classMethod;
+        private Object[] args;
+
+        public ReqeustLog(String url, String ip, String classMethod, Object[] args) {
+            this.url = url;
+            this.ip = ip;
+            this.classMethod = classMethod;
+            this.args = args;
+        }
+
+        @Override
+        public String toString() {
+            return "ReqeustLog{" +
+                    "url='" + url + '\'' +
+                    ", ip='" + ip + '\'' +
+                    ", classMethod='" + classMethod + '\'' +
+                    ", args=" + Arrays.toString(args) +
+                    '}';
+        }
+    }
+
+}
+```
+
+
+
+### 3.4 页面处理
+
+
+
+**1、静态页面导入project**
+
+**2、thymeleaf布局**
+
+*  定义fragment
+*  使用fragment布局
+
+**3、错误页面美化**
+
+4、设计与规范
+
+### 4.1 实体设计
+
+**实体类：**
+
+*  博客 Blog
+*  博客分类 Type
+*  博客标签 Tag
+*  博客评论 Comment
+*  用户 User
+
+
+
+**实体关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/87092095.jpg)
+
+**评论类自关联关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/41296045.jpg)
+
+**Blog类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/38390041.jpg)
+
+**Type类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/22984471.jpg)
+
+**Tag类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/70860077.jpg)
+
+**Comment类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/77104424.jpg)
+
+
+
+**User类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/10367795.jpg)
+
+
+
+### 4.2 应用分层
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/64528736.jpg)
+
+### 4.3 命名约定
+
+**Service/DAO层命名约定：**
+
+*  获取单个对象的方法用get做前缀。
+*  获取多个对象的方法用list做前缀。
+*  获取统计值的方法用count做前缀。
+*  插入的方法用save(推荐)或insert做前缀。
+*  删除的方法用remove(推荐)或delete做前缀。
+*  修改的方法用update做前缀。
+
+
+
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 5、后台管理功能实现
+
+### 5.1 登录
+
+
+
+**1、构建登录页面和后台管理首页**
+
+**2、UserService和UserRepository**
+
+**3、LoginController实现登录**
+
+**4、MD5加密**
+
+**5、登录拦截器**
+
+### 5.2 分类管理
+
+
+
+**1、分类管理页面**
+
+**2、分类列表分页**
+
+````javascript
+{
+  "content":[
+    {"id":123,"title":"blog122","content":"this is blog content"},
+    {"id":122,"title":"blog121","content":"this is blog content"},
+    {"id":121,"title":"blog120","content":"this is blog content"},
+    {"id":120,"title":"blog119","content":"this is blog content"},
+    {"id":119,"title":"blog118","content":"this is blog content"},
+    {"id":118,"title":"blog117","content":"this is blog content"},
+    {"id":117,"title":"blog116","content":"this is blog content"},
+    {"id":116,"title":"blog115","content":"this is blog content"},
+    {"id":115,"title":"blog114","content":"this is blog content"},
+    {"id":114,"title":"blog113","content":"this is blog content"},
+    {"id":113,"title":"blog112","content":"this is blog content"},
+    {"id":112,"title":"blog111","content":"this is blog content"},
+    {"id":111,"title":"blog110","content":"this is blog content"},
+    {"id":110,"title":"blog109","content":"this is blog content"},
+    {"id":109,"title":"blog108","content":"this is blog content"}],
+  "last":false,
+  "totalPages":9,
+  "totalElements":123,
+  "size":15,
+  "number":0,
+  "first":true,
+  "sort":[{
+    "direction":"DESC",
+    "property":"id",
+    "ignoreCase":false,
+    "nullHandling":"NATIVE",
+    "ascending":false
+  }],
+  "numberOfElements":15
+}
+````
+
+
+
+**3、分类新增、修改、删除**
+
+### 5.3 标签管理
+
+### 5.4 博客管理
+
+
+
+**1、博客分页查询**
+
+**2、博客新增**
+
+**3、博客修改**
+
+**4、博客删除**
+
+## 6、前端展示功能实现
+
+### 6.1 首页展示
+
+
+
+**1、博客列表**
+
+**2、top分类**
+
+**3、top标签**
+
+**4、最新博客推荐**
+
+**5、博客详情**
+
+**1、Markdown 转换 HTML**
+
+*  [commonmark-java  https://github.com/atlassian/commonmark-java](https://github.com/atlassian/commonmark-java)
+*  pom.xml引用commonmark和扩展插件
+
+```xml
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-heading-anchor</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-gfm-tables</artifactId>
+   <version>0.10.0</version>
+</dependency>
+```
+
+
+
+**2、评论功能**
+
+
+
+*  评论信息提交与回复功能
+*  评论信息列表展示功能
+*  管理员回复评论功能
+
+
+### 6.2 分类页
+
+### 6.3 标签页
+
+### 6.4 归档页
+
+### 6.5 关于我', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='这个是关于springmvc描述的', viewcount=22, isadmire=0, iscopyright=0, isrecommend=null, iscomment=1, issue=0, createtime=Fri Sep 04 18:19:30 CST 2020, updatetime=Sun Sep 13 11:13:04 CST 2020, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=22, title='测试博客', content='sssss拉', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='ssss', viewcount=0, isadmire=0, iscopyright=0, isrecommend=null, iscomment=1, issue=0, createtime=Sat Sep 05 09:49:55 CST 2020, updatetime=Sat Sep 05 09:49:55 CST 2020, userId=1, typeId=1, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=21, title='java是什么', content='-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成拉', firstpicture='https://unsplash.it/800/450?image=1005', flag='转载', description='这个是一篇关于java的博客', viewcount=16, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 05 09:46:41 CST 2019, updatetime=Thu Sep 05 09:46:41 CST 2019, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}]}(String), common/fragments :: newbloglist(String)
+2020-09-16 10:48:35.355 DEBUG 5776 --- [http-nio-192.168.56.1-8080-exec-5] c.c.blog.mapper.LogMapper.insertLog      : <==    Updates: 1
+2020-09-16 11:01:11.252  INFO 5776 --- [Thread-12] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-16 11:01:11.467  INFO 5776 --- [Thread-12] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-09-16 11:01:11.920  INFO 5776 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 5776 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-16 11:01:11.921 DEBUG 5776 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-16 11:01:11.921  INFO 5776 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-16 11:01:13.485  INFO 5776 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-16 11:01:13.486  INFO 5776 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-16 11:01:13.517  INFO 5776 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30ms. Found 0 Redis repository interfaces.
+2020-09-16 11:01:13.609  WARN 5776 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+2020-09-16 11:01:13.637  INFO 5776 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-16 11:01:13.685 ERROR 5776 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.chenxin.blog.BlogApplication.main(BlogApplication.java:17)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:212)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:177)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:158)
+	... 14 common frames omitted
+Caused by: java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.boot.web.servlet.server.AbstractServletWebServerFactory.checkContextPath(AbstractServletWebServerFactory.java:133)
+	at org.springframework.boot.web.servlet.server.AbstractServletWebServerFactory.setContextPath(AbstractServletWebServerFactory.java:122)
+	at org.springframework.boot.context.properties.PropertyMapper$Source.to(PropertyMapper.java:316)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryCustomizer.customize(ServletWebServerFactoryCustomizer.java:54)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryCustomizer.customize(ServletWebServerFactoryCustomizer.java:35)
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.lambda$postProcessBeforeInitialization$0(WebServerFactoryCustomizerBeanPostProcessor.java:72)
+	at org.springframework.boot.util.LambdaSafe$Callbacks.lambda$null$0(LambdaSafe.java:287)
+	at org.springframework.boot.util.LambdaSafe$LambdaSafeCallback.invoke(LambdaSafe.java:159)
+	at org.springframework.boot.util.LambdaSafe$Callbacks.lambda$invoke$1(LambdaSafe.java:286)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1082)
+	at org.springframework.boot.util.LambdaSafe$Callbacks.invoke(LambdaSafe.java:286)
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.postProcessBeforeInitialization(WebServerFactoryCustomizerBeanPostProcessor.java:72)
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.postProcessBeforeInitialization(WebServerFactoryCustomizerBeanPostProcessor.java:58)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	... 22 common frames omitted
+
+2020-09-16 11:03:17.902  INFO 5776 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 5776 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-16 11:03:17.902 DEBUG 5776 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-16 11:03:17.902  INFO 5776 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-16 11:03:18.237  INFO 5776 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-16 11:03:18.238  INFO 5776 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-16 11:03:18.253  INFO 5776 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-16 11:03:18.355  WARN 5776 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+2020-09-16 11:03:18.359  INFO 5776 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-16 11:03:18.360 ERROR 5776 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.chenxin.blog.BlogApplication.main(BlogApplication.java:17)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:212)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:177)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:158)
+	... 14 common frames omitted
+Caused by: java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.boot.web.servlet.server.AbstractServletWebServerFactory.checkContextPath(AbstractServletWebServerFactory.java:133)
+	at org.springframework.boot.web.servlet.server.AbstractServletWebServerFactory.setContextPath(AbstractServletWebServerFactory.java:122)
+	at org.springframework.boot.context.properties.PropertyMapper$Source.to(PropertyMapper.java:316)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryCustomizer.customize(ServletWebServerFactoryCustomizer.java:54)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryCustomizer.customize(ServletWebServerFactoryCustomizer.java:35)
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.lambda$postProcessBeforeInitialization$0(WebServerFactoryCustomizerBeanPostProcessor.java:72)
+	at org.springframework.boot.util.LambdaSafe$Callbacks.lambda$null$0(LambdaSafe.java:287)
+	at org.springframework.boot.util.LambdaSafe$LambdaSafeCallback.invoke(LambdaSafe.java:159)
+	at org.springframework.boot.util.LambdaSafe$Callbacks.lambda$invoke$1(LambdaSafe.java:286)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1082)
+	at org.springframework.boot.util.LambdaSafe$Callbacks.invoke(LambdaSafe.java:286)
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.postProcessBeforeInitialization(WebServerFactoryCustomizerBeanPostProcessor.java:72)
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.postProcessBeforeInitialization(WebServerFactoryCustomizerBeanPostProcessor.java:58)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	... 22 common frames omitted
+
+2020-09-16 11:03:43.425  INFO 11380 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 11380 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-16 11:03:43.428 DEBUG 11380 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-16 11:03:43.428  INFO 11380 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-16 11:03:43.490  INFO 11380 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-16 11:03:43.490  INFO 11380 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-16 11:03:44.707  INFO 11380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-16 11:03:44.709  INFO 11380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-16 11:03:44.835  INFO 11380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77ms. Found 0 Redis repository interfaces.
+2020-09-16 11:03:45.615  WARN 11380 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+2020-09-16 11:03:45.622  INFO 11380 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-16 11:03:45.629 ERROR 11380 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.chenxin.blog.BlogApplication.main(BlogApplication.java:17)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:212)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:177)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:158)
+	... 14 common frames omitted
+Caused by: java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.boot.web.servlet.server.AbstractServletWebServerFactory.checkContextPath(AbstractServletWebServerFactory.java:133)
+	at org.springframework.boot.web.servlet.server.AbstractServletWebServerFactory.setContextPath(AbstractServletWebServerFactory.java:122)
+	at org.springframework.boot.context.properties.PropertyMapper$Source.to(PropertyMapper.java:316)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryCustomizer.customize(ServletWebServerFactoryCustomizer.java:54)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryCustomizer.customize(ServletWebServerFactoryCustomizer.java:35)
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.lambda$postProcessBeforeInitialization$0(WebServerFactoryCustomizerBeanPostProcessor.java:72)
+	at org.springframework.boot.util.LambdaSafe$Callbacks.lambda$null$0(LambdaSafe.java:287)
+	at org.springframework.boot.util.LambdaSafe$LambdaSafeCallback.invoke(LambdaSafe.java:159)
+	at org.springframework.boot.util.LambdaSafe$Callbacks.lambda$invoke$1(LambdaSafe.java:286)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1082)
+	at org.springframework.boot.util.LambdaSafe$Callbacks.invoke(LambdaSafe.java:286)
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.postProcessBeforeInitialization(WebServerFactoryCustomizerBeanPostProcessor.java:72)
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.postProcessBeforeInitialization(WebServerFactoryCustomizerBeanPostProcessor.java:58)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	... 22 common frames omitted
+
+2020-09-16 11:04:22.628  INFO 3908 --- [restartedMain] com.chenxin.blog.BlogApplication         : Starting BlogApplication on LAPTOP-UGEIKVSJ with PID 3908 (D:\Program Files\idea-workaplace\blog\target\classes started by asus in D:\Program Files\idea-workaplace\blog)
+2020-09-16 11:04:22.632 DEBUG 3908 --- [restartedMain] com.chenxin.blog.BlogApplication         : Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-16 11:04:22.632  INFO 3908 --- [restartedMain] com.chenxin.blog.BlogApplication         : The following profiles are active: dev
+2020-09-16 11:04:22.692  INFO 3908 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-16 11:04:22.693  INFO 3908 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-16 11:04:23.293  INFO 3908 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-16 11:04:23.295  INFO 3908 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-16 11:04:23.326  INFO 3908 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21ms. Found 0 Redis repository interfaces.
+2020-09-16 11:04:24.123  INFO 3908 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-16 11:04:24.130  INFO 3908 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-16 11:04:24.131  INFO 3908 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-16 11:04:24.228  INFO 3908 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2020-09-16 11:04:24.228  INFO 3908 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1535 ms
+2020-09-16 11:04:25.673  INFO 3908 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-16 11:04:25.764  INFO 3908 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-16 11:04:26.445  INFO 3908 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-16 11:04:26.495  INFO 3908 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2020-09-16 11:04:26.503  INFO 3908 --- [restartedMain] com.chenxin.blog.BlogApplication         : Started BlogApplication in 4.35 seconds (JVM running for 5.381)
+2020-09-16 11:04:39.748  INFO 3908 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-16 11:04:39.748  INFO 3908 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-16 11:04:39.757  INFO 3908 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2020-09-16 11:04:39.798  INFO 3908 --- [http-nio-8080-exec-2] com.chenxin.blog.aspect.LogAspect        : Rquest  ----- RequestLog{url='http://localhost:8080/blog/', ip='0:0:0:0:0:0:0:1', classMethod='com.chenxin.blog.controller.IndexController.indexoage', args=[null, {}]}
+2020-09-16 11:04:40.733  INFO 3908 --- [http-nio-8080-exec-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-16 11:04:40.789 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.b.m.B.findBlogByPaging_COUNT         : ==>  Preparing: SELECT count(0) FROM cx_blog b LEFT JOIN cx_type y ON b.type_id = y.id LEFT JOIN cx_user u ON b.user_id = u.id WHERE b.isrecommend = 0
+2020-09-16 11:04:40.903 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.b.m.B.findBlogByPaging_COUNT         : ==> Parameters: 
+2020-09-16 11:04:40.983 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.b.m.B.findBlogByPaging_COUNT         : <==      Total: 1
+2020-09-16 11:04:40.986 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.b.m.BlogMapper.findBlogByPaging      : ==>  Preparing: SELECT b.id, b.title, b.content, b.firstPicture, b.flag,b.description, b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend, b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,y.id y_id,y.name y_name,u.id u_id, u.petname, u.username, u.password, u.mail, u.type, u.headportrait u_headportrait, u.createtime u_createtime, u.updatetime u_updatetime FROM cx_blog b left join cx_type y on b.type_id=y.id left join cx_user u on b.user_id=u.id WHERE b.isrecommend=0 LIMIT ?
+2020-09-16 11:04:40.990 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.b.m.BlogMapper.findBlogByPaging      : ==> Parameters: 10(Integer)
+2020-09-16 11:04:41.001 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.b.m.BlogMapper.findBlogByPaging      : <==      Total: 5
+2020-09-16 11:04:41.018 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.b.mapper.TypeMapper.findByExample    : ==>  Preparing: SELECT y.id, y.NAME, COUNT(b.id) countBlog FROM cx_type y LEFT JOIN cx_blog b ON y.id = b.type_id WHERE b.isrecommend=0 GROUP BY id ORDER BY countBlog DESC limit 0,6
+2020-09-16 11:04:41.021 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.b.mapper.TypeMapper.findByExample    : ==> Parameters: 
+2020-09-16 11:04:41.031 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.b.mapper.TypeMapper.findByExample    : <==      Total: 2
+2020-09-16 11:04:41.037 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.blog.mapper.TagMapper.findByExample  : ==>  Preparing: SELECT t.id, t.NAME, COUNT( bt.blog_id ) countBlog FROM cx_tag t LEFT JOIN cx_blog_tag bt ON t.id = bt.tag_id LEFT JOIN cx_blog b ON b.id = bt.blog_id WHERE b.isrecommend = 0 GROUP BY id ORDER BY countBlog DESC limit 0,10
+2020-09-16 11:04:41.044 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.blog.mapper.TagMapper.findByExample  : ==> Parameters: 
+2020-09-16 11:04:41.048 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.blog.mapper.TagMapper.findByExample  : <==      Total: 5
+2020-09-16 11:04:41.051 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.b.mapper.BlogMapper.selectByExample  : ==>  Preparing: select id, title, content, firstPicture, flag, description,viewcount, isadmire, iscopyright, iscomment, isrecommend issue, createtime, updatetime, user_id, type_id from cx_blog order by updatetime DESC limit 0,10
+2020-09-16 11:04:41.052 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.b.mapper.BlogMapper.selectByExample  : ==> Parameters: 
+2020-09-16 11:04:41.056 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.b.mapper.BlogMapper.selectByExample  : <==      Total: 5
+2020-09-16 11:04:41.057  INFO 3908 --- [http-nio-8080-exec-2] com.chenxin.blog.aspect.LogAspect        : Return ------ index
+2020-09-16 11:04:41.057 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.blog.mapper.LogMapper.insertLog      : ==>  Preparing: insert into log values(?,?,?,?,?,?)
+2020-09-16 11:04:41.072 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.blog.mapper.LogMapper.insertLog      : ==> Parameters: null, http://localhost:8080/blog/(String), 0:0:0:0:0:0:0:1(String), com.chenxin.blog.controller.IndexController.indexoage(String), null,{page=Page{count=true, pageNum=1, pageSize=10, startRow=0, endRow=10, total=5, pages=1, reasonable=false, pageSizeZero=false}, toptype=[Type{id=2, name='JAVA', blogs=[]}, Type{id=1, name='CSS', blogs=[]}], toptag=[Tag{id=1, name='mysql', Tag{id=6, name='mybaits', Tag{id=4, name='spring', Tag{id=2, name='大数据', Tag{id=8, name='python'], topblog=[Blog{id=19, title='mysql数据库的查询拉', content='# Spring Boot开发小而美的个人博客
+
+>  作者：李仁密
+
+
+
+**个人博客功能：**
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+**技术组合：**
+
+*  后端：Spring Boot + JPA + thymeleaf模板
+*  数据库：MySQL
+*  前端UI：Semantic UI框架
+
+**工具与环境：**
+
+*  IDEA
+*  Maven 3
+*  JDK 8
+*  Axure RP 8
+
+**课程内容模块：**
+
+*  需求分析与功能规划
+*  页面设计与开发
+*  技术框架搭建
+*  后端管理功能实现
+*  前端管理功能实现
+
+**你能学得什么？**
+
+*  基于Spring Boot的完整全栈式的开发套路
+*  Semantic UI框架的使用
+*  一套博客系统的源代码与设计
+
+## 1、需求与功能
+
+### 1.1 用户故事
+
+用户故事是敏捷框架中的一种开发方法。可以帮助开发者转换视角，以用户的角度更好的把握需求，从而实现具有商业价值的功能。
+
+>  用户故事最好是用户团队编写
+
+**用户故事模板**：
+
+-  As a (role of user), I want (some feature) so that (some business value).
+-  作为一个(某个角色) 使用者，我可以做(某个功能) 事情，如此可以有(某个商业价值) 的好处
+
+**关键点**：角色、功能、商业价值
+
+**举例**：
+
+-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成
+
+
+
+[编辑器 Markdown](https://pandao.github.io/editor.md/)
+
+[内容排版 typo.css](https://github.com/sofish/typo.css)
+
+[动画 animate.css](https://daneden.github.io/animate.css/)
+
+[代码高亮 prism](https://github.com/PrismJS/prism)
+
+[目录生成 Tocbot](https://tscanlin.github.io/tocbot/)
+
+[滚动侦测 waypoints](http://imakewebthings.com/waypoints/)
+
+[平滑滚动 jquery.scrollTo](https://github.com/flesler/jquery.scrollTo)
+
+[二维码生成 qrcode.js](https://davidshimjs.github.io/qrcodejs/)
+
+## 3、框架搭建
+
+>  [IDEA下载 https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
+
+### 3.1 构建与配置
+
+**1、引入Spring Boot模块：**
+
+*  web
+*  Thymeleaf
+*  JPA
+*  MySQL
+*  Aspects
+*  DevTools
+
+**2、application.yml配置**
+
+*  使用 thymeleaf 3
+
+   pom.xml:
+
+```xml
+<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+<thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+```
+
+
+  	application.yml:
+
+```yaml
+spring:
+  thymeleaf:
+    mode: HTML
+```
+
+*  数据库连接配置
+
+```yaml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+```
+
+*  日志配置
+
+   application.yml:
+
+```yaml
+logging:
+  level:
+    root: info
+    com.imcoding: debug
+  file: log/imcoding.log
+```
+
+​	logback-spring.xml：
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!--包含Spring boot对logback日志的默认配置-->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <!--重写了Spring Boot框架 org/springframework/boot/logging/logback/file-appender.xml 配置-->
+    <appender name="TIME_FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <!--保留历史日志一个月的时间-->
+            <maxHistory>30</maxHistory>
+            <!--
+            Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志
+            -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="TIME_FILE" />
+    </root>
+
+</configuration>
+<!--
+    1、继承Spring boot logback设置（可以在appliaction.yml或者application.properties设置logging.*属性）
+    2、重写了默认配置，设置日志文件大小在100MB时，按日期切分日志，切分后目录：
+
+        my.2017-08-01.0   80MB
+        my.2017-08-01.1   10MB
+        my.2017-08-02.0   56MB
+        my.2017-08-03.0   53MB
+        ......
+-->
+```
+
+*  生产环境与开发环境配置
+   *  application-dev.yml
+   *  application-pro.yml
+
+### 3.2 异常处理
+
+**1、定义错误页面**
+
+*  404
+*  500
+*  error
+
+**2、全局处理异常**
+
+统一处理异常：
+
+```java
+@ControllerAdvice
+public class ControllerExceptionHandler {
+
+    private final Logger logger = LoggerFactory.getLogger(ControllerExceptionHandler.class);
+    /**
+     * 异常处理
+     * @param request
+     * @param e
+     * @return
+     */
+    @ExceptionHandler({Exception.class})
+    public ModelAndView handleException(HttpServletRequest request, Exception e) throws Exception {
+
+        logger.error("Request URL : {} , Exception : {}", request.getRequestURL(), e);
+
+        if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
+            throw e;
+        }
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("url", request.getRequestURL());
+        mav.addObject("exception", e);
+        mav.setViewName("error/error");
+
+        return mav;
+    }
+}
+```
+
+
+
+错误页面异常信息显示处理：
+
+```html
+<div>
+    <div th:utext="'&lt;!--'" th:remove="tag"></div>
+    <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
+    <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
+    <ul th:remove="tag">
+        <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+    </ul>
+    <div th:utext="'--&gt;'" th:remove="tag"></div>
+</div>
+```
+
+
+
+**3、资源找不到异常**
+
+```java
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class NotFoundExcepiton extends RuntimeException {
+
+    public NotFoundExcepiton() {
+    }
+
+    public NotFoundExcepiton(String message) {
+        super(message);
+    }
+
+    public NotFoundExcepiton(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+```
+
+
+
+### 3.3 日志处理
+
+**1、记录日志内容**
+
+*  请求 url
+*  访问者 ip
+*  调用方法 classMethod
+*  参数 args
+*  返回内容
+
+**2、记录日志类：**
+
+```java
+@Aspect
+@Component
+public class LogAspect {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    /**
+     * 定义切面
+     */
+    @Pointcut("execution(* com.imcoding.web.*.*(..))")
+    public void log() {
+    }
+
+    @Before("log()")
+    public void doBefore(JoinPoint joinPoint) {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        String classMethod = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
+        ReqeustLog reqeustLog = new ReqeustLog(
+                request.getRequestURL().toString(),
+                request.getRemoteAddr(),
+                classMethod,
+                joinPoint.getArgs()
+        );
+        logger.info("Rquest  ----- {}",reqeustLog);
+    }
+
+    @After("log()")
+    public void doAfter() {
+        //logger.info("---------- doAfter 2 ----------");
+    }
+
+    @AfterReturning(returning = "result",pointcut = "log()")
+    public void doAtfertRturning(Object result) {
+        logger.info("Return ------ {}",result );
+    }
+
+
+    private class ReqeustLog {
+        private String url;
+        private String ip;
+        private String classMethod;
+        private Object[] args;
+
+        public ReqeustLog(String url, String ip, String classMethod, Object[] args) {
+            this.url = url;
+            this.ip = ip;
+            this.classMethod = classMethod;
+            this.args = args;
+        }
+
+        @Override
+        public String toString() {
+            return "ReqeustLog{" +
+                    "url='" + url + '\'' +
+                    ", ip='" + ip + '\'' +
+                    ", classMethod='" + classMethod + '\'' +
+                    ", args=" + Arrays.toString(args) +
+                    '}';
+        }
+    }
+
+}
+```
+
+
+
+### 3.4 页面处理
+
+
+
+**1、静态页面导入project**
+
+**2、thymeleaf布局**
+
+*  定义fragment
+*  使用fragment布局
+
+**3、错误页面美化**
+
+4、设计与规范
+
+### 4.1 实体设计
+
+**实体类：**
+
+*  博客 Blog
+*  博客分类 Type
+*  博客标签 Tag
+*  博客评论 Comment
+*  用户 User
+
+
+
+**实体关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/87092095.jpg)
+
+**评论类自关联关系：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/41296045.jpg)
+
+**Blog类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/38390041.jpg)
+
+**Type类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/22984471.jpg)
+
+**Tag类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/70860077.jpg)
+
+**Comment类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/77104424.jpg)
+
+
+
+**User类：**
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/10367795.jpg)
+
+
+
+### 4.2 应用分层
+
+![](http://on91wk3hn.bkt.clouddn.com/17-10-14/64528736.jpg)
+
+### 4.3 命名约定
+
+**Service/DAO层命名约定：**
+
+*  获取单个对象的方法用get做前缀。
+*  获取多个对象的方法用list做前缀。
+*  获取统计值的方法用count做前缀。
+*  插入的方法用save(推荐)或insert做前缀。
+*  删除的方法用remove(推荐)或delete做前缀。
+*  修改的方法用update做前缀。
+
+
+
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 5、后台管理功能实现
+
+### 5.1 登录
+
+
+
+**1、构建登录页面和后台管理首页**
+
+**2、UserService和UserRepository**
+
+**3、LoginController实现登录**
+
+**4、MD5加密**
+
+**5、登录拦截器**
+
+### 5.2 分类管理
+
+
+
+**1、分类管理页面**
+
+**2、分类列表分页**
+
+````javascript
+{
+  "content":[
+    {"id":123,"title":"blog122","content":"this is blog content"},
+    {"id":122,"title":"blog121","content":"this is blog content"},
+    {"id":121,"title":"blog120","content":"this is blog content"},
+    {"id":120,"title":"blog119","content":"this is blog content"},
+    {"id":119,"title":"blog118","content":"this is blog content"},
+    {"id":118,"title":"blog117","content":"this is blog content"},
+    {"id":117,"title":"blog116","content":"this is blog content"},
+    {"id":116,"title":"blog115","content":"this is blog content"},
+    {"id":115,"title":"blog114","content":"this is blog content"},
+    {"id":114,"title":"blog113","content":"this is blog content"},
+    {"id":113,"title":"blog112","content":"this is blog content"},
+    {"id":112,"title":"blog111","content":"this is blog content"},
+    {"id":111,"title":"blog110","content":"this is blog content"},
+    {"id":110,"title":"blog109","content":"this is blog content"},
+    {"id":109,"title":"blog108","content":"this is blog content"}],
+  "last":false,
+  "totalPages":9,
+  "totalElements":123,
+  "size":15,
+  "number":0,
+  "first":true,
+  "sort":[{
+    "direction":"DESC",
+    "property":"id",
+    "ignoreCase":false,
+    "nullHandling":"NATIVE",
+    "ascending":false
+  }],
+  "numberOfElements":15
+}
+````
+
+
+
+**3、分类新增、修改、删除**
+
+### 5.3 标签管理
+
+### 5.4 博客管理
+
+
+
+**1、博客分页查询**
+
+**2、博客新增**
+
+**3、博客修改**
+
+**4、博客删除**
+
+## 6、前端展示功能实现
+
+### 6.1 首页展示
+
+
+
+**1、博客列表**
+
+**2、top分类**
+
+**3、top标签**
+
+**4、最新博客推荐**
+
+**5、博客详情**
+
+**1、Markdown 转换 HTML**
+
+*  [commonmark-java  https://github.com/atlassian/commonmark-java](https://github.com/atlassian/commonmark-java)
+*  pom.xml引用commonmark和扩展插件
+
+```xml
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-heading-anchor</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-gfm-tables</artifactId>
+   <version>0.10.0</version>
+</dependency>
+```
+
+
+
+**2、评论功能**
+
+
+
+*  评论信息提交与回复功能
+*  评论信息列表展示功能
+*  管理员回复评论功能
+
+
+### 6.2 分类页
+
+### 6.3 标签页
+
+### 6.4 归档页
+
+### 6.5 关于我', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='这个是关于springmvc描述的', viewcount=22, isadmire=0, iscopyright=0, isrecommend=null, iscomment=1, issue=0, createtime=Fri Sep 04 18:19:30 CST 2020, updatetime=Sun Sep 13 11:13:04 CST 2020, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=22, title='测试博客', content='sssss拉', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='ssss', viewcount=0, isadmire=0, iscopyright=0, isrecommend=null, iscomment=1, issue=0, createtime=Sat Sep 05 09:49:55 CST 2020, updatetime=Sat Sep 05 09:49:55 CST 2020, userId=1, typeId=1, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=21, title='java是什么', content='-  作为一个招聘网站**注册用户**，我想**查看最近3天发布的招聘信息**，以便于**了解最新的招聘信息**。
+-  作为公司，可以张贴新工作。
+
+
+
+个人博客系统的用户故事：
+
+角色：**普通访客**，**管理员（我）**
+
+*  访客，可以分页查看所有的博客
+*  访客，可以快速查看博客数最多的6个分类
+*  访客，可以查看所有的分类
+*  访客，可以查看某个分类下的博客列表
+*  访客，可以快速查看标记博客最多的10个标签
+*  访客，可以查看所有的标签
+*  访客，可以查看某个标签下的博客列表
+*  访客，可以根据年度时间线查看博客列表
+*  访客，可以快速查看最新的推荐博客
+*  访客，可以用关键字全局搜索博客
+*  访客，可以查看单个博客内容
+*  访客，可以对博客内容进行评论
+*  访客，可以赞赏博客内容
+*  访客，可以微信扫码阅读博客内容
+*  访客，可以在首页扫描公众号二维码关注我
+*  我，可以用户名和密码登录后台管理
+*  我，可以管理博客
+   *  我，可以发布新博客
+   *  我，可以对博客进行分类
+   *  我，可以对博客打标签
+   *  我，可以修改博客
+   *  我，可以删除博客
+   *  我，可以根据标题，分类，标签查询博客
+*  我，可以管理博客分类
+   *  我，可以新增一个分类
+   *  我，可以修改一个分类
+   *  我，可以删除一个分类
+   *  我，可以根据分类名称查询分类
+*  我，可以管理标签
+   *  我，可以新增一个标签
+   *  我，可以修改一个标签
+   *  我，可以删除一个标签
+   *  我，可以根据名称查询标签
+
+### 1.2 功能规划
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
+## 2、页面设计与开发
+
+### 2.1 设计
+
+**页面规划：**
+
+前端展示：首页、详情页、分类、标签、归档、关于我
+
+后台管理：模板页
+
+### 2.2 页面开发
+
+
+
+[Semantic UI官网](https://semantic-ui.com/)
+
+[Semantic UI中文官网](http://www.semantic-ui.cn/)
+
+[WebStorm下载与破解](https://imcoding.me/blogs/5)
+
+[背景图片资源](https://www.toptal.com/designers/subtlepatterns/)
+
+### 2.3 插件集成拉', firstpicture='https://unsplash.it/800/450?image=1005', flag='转载', description='这个是一篇关于java的博客', viewcount=16, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 05 09:46:41 CST 2019, updatetime=Thu Sep 05 09:46:41 CST 2019, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=20, title='mysql数据库的查询拉', content='**3、分类新增、修改、删除**
+
+### 5.3 标签管理
+
+### 5.4 博客管理
+
+
+
+**1、博客分页查询**
+
+**2、博客新增**
+
+**3、博客修改**
+
+**4、博客删除**
+
+## 6、前端展示功能实现
+
+### 6.1 首页展示
+
+
+
+**1、博客列表**
+
+**2、top分类**
+
+**3、top标签**
+
+**4、最新博客推荐**
+
+**5、博客详情**
+
+**1、Markdown 转换 HTML**
+
+*  [commonmark-java  https://github.com/atlassian/commonmark-java](https://github.com/atlassian/commonmark-java)
+*  pom.xml引用commonmark和扩展插件
+
+```xml
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-heading-anchor</artifactId>
+   <version>0.10.0</version>
+</dependency>
+<dependency>
+   <groupId>com.atlassian.commonmark</groupId>
+   <artifactId>commonmark-ext-gfm-tables</artifactId>
+   <version>0.10.0</version>
+</dependency>
+```
+
+
+
+**2、评论功能**
+
+
+
+*  评论信息提交与回复功能
+*  评论信息列表展示功能
+*  管理员回复评论功能
+
+
+### 6.2 分类页
+
+### 6.3 标签页
+
+### 6.4 归档页
+
+### 6.5 关于我', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='这是一篇好博客', viewcount=1, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 05 09:27:27 CST 2019, updatetime=Thu Sep 05 09:44:20 CST 2019, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}, Blog{id=24, title='JAVA是什么', content='##java是什么&sup3; &hearts;
+虹口区我说的浓氨水', firstpicture='https://unsplash.it/800/450?image=1005', flag='原创', description='我is单词vhuiowdecvb', viewcount=0, isadmire=0, iscopyright=0, isrecommend=null, iscomment=0, issue=0, createtime=Thu Sep 13 11:08:48 CST 2018, updatetime=Thu Sep 13 11:08:48 CST 2018, userId=1, typeId=2, user=null, type=null, tagsId='null', comments=[], tags=[]}]}(String), index(String)
+2020-09-16 11:04:41.258 DEBUG 3908 --- [http-nio-8080-exec-2] c.c.blog.mapper.LogMapper.insertLog      : <==    Updates: 1

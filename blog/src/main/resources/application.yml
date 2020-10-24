@@ -1,0 +1,29 @@
+#配置about页面
+blog:
+  about:
+    petname: 程鑫
+    intro_1: 一个独立开发者，折腾在 0 和 1 世界的大叔；一个终身学习者，誓将学习无限循环. 希望结识可以共同成长的小伙伴.
+    intro_2: 热爱编程，喜欢折腾，正在探索高效学习编程技术的方法...
+    images: https://unsplash.it/800/600?image=1005
+    qq: 2543139363
+    loves:
+      - 篮球
+      - 编程
+      - 跑步
+      - 王者
+    skill:
+      - java
+      - javaScript
+      - Node
+      - mysql
+      - spring
+      - Redis
+      - Linux
+server:
+  servlet:
+    context-path: /blog
+spring:
+  profiles:
+    active: pro
+
+

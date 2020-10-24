@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    username: root
+    password: 201125
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&serverTimezone=UTC&characterEncoding=UTF8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,slf4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+#mybatis全局配置文件的位置，和mapper配置文件的位置
+mybatis:
+  config-location: classpath:mybaits/mybaits_config.xml
+  mapper-locations: classpath:mybaits/mapper/*.xml
+logging:
+  level:
+    root: info
+    com.chenxin.blog: debug
+  file:
+    name: log/dev_blog.log
+server:
+  port: 8080

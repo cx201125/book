@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common/fragments::#head(title='归档')}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>归档</title>
+  <link rel="stylesheet" href="../static/css/semantic.css">
+  <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+
+<!--导航(bar)-->
+<nav th:replace="~{common/fragments::#bar(active='archives')}">
+</nav>
+
+  <!--中间内容-->
+  <div  class="m-container-small m-padded-tb-big">
+    <div class="ui container">
+      <!--header-->
+      <div class="ui top attached padded segment">
+        <div class="ui middle aligned two column grid">
+          <div class="column">
+            <h3 class="ui teal header">归档</h3>
+          </div>
+          <div class="right aligned column">
+            共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${blogCount}"> 114 </h2> 篇博客
+          </div>
+        </div>
+      </div>
+     <th:block th:each="item:${blogs}">
+        <h3 class="ui center aligned header" th:text="${item.key}">2017</h3>
+        <div class="ui fluid vertical menu">
+          <a href="#" target="_blank" class="item" th:each="blog:${item.value}">
+          <span>
+            <i class="mini teal circle icon"></i>[[${blog.title}]]
+            <div class="ui teal basic left pointing label m-padded-mini " th:text="${#dates.format(blog.updatetime,'MM月dd')}">9月03</div>
+          </span>
+            <div class="ui orange basic left pointing label m-padded-mini " th:text="${blog.flag}">原创</div>
+          </a>
+
+        </div>
+
+     </th:block>
+
+
+
+    </div>
+  </div>
+
+  <br>
+  <br>
+<!--底部footer-->
+<footer th:replace="~{common/fragments::#footer}"></footer>
+
+  <script src="../static/js/jquery-3.2.0.js"></script>
+  <script src="../static/js/semantic.js"></script>
+
+  <script>
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+  </script>
+</body>
+</html>

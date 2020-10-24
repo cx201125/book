@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common/fragments::#head(title='管理后台')}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>博客管理</title>
+  <link rel="stylesheet" href="../../static/css/semantic.css">
+  <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+<!--导航(bar)-->
+<nav th:replace="~{common/admain_fragments::#bar-1(active='首页')}">
+</nav>
+<div class="ui attached pointing menu" id="bar_2">
+  <div class="ui container">
+    <div class="right menu">
+      <a href="#" class="item">发布</a>
+      <a href="#" class="teal active item">列表</a>
+    </div>
+  </div>
+</div>
+
+  <!--中间内容-->
+  <div  class="m-container-small m-padded-tb-big">
+    <div class="ui container">
+   <div class="ui success large message">
+      <h2> Hi,</h2>
+      <p>[[${session.user.petname}]]，欢迎登录</p>
+      <img src="https://unsplash.it/100/100?image=1005" th:src="@{${session.user.headportrait}}" class="ui rounded bordered fluid image">
+   </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+<!--底部footer-->
+<footer th:replace="~{common/fragments::#footer}"></footer>
+  <script>
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+      on : 'hover'
+    });
+
+  </script>
+</body>
+</html>

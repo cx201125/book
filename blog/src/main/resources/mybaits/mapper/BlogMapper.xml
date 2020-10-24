@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chenxin.blog.mapper.BlogMapper" >
+  <resultMap id="BaseResultMap" type="com.chenxin.blog.entity.Blog" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="firstPicture" property="firstpicture" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="viewcount" property="viewcount" jdbcType="BIGINT" />
+    <result column="isadmire" property="isadmire" jdbcType="TINYINT" />
+    <result column="iscopyright" property="iscopyright" jdbcType="TINYINT" />
+    <result column="iscomment" property="iscomment" jdbcType="TINYINT" />
+    <result column="isrecommend" property="isrecommend" jdbcType="TINYINT" />
+    <result column="issue" property="issue" jdbcType="TINYINT" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="type_id" property="typeId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, title, content, firstPicture, flag, description,viewcount, isadmire, iscopyright, iscomment, isrecommend
+    issue, createtime, updatetime, user_id, type_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.chenxin.blog.entity.BlogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cx_blog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="begin != null  and end != null" >
+      limit ${begin},${end}
+    </if>
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from cx_blog
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from cx_blog
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.chenxin.blog.entity.BlogExample" >
+    delete from cx_blog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.chenxin.blog.entity.Blog" useGeneratedKeys="true" keyProperty="id">
+    insert into cx_blog (id, title, content, 
+      firstPicture, flag, description,viewcount,
+      isadmire, iscopyright, iscomment,
+      isrecommend, issue, createtime, updatetime,
+      user_id, type_id)
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{firstpicture,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR},#{viewcount,jdbcType=BIGINT},
+      #{isadmire,jdbcType=TINYINT}, #{iscopyright,jdbcType=TINYINT}, #{iscomment,jdbcType=TINYINT},
+      #{isrecommend,jdbcType=TINYINT},
+      #{issue,jdbcType=TINYINT}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{userId,jdbcType=BIGINT}, #{typeId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chenxin.blog.entity.Blog" >
+    insert into cx_blog
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="firstpicture != null" >
+        firstPicture,
+      </if>
+      <if test="flag != null" >
+        flag,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="viewcount != null" >
+        viewcount,
+      </if>
+      <if test="isadmire != null" >
+        isadmire,
+      </if>
+      <if test="iscopyright != null" >
+        iscopyright,
+      </if>
+      <if test="iscomment != null" >
+        iscomment,
+      </if>
+      <if test="issue != null" >
+        issue,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="updatetime != null" >
+        updatetime,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="typeId != null" >
+        type_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="firstpicture != null" >
+        #{firstpicture,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="viewcount != null" >
+        #{viewcount,jdbcType=VARCHAR},
+      </if>
+      <if test="isadmire != null" >
+        #{isadmire,jdbcType=TINYINT},
+      </if>
+      <if test="iscopyright != null" >
+        #{iscopyright,jdbcType=TINYINT},
+      </if>
+      <if test="iscomment != null" >
+        #{iscomment,jdbcType=TINYINT},
+      </if>
+      <if test="issue != null" >
+        #{issue,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.chenxin.blog.entity.BlogExample" resultType="java.lang.Integer" >
+    select count(*) from cx_blog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update cx_blog
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstpicture != null" >
+        firstPicture = #{record.firstpicture,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.viewcount != null" >
+        viewcount = #{record.viewcount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isadmire != null" >
+        isadmire = #{record.isadmire,jdbcType=TINYINT},
+      </if>
+      <if test="record.iscopyright != null" >
+        iscopyright = #{record.iscopyright,jdbcType=TINYINT},
+      </if>
+      <if test="record.iscomment != null" >
+        iscomment = #{record.iscomment,jdbcType=TINYINT},
+      </if>
+      <if test="record.issue != null" >
+        issue = #{record.issue,jdbcType=TINYINT},
+      </if>
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatetime != null" >
+        updatetime = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.typeId != null" >
+        type_id = #{record.typeId,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update cx_blog
+    set id = #{record.id,jdbcType=BIGINT},
+      title = #{record.title,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      firstPicture = #{record.firstpicture,jdbcType=VARCHAR},
+      flag = #{record.flag,jdbcType=VARCHAR},
+      viewcount = #{record.viewcount,jdbcType=VARCHAR},
+      isadmire = #{record.isadmire,jdbcType=TINYINT},
+      iscopyright = #{record.iscopyright,jdbcType=TINYINT},
+      iscomment = #{record.iscomment,jdbcType=TINYINT},
+      issue = #{record.issue,jdbcType=TINYINT},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      updatetime = #{record.updatetime,jdbcType=TIMESTAMP},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      type_id = #{record.typeId,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chenxin.blog.entity.Blog" >
+    update cx_blog
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="firstpicture != null" >
+        firstPicture = #{firstpicture,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        flag = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="viewcount != null" >
+        viewcount = #{viewcount,jdbcType=VARCHAR},
+      </if>
+      <if test="isadmire != null" >
+        isadmire = #{isadmire,jdbcType=TINYINT},
+      </if>
+      <if test="iscopyright != null" >
+        iscopyright = #{iscopyright,jdbcType=TINYINT},
+      </if>
+      <if test="iscomment != null" >
+        iscomment = #{iscomment,jdbcType=TINYINT},
+      </if>
+      <if test="isrecommend != null" >
+        isrecommend = #{isrecommend,jdbcType=TINYINT},
+      </if>
+      <if test="issue != null" >
+        issue = #{issue,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chenxin.blog.entity.Blog" >
+    update cx_blog
+    set title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      firstPicture = #{firstpicture,jdbcType=VARCHAR},
+      flag = #{flag,jdbcType=VARCHAR},
+      viewcount = #{viewcount,jdbcType=VARCHAR},
+      isadmire = #{isadmire,jdbcType=TINYINT},
+      iscopyright = #{iscopyright,jdbcType=TINYINT},
+      iscomment = #{iscomment,jdbcType=TINYINT},
+      isrecommend = #{isrecommend,jdbcType=TINYINT},
+      issue = #{issue,jdbcType=TINYINT},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      user_id = #{userId,jdbcType=BIGINT},
+      type_id = #{typeId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+<!-- 自己的sql语句-->
+  <resultMap id="MyBaseResultMap" type="com.chenxin.blog.entity.Blog" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="firstPicture" property="firstpicture" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="viewcount" property="viewcount" jdbcType="BIGINT" />
+    <result column="isadmire" property="isadmire" jdbcType="TINYINT" />
+    <result column="iscopyright" property="iscopyright" jdbcType="TINYINT" />
+    <result column="iscomment" property="iscomment" jdbcType="TINYINT" />
+    <result column="isrecommend" property="isrecommend" jdbcType="TINYINT" />
+    <result column="issue" property="issue" jdbcType="TINYINT" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+<!--  类别-->
+    <association property="type" column="type_id" javaType="com.chenxin.blog.entity.Type">
+      <id column="y_id" property="id" jdbcType="BIGINT" />
+      <result column="y_name" property="name" jdbcType="VARCHAR" />
+    </association>
+<!--用户-->
+    <association property="user" column="user_id" javaType="com.chenxin.blog.entity.User">
+      <id column="u_id" property="id" jdbcType="BIGINT" />
+      <result column="petname" property="petname" jdbcType="VARCHAR" />
+      <result column="username" property="username" jdbcType="VARCHAR" />
+      <result column="password" property="password" jdbcType="VARCHAR" />
+      <result column="mail" property="mail" jdbcType="VARCHAR" />
+      <result column="type" property="type" jdbcType="TINYINT" />
+      <result column="u_headportrait" property="headportrait" jdbcType="VARCHAR" />
+      <result column="u_createtime" property="createtime" jdbcType="TIMESTAMP" />
+      <result column="u_updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+    </association>
+    <collection property="tags" ofType="com.chenxin.blog.entity.Tag" >
+      <id column="t_id" property="id" jdbcType="BIGINT" />
+      <result column="t_name" property="name" jdbcType="VARCHAR" />
+    </collection>
+<!--    评论-->
+    <collection property="comments" ofType="com.chenxin.blog.entity.Comment">
+      <id column="id" property="id" jdbcType="BIGINT" />
+      <result column="petname" property="petname" jdbcType="VARCHAR" />
+      <result column="mail" property="mail" jdbcType="VARCHAR" />
+      <result column="headportrait" property="headportrait" jdbcType="VARCHAR" />
+      <result column="matter" property="matter" jdbcType="VARCHAR" />
+      <result column="c_createtime" property="createtime" jdbcType="TIMESTAMP" />
+
+    </collection>
+  </resultMap>
+
+  <select id="getBlogByPaging" resultMap="MyBaseResultMap" parameterType="com.chenxin.blog.entity.Blog">
+    SELECT
+    b.id, b.title, b.content, b.firstPicture, b.flag,b.description, b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend,
+    b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,y.id y_id,y.name y_name
+    FROM cx_blog b,cx_type y
+  <where>
+    b.type_id=y.id
+    <if test="title != null and title !=''">
+      and title LIKE '%${title}%'
+    </if>
+    <if test="issue != null and issue !=''">
+      and b.issue = #{issue}
+    </if>
+    <if test="isrecommend != null and isrecommend !=''">
+      and b.isrecommend = #{isrecommend}
+    </if>
+    <if test="typeId != null and typeId !=''">
+      and b.type_id = #{typeId}
+    </if>
+  </where>
+</select>
+
+  <select id="findBlogByPaging" resultMap="MyBaseResultMap">
+SELECT
+    b.id, b.title, b.content, b.firstPicture, b.flag,b.description, b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend,
+    b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,y.id y_id,y.name y_name,u.id u_id,
+    u.petname, u.username, u.password, u.mail, u.type, u.headportrait u_headportrait, u.createtime u_createtime, u.updatetime u_updatetime
+    FROM cx_blog b left join cx_type y on b.type_id=y.id
+    left join cx_user u on b.user_id=u.id
+    <where>
+      b.isrecommend=0
+    </where>
+  </select>
+
+  <select id="getBlogById" resultMap="MyBaseResultMap" parameterType="java.lang.Long">
+   SELECT
+   b.id, b.title, b.content, b.firstPicture, b.flag, b.description,b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend,
+  b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,
+  t.id t_id,t.name t_name,y.id y_id,y.name y_name
+  from
+   cx_blog b LEFT JOIN cx_blog_tag bt ON b.id = bt.blog_id
+	LEFT JOIN cx_type y ON b.type_id=y.id
+	LEFT JOIN cx_tag t ON bt.tag_id=t.id
+   WHERE
+    b.id=#{id}
+  </select>
+
+  <select id="getSearchPage" resultMap="MyBaseResultMap">
+SELECT
+    b.id, b.title, b.content, b.firstPicture, b.flag,b.description, b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend,
+    b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,y.id y_id,y.name y_name,u.id u_id,
+    u.petname, u.username, u.password, u.mail, u.type, u.headportrait u_headportrait, u.createtime u_createtime, u.updatetime u_updatetime
+    FROM cx_blog b left join cx_type y on b.type_id=y.id
+    left join cx_user u on b.user_id=u.id
+    <where>
+      b.isrecommend=0 and
+      b.title like '%${query}%' or b.content like '%${query}%' or b.description like '%${query}%'
+    </where>
+  </select>
+
+  <select id="findBlogById" resultMap="MyBaseResultMap" parameterType="java.lang.Long">
+   SELECT
+   b.id, b.title, b.content, b.firstPicture, b.flag, b.description,b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend,
+  b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,
+  t.id t_id,t.name t_name,y.id y_id,y.name y_name,u.id u_id,u.petname, u.username,
+  u.password, u.mail, u.type, u.headportrait u_headportrait, u.createtime u_createtime, u.updatetime u_updatetime
+  from
+   cx_blog b LEFT JOIN cx_blog_tag bt ON b.id = bt.blog_id
+	LEFT JOIN cx_type y ON b.type_id=y.id
+	LEFT JOIN cx_tag t ON bt.tag_id=t.id
+	LEFT JOIN cx_user u on b.user_id = u.id
+   WHERE
+    b.id=#{id}
+  </select>
+
+  <select id="findBlogByTypeIdAndPage" resultMap="MyBaseResultMap" parameterType="java.lang.Long">
+    SELECT
+    b.id, b.title, b.content, b.firstPicture, b.flag,b.description, b.viewcount, b.isadmire, b.iscopyright, b.iscomment,b.isrecommend,
+    b.issue, b.createtime, b.updatetime, b.user_id, b.type_id,y.id y_id,y.name y_name,u.id u_id,
+    u.petname, u.username, u.password, u.mail, u.type, u.headportrait u_headportrait, u.createtime u_createtime, u.updatetime u_updatetime
+    FROM cx_blog b left join cx_type y on b.type_id=y.id
+    left join cx_user u on b.user_id=u.id
+    <where>
+      b.isrecommend=0
+      and
+      b.type_id=#{id}
+    </where>
+    ORDER BY b.issue asc
+  </select>
+
+  <select id="findBlogByTagIdAndPage" resultMap="MyBaseResultMap" parameterType="java.lang.Long">
+    SELECT
+	b.id,b.title,b.content,b.firstPicture,b.flag,b.description,b.viewcount,b.isadmire,b.iscopyright,b.iscomment,b.isrecommend,b.issue,
+	b.createtime,b.updatetime,b.user_id,b.type_id,y.id y_id,y.NAME y_name,u.id u_id,u.petname,u.username,u.PASSWORD,u.mail,
+	u.type,u.headportrait u_headportrait,u.createtime u_createtime,u.updatetime u_updatetime
+FROM
+	cx_blog b
+	LEFT JOIN cx_blog_tag bt ON b.id = bt.blog_id
+	LEFT JOIN cx_type y ON b.type_id = y.id
+	LEFT JOIN cx_tag t ON bt.tag_id = t.id
+	LEFT JOIN cx_user u ON b.user_id = u.id
+WHERE
+	t.id=#{id}
+	and
+	b.isrecommend=0
+	ORDER BY b.issue asc
+  </select>
+
+  <select id="findYear" resultType="java.lang.String">
+    SELECT
+	DATE_FORMAT( b.updatetime, '%Y' ) YEAR
+FROM
+	cx_blog b
+GROUP BY
+YEAR
+ORDER BY
+YEAR DESC
+  </select>
+
+  <select id="findBlogByYear" resultMap="MyBaseResultMap" parameterType="java.lang.String">
+SELECT
+	b.id,b.title,b.content,b.firstPicture,b.flag,b.description,b.viewcount,b.isadmire,b.iscopyright,b.iscomment,b.isrecommend,b.issue,
+	b.createtime,b.updatetime,b.user_id,b.type_id
+FROM
+	cx_blog b
+WHERE
+DATE_FORMAT(b.updatetime,'%Y')=#{year}
+  </select>
+</mapper>
